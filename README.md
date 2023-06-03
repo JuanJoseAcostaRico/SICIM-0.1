@@ -67,10 +67,18 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## Instalación
 
+```bash
 git clone https://github.com/JuanJoseAcostaRico/SICIM-0.1.git
+```
 
+```bash
 composer install
+```
 
+```bash
 cp .env.example .env
+```
 
+```bash
 php artisan key:generate
+```
