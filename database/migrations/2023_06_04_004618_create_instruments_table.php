@@ -13,14 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('instruments', function (Blueprint $table) {
             $table->id();
-            $table->string('user_name');
-            $table->string('user_email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('user_password');
-            $table->string('user_phone')->nullable();
-            $table->string('user_address');
 
             $table->unsignedBigInteger('departament_fke')->nullable();
             $table->foreign('departament_fke')
@@ -28,7 +22,16 @@ return new class extends Migration
             ->on('departaments')
             ->onDelete('cascade');
 
-            $table->rememberToken();
+            $table->unsignedBigInteger('condition_fke')->nullable();
+            $table->foreign('condition_fke')
+            ->references('id')
+            ->on('conditions')
+            ->onDelete('cascade');
+
+            $table->string('instrument_name');
+            $table->string('instrument_size');
+            $table->string('instrument_desc');
+            $table->string('instrument_stock');
             $table->timestamps();
         });
     }
@@ -40,6 +43,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('instruments');
     }
 };
