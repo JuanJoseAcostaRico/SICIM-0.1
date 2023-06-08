@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('instruments', function (Blueprint $table) {
             $table->id();
+            $table->string('instrument_name');
+            $table->string('instrument_size');
+            $table->string('instrument_desc');
+            $table->string('instrument_stock');
 
             $table->unsignedBigInteger('departament_fke')->nullable();
             $table->foreign('departament_fke')
@@ -27,11 +31,7 @@ return new class extends Migration
             ->references('id')
             ->on('conditions')
             ->onDelete('cascade');
-
-            $table->string('instrument_name');
-            $table->string('instrument_size');
-            $table->string('instrument_desc');
-            $table->string('instrument_stock');
+            
             $table->timestamps();
         });
     }

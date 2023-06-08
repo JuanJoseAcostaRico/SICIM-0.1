@@ -4,9 +4,10 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Departaments;
+use App\Models\Profile;
 
-class DepartamentSeeder extends Seeder
+
+class ProfileSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,11 +16,13 @@ class DepartamentSeeder extends Seeder
      */
     public function run()
     {
-        Departaments::create([
-            'departament_name' => 'General',
-            'state_fke' => '1',
+        Profile::create([
+            'photo' => 'IMAGEN 1 ESTANDAR',
             'user_id' => '1',
-
+        ]);
+        Profile::create([
+            'photo' => 'IMAGEN 2 ESTANDAR',
+            'user_id' => '2',
         ]);
     }
 }

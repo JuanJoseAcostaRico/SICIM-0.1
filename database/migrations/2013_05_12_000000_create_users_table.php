@@ -21,12 +21,7 @@ return new class extends Migration
             $table->string('user_password');
             $table->string('user_phone')->nullable();
             $table->string('user_address');
-
-            $table->unsignedBigInteger('departament_fke')->nullable();
-            $table->foreign('departament_fke')
-            ->references('id')
-            ->on('departaments')
-            ->onDelete('cascade');
+            
 
             $table->rememberToken();
             $table->timestamps();

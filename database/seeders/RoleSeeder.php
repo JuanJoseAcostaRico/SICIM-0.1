@@ -4,9 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Departaments;
+use Spatie\Permission\Models\Role;
 
-class DepartamentSeeder extends Seeder
+class RoleSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,11 +15,7 @@ class DepartamentSeeder extends Seeder
      */
     public function run()
     {
-        Departaments::create([
-            'departament_name' => 'General',
-            'state_fke' => '1',
-            'user_id' => '1',
-
-        ]);
+        $admin = Role::create(['name' => 'Administrador']);
+        $employee = Role::create(['name' => 'Empleado']);
     }
 }
