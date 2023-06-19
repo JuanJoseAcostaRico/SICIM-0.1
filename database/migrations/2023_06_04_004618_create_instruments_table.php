@@ -23,7 +23,7 @@ return new class extends Migration
             $table->unsignedBigInteger('departament_fke')->nullable();
             $table->foreign('departament_fke')
             ->references('id')
-            ->on('departaments')
+            ->on('Departaments')
             ->onDelete('cascade');
 
             $table->unsignedBigInteger('condition_fke')->nullable();
@@ -31,7 +31,7 @@ return new class extends Migration
             ->references('id')
             ->on('conditions')
             ->onDelete('cascade');
-            
+
             $table->timestamps();
         });
     }

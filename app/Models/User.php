@@ -21,8 +21,8 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'user_name',
-        'user_email',
-        'user_password',
+        'email',
+        'password',
         'user_phone',
         'user_address',
 
@@ -46,4 +46,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Relación directa de uno a uno entre Users-Profile
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
+
+    //Relación uno a muchos inversa entre User-Departaments
+    public function Departaments()
+    {
+        return $this->belongsTo(Departaments::class);
+    }
 }

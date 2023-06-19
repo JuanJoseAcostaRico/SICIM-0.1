@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Departaments;
 
-class DepartamentSeeder extends Seeder
+class Departamentseeder extends Seeder
 {
     /**
      * Run the database seeds.
