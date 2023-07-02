@@ -338,15 +338,32 @@ return [
             'icon' => '	fas fa-archive',
             'submenu' => [
                 [
-                    'text' => 'Registrar objeto',
+                    'text' => 'Registrar insumo',
                     'icon' => 'fas fa-edit',
                     'url'  => '/admin/inventario/registroinv',
                 ],
                 [
-                    'text' => 'Lista de objetos',
+                    'text' => 'Lista de insumos',
                     'icon' => 'far fa-clone',
                     'url'  => '/admin/inventario/listainv',
                 ],
+                [
+                    'text' => 'Registrar instrumento',
+                    'icon' => 'fas fa-edit',
+                    'url'  => '/admin/inventario/registroinv',
+                ],
+                [
+                    'text' => 'Lista de instrumentos',
+                    'icon' => 'far fa-clone',
+                    'url'  => '/admin/inventario/listainv',
+                ],
+            ],
+        ],
+        [
+            'text' => 'Categorías',
+            'url'  => '#',
+            'icon' => '	fas fa-archive',
+            'submenu' => [
                 [
                     'text' => 'Registrar categorías',
                     'icon' => 'fas fa-edit',
@@ -354,6 +371,23 @@ return [
                 ],
                 [
                     'text' => 'Lista de categorías',
+                    'icon' => '	fas fa-layer-group',
+                    'url'  => '/admin/inventario/listacat',
+                ],
+            ],
+        ],
+        [
+            'text' => 'Departamentos',
+            'url'  => '#',
+            'icon' => '	fas fa-archive',
+            'submenu' => [
+                [
+                    'text' => 'Registrar departamento',
+                    'icon' => 'fas fa-edit',
+                    'url'  => '/admin/inventario/registrocat',
+                ],
+                [
+                    'text' => 'Lista de departamento',
                     'icon' => '	fas fa-layer-group',
                     'url'  => '/admin/inventario/listacat',
                 ],

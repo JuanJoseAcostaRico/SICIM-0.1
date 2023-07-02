@@ -25,7 +25,7 @@ use App\Models\Supplies;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('custom_welcome');
 });
 
 
