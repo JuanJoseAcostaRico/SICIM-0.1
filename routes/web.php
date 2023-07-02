@@ -34,41 +34,45 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::controller(UserController::class)->group(function () {
-    Route::get('/users', 'index');
-    Route::post('/user', 'store');
-    Route::get('/user/{id}', 'show');
-    Route::put('/user/{id}', 'update');
-    Route::delete('/user/{id}', 'destroy');
+    Route::get('/users', 'index')->middleware('auth');
+    Route::post('/user', 'store')->middleware('auth');
+    Route::get('/user/{id}', 'show')->middleware('auth');
+    Route::put('/user/{id}', 'update')->middleware('auth');
+    Route::delete('/user/{id}', 'destroy')->middleware('auth');
 });
 
 Route::controller(SuppliesController::class)->group(function () {
-    Route::get('/supplies', 'index');
-    Route::post('/supply', 'store');
-    Route::get('/supply/{id}', 'show');
-    Route::put('/supply/{id}', 'update');
-    Route::delete('/supply/{id}', 'destroy');
+    Route::get('/supplies', 'index')->middleware('auth');
+    Route::post('/supply', 'store')->middleware('auth');
+    Route::get('/supply/{id}', 'show')->middleware('auth');
+    Route::put('/supply/{id}', 'update')->middleware('auth');
+    Route::delete('/supply/{id}', 'destroy')->middleware('auth');
 });
 
 Route::controller(DepartamentController::class)->group(function () {
-    Route::get('/departaments', 'index');
-    Route::post('/departament', 'store');
-    Route::get('/departament/{id}', 'show');
-    Route::put('/departament/{id}', 'update');
-    Route::delete('/departament/{id}', 'destroy');
+    Route::get('/departaments', 'index')->middleware('auth');
+    Route::post('/departament', 'store')->middleware('auth');
+    Route::get('/departament/{id}', 'show')->middleware('auth');
+    Route::put('/departament/{id}', 'update')->middleware('auth');
+    Route::delete('/departament/{id}', 'destroy')->middleware('auth');
 });
 
 Route::controller(InstrumentController::class)->group(function () {
-    Route::get('/intruments', 'index');
-    Route::post('/instrument', 'store');
-    Route::get('/instrument/{id}', 'show');
-    Route::put('/instrument/{id}', 'update');
-    Route::delete('/instrument/{id}', 'destroy');
+    Route::get('/intruments', 'index')->middleware('auth');
+    Route::post('/instrument', 'store')->middleware('auth');
+    Route::get('/instrument/{id}', 'show')->middleware('auth');
+    Route::put('/instrument/{id}', 'update')->middleware('auth');
+    Route::delete('/instrument/{id}', 'destroy')->middleware('auth');
 });
 
 Route::controller(ConditionController::class)->group(function () {
-    Route::get('/conditions', 'index');
-    Route::post('/condition', 'store');
-    Route::get('/condition/{id}', 'show');
-    Route::put('/condition/{id}', 'update');
-    Route::delete('/condition/{id}', 'destroy');
+    Route::get('/conditions', 'index')->middleware('auth');
+    Route::post('/condition', 'store')->middleware('auth');
+    Route::get('/condition/{id}', 'show')->middleware('auth');
+    Route::put('/condition/{id}', 'update')->middleware('auth');
+    Route::delete('/condition/{id}', 'destroy')->middleware('auth');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
