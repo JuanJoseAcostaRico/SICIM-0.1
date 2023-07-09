@@ -179,27 +179,18 @@
                 <!-- Section Tittle -->
                 <div class="section-tittle section-tittle2 mb-35">
                   <span>Acerca del CDI Coloncito</span>
-                  <h2>Bienvenido al SICIM</h2>
+                  <h2>¿Qué es SICIM?</h2>
                 </div>
                 <p align="justify">
-                  There arge many variations ohf pacgssages of sorem gpsum
-                  ilable, but the majority have suffered alteration in some
-                  form, by ected humour, or randomised words whi.
+                  Bienvenido al Sistema de Control e Inventario Médico (SICIM) del CDI Coloncito. Nuestro propósito es garantizar que los servicios de salud médica se puedan realizar de forma más rápida y eficiente, teniendo en cuenta maximizar el rendimiento y la eficacia con la que se realiza despliegue de material y suministros médicos en este centro médico.
                 </p>
                 <p align="justify">
-                  There arge many variations ohf pacgssages of sorem gpsum
-                  ilable, but the majority have suffered alteration in some
-                  form, by ected humour, or randomised words whi.
+                  De esta forma, mejoramos la calidad de vida de la población, permitiendo a nuestro personal médico actuar con mayor precisión, con un objetivo fundamental: asegurar el bienestar y la salud de nuestros pacientes.
                 </p>
+
                 <p align="justify">
-                  There arge many variations ohf pacgssages of sorem gpsum
-                  ilable, but the majority have suffered alteration in some
-                  form, by ected humour, or randomised words whi.
-                </p>
-                <p align="justify">
-                  There arge many variations ohf pacgssages of sorem gpsum
-                  ilable, but the majority have suffered alteration in some
-                  form, by ected humour, or randomised words whi.
+                  Conoce más acerca de nuestros servicios y
+                  el personal médico del CDI Coloncito, dando clic al botón de la parte inferior:
                 </p>
                 <div class="about-btn1 mb-30">
                   <a href="#especialistas" class="btn about-btn"
@@ -259,25 +250,25 @@
                   <li class="nav-item">
                     <a
                       class="nav-link"
-                      id="contact-tab"
+                      id="profile-tab"
                       data-toggle="tab"
-                      href="#contact"
+                      href="#profile"
                       role="tab"
-                      aria-controls="contact"
+                      aria-controls="profile"
                       aria-selected="false"
                     >
-                      <i class="flaticon-ear"></i>
+                      <i class="flaticon-cardiovascular"></i>
                       <h4>Hospitalización</h4>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a
                       class="nav-link"
-                      id="Astrology-tab"
+                      id="contact-tab"
                       data-toggle="tab"
-                      href="#Astrology"
+                      href="#contact"
                       role="tab"
-                      aria-controls="contact"
+                      aria-controls="Astrology"
                       aria-selected="false"
                     >
                       <i class="flaticon-bone"></i>
@@ -287,9 +278,9 @@
                   <li class="nav-item">
                     <a
                       class="nav-link"
-                      id="Neuroanatomy-tab"
+                      id="Astrology-tab"
                       data-toggle="tab"
-                      href="#Neuroanatomy"
+                      href="#Astrology"
                       role="tab"
                       aria-controls="contact"
                       aria-selected="false"
@@ -347,14 +338,44 @@
                         Odontología
                       </h3>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                        Risus commodo viverra maecenas accumsan lacus vel
-                        facilisis.
+                        Atención al público general y personalizada vía cita previa por profesionales en las siguientes áreas: Odontología general, ortodoncia y odontopediatría.
                       </p>
                        <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                       Contamos con diseños de planes de prevención, exodoncia, profilaxis dental, detartraje y blanqueamiento profundo.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-lg-5">
+                    <div class="dept_thumb">
+                      <img src="assets/img/gallery/department_man.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+                <!-- single_content  -->
+              </div>
+              <div
+                class="tab-pane fade"
+                id="profile"
+                role="tabpanel"
+                aria-labelledby="profile-tab"
+              >
+                <!-- single_content  -->
+                <div class="row align-items-center no-gutters">
+                  <div class="col-lg-7">
+                    <div class="dept_info">
+                      <h3>
+                        Departamento de <br />
+                        Hospitalización
+                      </h3>
+                      <p>
+                      El servicio de hospitalización contempla estadías 24 horas para la recuperación de la salud.
+
+                      En este sentido, se presta atención médica continuada, de tratamiento estructurado y múltiple, con trabajo en equipo de varios especialistas para pacientes con patologías que requieren cuidados diarios y directos.
+                      </p>
+                       <p>
+                       El tiempo de permanencia requerido por cada paciente varia y dependerá del estado clínico.
+
+                       De esta forma, se va reduciendo progresivamente en función de la mejoría del paciente.
                       </p>
                     </div>
                   </div>
@@ -378,44 +399,13 @@
                     <div class="dept_info">
                       <h3>
                         Departamento de <br />
-                        Otorrinolaringología
+                        Rayos X
                       </h3>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                        Risus commodo viverra maecenas accumsan lacus vel
-                        facilisis.
+                      El servicio de imágenes con rayos X (radiografía) constituye un examen médico no invasivo que ayuda a los médicos a diagnosticar y tratar las condiciones médicas. La toma de imágenes con rayos X supone la exposición de una parte del cuerpo a una pequeña dosis de radiación ionizante para producir imágenes del interior del cuerpo.
                       </p>
                        <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                      </p>
-                    </div>
-                  </div>
-                  <div class="col-lg-5">
-                    <div class="dept_thumb">
-                      <img src="assets/img/gallery/department_man.png" alt="" />
-                    </div>
-                  </div>
-                </div>
-                <!-- single_content  -->
-                                <!-- single_content  -->
-                <div class="row align-items-center no-gutters">
-                  <div class="col-lg-7">
-                    <div class="dept_info">
-                      <h3>
-                        Departamento de <br />
-                        Otorrinolaringología
-                      </h3>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                        Risus commodo viverra maecenas accumsan lacus vel
-                        facilisis.
-                      </p>
-                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                      Los rayos X son la forma más antigua y de uso más frecuente para producir imágenes médicas. Una radiografía ósea toma imágenes de cualquier hueso en el cuerpo, incluyendo la mano, muñeca, brazo, codo, hombro, columna, pelvis, cadera, muslo, rodilla, pierna (espinilla), tobillo o pie.
                       </p>
                     </div>
                   </div>
@@ -439,17 +429,13 @@
                     <div class="dept_info">
                       <h3>
                         Departamento de <br />
-                        Rayos X
+                        Optometría
                       </h3>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                        Risus commodo viverra maecenas accumsan lacus vel
-                        facilisis.
+                        Nuestros servicios incluyen una examinación exhaustiva ocular, través del cual podemos evaluar la agudeza visual, presión intraocular, realizar test de visión de profundidad, verificar la motilidad ocular, así como la percepción del color, fondo de ojo para evaluación del nervio óptico y también formulación de lentes.
                       </p>
                        <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                        De esta forma, es posible diagnosticar patologías oculares, algunas de las cuales podrán ser manejadas por nuestros especialistas y otras que por su grado de complejidad o porque necesitan tratamientos invasivos serán remitidas a un oftalmólogo.
                       </p>
                     </div>
                   </div>
@@ -459,7 +445,7 @@
                     </div>
                   </div>
                 </div>
-                <!-- single_content  -->
+                 <!-- single_content  -->
               </div>
               <div
                 class="tab-pane fade"
@@ -473,17 +459,13 @@
                     <div class="dept_info">
                       <h3>
                         Departamento de <br />
-                        Pediatría
+                        Fisiatría
                       </h3>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                        Risus commodo viverra maecenas accumsan lacus vel
-                        facilisis.
+                        Nuestra especialidad es tratar todo tipo de lesiones, trastornos o patologías a nivel músculo-esquelético, cardiovascular, pulmonar y neurológico.
                       </p>
-                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                      <p>
+                        Brindamos una atención integrada e interdisciplinaria, que tiene por finalidad la recuperación integral del paciente, abordando sus necesidades físicas a través de distintos procedimientos de rehabilitación.
                       </p>
                     </div>
                   </div>
@@ -506,15 +488,11 @@
                   <div class="col-lg-7">
                     <div class="dept_info">
                       <h3>
-                        Departamento de <br />
-                        Virología
+                        Laboratorio clínico
                       </h3>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                        Risus commodo viverra maecenas accumsan lacus vel
-                        facilisis.
+                      Los servicios incluyen: Extracción de sangre, hematologías, provisión de recipientes para muestras de orina, esputo, heces, cultivo y serología de hongos.
+                     De igual forma, presenta una variedad de servicios de pruebas en el lugar de atención médica; pruebas de tuberculina; electrocardiogramas; exámenes de la retina; y recolección de muestras de sudor y aliento y muestras con hisopo.
                       </p>
                        <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit
@@ -541,7 +519,7 @@
           <div class="row justify-content-center">
             <div class="col-lg-6">
               <div class="section-tittle text-center mb-100">
-                <span>Nuestro doctores</span>
+                <span>Nuestros doctores</span>
                 <h2>Nuestros especialistas</h2>
               </div>
             </div>
