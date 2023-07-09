@@ -20,6 +20,6 @@ class States extends Model
     //Relación uno a muchos inversa entre States-Departaments
     public function Departaments()
     {
-        return $this->belongsTo(Departaments::class);
+        return $this->belongsTo(Departaments::class, 'state_fke');
     }
 }

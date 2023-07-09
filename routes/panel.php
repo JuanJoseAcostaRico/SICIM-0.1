@@ -19,15 +19,70 @@ Route::group(['prefix' => 'panel'], function () {
     Route::put('/user/{id}', [UserController::class, 'update'])->name('usuarios.update');
     Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('usuarios.destroy');
 
+    // Rutas de departamentos
+    Route::get('departamento/listadep', [DepartamentController::class, 'index'])->name('departamento.lista');
+    Route::get('departamento/registrodep', [DepartamentController::class, 'create'])->name('departamento.registro');
+    Route::post('departamento', [DepartamentController::class, 'store'])->name('departamento.store');
+    Route::get('departamento/{id}', [DepartamentController::class, 'show'])->name('departamento.show');
+    Route::get('/departament/{id}/edit', [DepartamentController::class, 'edit'])->name('departamento.edit');
+    Route::put('/departament/{id}', [DepartamentController::class, 'update'])->name('departamento.update');
+    Route::delete('/departament/{id}', [DepartamentController::class, 'destroy'])->name('departamento.destroy');
+});
+
+    //Rutas para Inventario Sidebar
+    Route::get('/panel/inventario/registroinstrumento', function () {
+        return view('panel.inventario.registroInstrumento');
+    });
+
+    Route::get('/panel/inventario/listainstrumento', function () {
+        return view('panel.inventario.listaInstrumento');
+    });
+
+    Route::get('/panel/inventario/registroinsumo', function () {
+        return view('panel.inventario.registroInsumo');
+    });
+
+    Route::get('/panel/inventario/listainsumo', function () {
+        return view('panel.inventario.listaInsumo');
+    });
+
+
+
+    //Rutas para Respaldos Sidebar
+
+    Route::get('/panel/respaldos/respaldo', function () {
+        return view('panel.respaldos.respaldo');
+    });
+
+    Route::get('/panel/respaldos/restauracion', function () {
+        return view('panel.respaldos.restauracion');
+    });
+
+
+    //Ruta para Reportes Sidebar
+
+    Route::get('/panel/reportes/listarepo', function () {
+        return view('panel.reportes.listaRepo');
+    });
+
+
+    //Rutas para Sistema Sidebar
+
+    Route::get('/panel/sistema/gestioncuenta', function () {
+        return view('panel.sistema.gestionCuenta');
+    });
+
+    Route::get('/panel/sistema/gestionsicim', function () {
+        return view('panel.sistema.gestionSicim');
+    });
+
+    /*
     // Rutas de inventario
     Route::get('inventario/registroinsumo', [SuppliesController::class, 'create'])->name('inventario.registroinsumo');
     Route::get('inventario/listainsumo', [SuppliesController::class, 'index'])->name('inventario.listainsumo');
     Route::get('inventario/registroinstrumento', [InstrumentController::class, 'create'])->name('inventario.registroinstrumento');
     Route::get('inventario/listainstrumento', [InstrumentController::class, 'index'])->name('inventario.listainstrumento');
 
-    // Rutas de categorías
-    Route::get('categoria/registrocat', [CategoryController::class, 'create'])->name('categoria.registro');
-    Route::get('categoria/listacat', [CategoryController::class, 'index'])->name('categoria.lista');
 
     // Rutas de departamentos
     Route::get('departamento/registrodep', [DepartamentController::class, 'create'])->name('departamento.registro');
@@ -43,5 +98,5 @@ Route::group(['prefix' => 'panel'], function () {
     // Rutas de sistema
     Route::get('sistema/gestioncuenta', [SystemController::class, 'accountManagement'])->name('sistema.gestioncuenta');
     Route::get('sistema/gestionsicim', [SystemController::class, 'sicimManagement'])->name('sistema.gestionsicim');
-});
+    */
 

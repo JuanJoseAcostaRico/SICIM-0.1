@@ -71,6 +71,6 @@ class User extends Authenticatable
     //Relación uno a muchos inversa entre User-Departaments
     public function Departaments()
     {
-        return $this->belongsTo(Departaments::class);
+        return $this->belongsTo(Departaments::class, 'user_id');
     }
 }

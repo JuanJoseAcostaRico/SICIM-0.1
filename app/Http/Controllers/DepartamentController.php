@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Models\Departaments;
+use Illuminate\Support\Facades\View;
 use Illuminate\Http\Request;
+
+use App\Models\User;
+use App\Models\States;
 
 class DepartamentController extends Controller
 {
@@ -13,8 +17,17 @@ class DepartamentController extends Controller
      */
     public function index()
     {
-        $departaments = Departaments::all();
-        return $departaments;
+        $departaments = Departaments::with('states', 'user')->get();
+        $heads = [
+            'ID',
+            'Nombre departamento',
+            'Jefe de departamento',
+            'Estado',
+            'Acciones',
+
+        ];
+        // Retornamos la vista con las 2 variables creadas anteriormente
+        return View::make('panel.departamento.listaDep', compact('departaments', 'heads'));
     }
     /**
      * Store a newly created resource in storage.
@@ -23,6 +36,13 @@ class DepartamentController extends Controller
      * @return \Illuminate\Http\Response
      */
     // Función Guardar del CRUD
+    public function create()
+    {
+        $users = User::all();
+        $states = States::all();
+
+        return view('panel.departamento.registroDep', compact('users', 'states'));
+    }
     public function store(Request $request)
     {
         $departament = new Departaments();
@@ -30,6 +50,7 @@ class DepartamentController extends Controller
         $departament->state_fke = $request->state_fke;
         $departament->user_id = $request->user_id;
         $departament->save();
+        return redirect()->route('departamento.lista');
     }
     /**
      * Display the specified resource.
@@ -38,11 +59,7 @@ class DepartamentController extends Controller
      * @return \Illuminate\Http\Response
      */
     //Función para mostrar en el CRUD
-    public function show($id)
-    {
-        $user = Departaments::find($id);
-        return $user;
-    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -57,7 +74,9 @@ class DepartamentController extends Controller
         $departament->state_fke = $request->state_fke;
         $departament->user_id = $request->user_id;
         $departament->save();
-        return $departament;
+
+        return redirect()->route('usuarios.lista');
+
     }
     /**
      * Remove the specified resource from storage.
@@ -67,7 +86,21 @@ class DepartamentController extends Controller
      */
     public function destroy($id)
     {
-        $departament = Departaments::destroy($id);
-        return $departament;
+        $departament = Departaments::findorFail($id);
+        $departament->delete();
+        return redirect()->route('departamento.lista');
+    }
+
+    public function edit($id)
+    {
+        $departament = Departaments::findOrFail($id);
+        return view('panel.departamento.edit', compact('departament'));
+    }
+
+    public function show($id)
+    {
+        $departament = Departaments::findOrFail($id);
+        return view('panel.departamento.show', compact('departament'));
     }
 }
+

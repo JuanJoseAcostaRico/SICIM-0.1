@@ -50,6 +50,7 @@ Route::controller(SuppliesController::class)->group(function () {
 });
 
 Route::controller(DepartamentController::class)->group(function () {
+
     Route::get('/departaments', 'index')->middleware('auth');
     Route::post('/departament', 'store')->middleware('auth');
     Route::get('/departament/{id}', 'show')->middleware('auth');
@@ -71,8 +72,10 @@ Route::controller(ConditionController::class)->group(function () {
     Route::get('/condition/{id}', 'show')->middleware('auth');
     Route::put('/condition/{id}', 'update')->middleware('auth');
     Route::delete('/condition/{id}', 'destroy')->middleware('auth');
-}); */
+});
+ */
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
