@@ -303,11 +303,12 @@ return [
         ],
         [
             'text' => 'blog',
-            'url'  => 'admin/blog',
+            'url'  => 'panel/blog',
             'can'  => 'manage-blog',
         ],
         [
             'text'        => 'Inicio',
+            'icon_color' => 'white',
             'url'         => 'home',
             'icon'        => 'fas fa-desktop',
             'label_color' => 'success',
@@ -315,18 +316,19 @@ return [
         ['header' => 'Área de gestión'],
         [
             'text' => 'Usuarios',
+            'icon_color' => 'white',
             'url'  => '#',
             'icon' => 'fas fa-fw fa-users',
             'submenu' => [
                 [
                     'text' => 'Registrar Usuario',
                     'icon' => 'fas fa-fw fa-user',
-                    'url'  => '/admin/usuarios/registrousu',
+                    'url'  => '/panel/usuarios/registrousu',
                 ],
                 [
                     'text' => 'Lista de usuarios',
                     'icon' => 'far fa-address-card',
-                    'url'  => '/admin/usuarios/listausu',
+                    'url'  => '/panel/usuarios/listausu',
                 ],
 
             ],
@@ -334,91 +336,97 @@ return [
         ],
         [
             'text' => 'Inventario',
+            'icon_color' => 'white',
             'url'  => '#',
             'icon' => '	fas fa-archive',
             'submenu' => [
                 [
                     'text' => 'Registrar insumo',
                     'icon' => 'fas fa-edit',
-                    'url'  => '/admin/inventario/registroinv',
+                    'url'  => '/panel/inventario/registroinsumo',
                 ],
                 [
                     'text' => 'Lista de insumos',
                     'icon' => 'far fa-clone',
-                    'url'  => '/admin/inventario/listainv',
+                    'url'  => '/panel/inventario/listainsumo',
                 ],
                 [
                     'text' => 'Registrar instrumento',
                     'icon' => 'fas fa-edit',
-                    'url'  => '/admin/inventario/registroinv',
+                    'url'  => '/panel/inventario/registroinstrumento',
                 ],
                 [
                     'text' => 'Lista de instrumentos',
                     'icon' => 'far fa-clone',
-                    'url'  => '/admin/inventario/listainv',
+                    'url'  => '/panel/inventario/listainstrumento',
                 ],
             ],
         ],
         [
             'text' => 'Categorías',
+            'icon_color' => 'white',
             'url'  => '#',
             'icon' => '	fas fa-archive',
             'submenu' => [
                 [
                     'text' => 'Registrar categorías',
                     'icon' => 'fas fa-edit',
-                    'url'  => '/admin/inventario/registrocat',
+                    'url'  => '/panel/categoria/registrocat',
                 ],
                 [
                     'text' => 'Lista de categorías',
                     'icon' => '	fas fa-layer-group',
-                    'url'  => '/admin/inventario/listacat',
+                    'url'  => '/panel/categoria/listacat',
                 ],
             ],
         ],
         [
             'text' => 'Departamentos',
+            'icon_color' => 'white',
             'url'  => '#',
             'icon' => '	fas fa-archive',
             'submenu' => [
                 [
                     'text' => 'Registrar departamento',
                     'icon' => 'fas fa-edit',
-                    'url'  => '/admin/inventario/registrocat',
+                    'url'  => '/panel/departamento/registrodep',
                 ],
                 [
                     'text' => 'Lista de departamento',
                     'icon' => '	fas fa-layer-group',
-                    'url'  => '/admin/inventario/listacat',
+                    'url'  => '/panel/departamento/listadep',
                 ],
             ],
         ],
+        ['header' => 'Área de Sistema'],
         [
             'text' => 'Respaldos',
+            'icon_color' => 'white',
             'url'  => '#',
             'icon' => '	fas fa-database',
             'submenu' => [
                 [
                     'text' => 'Respaldar',
                     'icon' => '	fas fa-upload',
-                    'url'  => '/admin/respaldos/respaldo',
+                    'url'  => '/panel/respaldos/respaldo',
                 ],
                 [
                     'text' => 'Restaurar',
                     'icon' => 'fas fa-download',
-                    'url'  => '/admin/respaldos/restauracion',
+                    'url'  => '/panel/respaldos/restauracion',
                 ],
             ],
         ],
         [
             'text' => 'Reportes',
+            'icon_color' => 'white',
             'url'  => '#',
             'icon' => 'fas fa-chart-bar',
             'submenu' => [
                 [
                     'text' => 'Lista de reportes',
                     'icon' => '	far fa-file-alt',
-                    'url'  => '/admin/reportes/listarepo',
+                    'url'  => '/panel/reportes/listarepo',
                 ],
             ],
 
@@ -426,20 +434,22 @@ return [
         [
             'text' => 'Sistema',
             'url'  => '#',
+            'icon_color' => 'white',
             'icon' => 'fas fa-globe',
             'submenu' => [
                 [
                     'text' => 'Gestión de cuenta',
                     'icon' => 'fas fa-fw fa-user',
-                    'url'  => '/admin/sistema/gestioncuenta',
+                    'url'  => '/panel/sistema/gestioncuenta',
                 ],
                 [
                     'text' => 'Gestión de SICIM',
                     'icon' => '	fas fa-wrench',
-                    'url'  => '/admin/sistema/gestionsicim',
+                    'url'  => '/panel/sistema/gestionsicim',
                 ],
             ],
         ],
+
 
         /*
         ['header' => 'labels'],
@@ -496,7 +506,7 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
