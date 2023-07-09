@@ -363,24 +363,6 @@ return [
             ],
         ],
         [
-            'text' => 'Categorías',
-            'icon_color' => 'white',
-            'url'  => '#',
-            'icon' => '	fas fa-archive',
-            'submenu' => [
-                [
-                    'text' => 'Registrar categorías',
-                    'icon' => 'fas fa-edit',
-                    'url'  => '/panel/categoria/registrocat',
-                ],
-                [
-                    'text' => 'Lista de categorías',
-                    'icon' => '	fas fa-layer-group',
-                    'url'  => '/panel/categoria/listacat',
-                ],
-            ],
-        ],
-        [
             'text' => 'Departamentos',
             'icon_color' => 'white',
             'url'  => '#',
@@ -526,7 +508,7 @@ return [
             ],
         ],
         'Select2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',

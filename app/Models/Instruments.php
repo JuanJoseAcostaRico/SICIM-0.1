@@ -21,6 +21,6 @@ class Instruments extends Model
     //Relación uno a muchos inversa entre Intruments-Departaments
     public function Departaments()
     {
-        return $this->belongsTo(Departaments::class);
+        return $this->belongsTo(Departaments::class, 'id');
     }
 }
