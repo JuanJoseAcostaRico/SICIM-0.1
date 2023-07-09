@@ -55,8 +55,8 @@ class User extends Authenticatable
     {
         if ($this->hasRole('Administrador')) {
             return 'Administrador';
-        } elseif ($this->hasRole('Usuario')) {
-            return 'Usuario';
+        } elseif ($this->hasRole('Empleado')) {
+            return 'Empleado';
         } else {
             return 'No tienes un rol asignado';
         }

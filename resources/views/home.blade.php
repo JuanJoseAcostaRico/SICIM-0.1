@@ -13,10 +13,10 @@
                 <div class="card-body">
                     <p class="mb-0">Estás logeado en SICIM! ahora disfruta de la experiencia, usuario: {{ auth()->user()->user_name }}</p>
                     <br>
-                    @role('admin')
-                    <p>Sólo lo va a ver el rol {{ $role }}</p>
+                    @role('Administrador')
+                    <p>Este mensaje solo lo va a ver el rol {{ $role }}</p>
                     @endrole
-                    @role('usuario')
+                    @role('Empleado')
                     <p>Solo lo va a ver el rol {{ $role }}</p>
                     @endrole
                 </div>

@@ -101,4 +101,8 @@
             </a>
         </p>
     @endif
+
+    <div class="text-center" style="padding-top: 10px;">
+    <a href="{{ route('custom_welcome') }}" class="btn btn-primary">Volver a la página principal</a>
+    </div>
 @stop

@@ -26,14 +26,14 @@ use App\Models\Supplies;
 
 Route::get('/', function () {
     return view('custom_welcome');
-});
+})->name('custom_welcome');
 
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::controller(UserController::class)->group(function () {
+/* Route::controller(UserController::class)->group(function () {
     Route::get('/users', 'index')->middleware('auth');
     Route::post('/user', 'store')->middleware('auth');
     Route::get('/user/{id}', 'show')->middleware('auth');
@@ -71,7 +71,7 @@ Route::controller(ConditionController::class)->group(function () {
     Route::get('/condition/{id}', 'show')->middleware('auth');
     Route::put('/condition/{id}', 'update')->middleware('auth');
     Route::delete('/condition/{id}', 'destroy')->middleware('auth');
-});
+}); */
 
 Auth::routes();
 

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use Illuminate\Support\Facades\View;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -14,23 +16,50 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return $users;
+        $heads = [
+            'ID',
+            'Nombre',
+            'Email',
+            'Teléfono',
+            'Acciones',
+
+        ];
+        // Retornamos la vista con las 2 variables creadas anteriormente
+        return View::make('panel.usuarios.listaUsu', compact('users', 'heads'));
+
     }
+
     /**
-     * Store a newly created resource in storage.
+     * Show the form for creating a new resource.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View
      */
+    public function create()
+    {
+        return View::make('panel.usuarios.registroUsu');
+    }
     public function store(Request $request)
     {
-        $user= new User();
-        $user->user_name = $request->user_name;
-        $user->user_email = $request->user_email;
-        $user->password = $request->password;
-        $user->user_phone = $request->user_phone;
-        $user->user_address = $request->user_address;
+        $validatedData = $request->validate([
+            'user_name' => 'required',
+            'user_email' => 'required|email|unique:users',
+            'password' => 'required',
+            'user_phone' => 'nullable',
+            'user_address' => 'nullable',
+        ]);
+
+        $user = new User();
+        $user->user_name = $validatedData['user_name'];
+        $user->user_email = $validatedData['user_email'];
+        $user->password = bcrypt($validatedData['password']);
+        $user->user_phone = $validatedData['user_phone'];
+        $user->user_address = $validatedData['user_address'];
         $user->save();
+
+        $user->assignRole('Empleado');
+
+        // Redireccionar a la página deseada después de guardar el usuario
+        return redirect()->route('usuarios.lista');
     }
     /**
      * Display the specified resource.
@@ -39,11 +68,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     //Función para mostrar en el CRUD
-    public function show($id)
-    {
-        $user = User::find($id);
-        return $user;
-    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -54,14 +79,20 @@ class UserController extends Controller
     //Función para actualizar en el CRUD
     public function update(Request $request, $id)
     {
-        $user = User::findOrFail($request->id);
+        $user = User::findOrFail($id);
         $user->user_name = $request->user_name;
         $user->user_email = $request->user_email;
-        $user->password = $request->password;
         $user->user_phone = $request->user_phone;
         $user->user_address = $request->user_address;
+
+        // Verificar si se proporcionó una nueva contraseña
+        if ($request->filled('new_password')) {
+            $user->password = bcrypt($request->new_password);
+        }
+
         $user->save();
-        return $user;
+
+        return redirect()->route('usuarios.lista');
     }
     /**
      * Remove the specified resource from storage.
@@ -69,9 +100,22 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function show($id)
+    {
+        $user = User::findOrFail($id);
+        return view('panel.usuarios.show', compact('user'));
+    }
+
+    public function edit($id)
+    {
+        $user = User::findOrFail($id);
+        return view('panel.usuarios.edit', compact('user'));
+    }
+
     public function destroy($id)
     {
-        $user = User::destroy($id);
-        return $user;
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->route('usuarios.lista');
     }
 }
