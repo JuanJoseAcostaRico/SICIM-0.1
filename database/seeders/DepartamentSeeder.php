@@ -16,10 +16,39 @@ class Departamentseeder extends Seeder
     public function run()
     {
         Departaments::create([
-            'departament_name' => 'General',
+            'departament_name' => 'Medicina General',
             'state_fke' => '1',
             'user_id' => '1',
-
+        ]);
+        Departaments::create([
+            'departament_name' => 'Laboratorio',
+            'state_fke' => '1',
+            'user_id' => '1',
+        ]);
+        Departaments::create([
+            'departament_name' => 'Hospitalización',
+            'state_fke' => '1',
+            'user_id' => '1',
+        ]);
+        Departaments::create([
+            'departament_name' => 'odontología',
+            'state_fke' => '1',
+            'user_id' => '1',
+        ]);
+        Departaments::create([
+            'departament_name' => 'Optometría',
+            'state_fke' => '1',
+            'user_id' => '1',
+        ]);
+        Departaments::create([
+            'departament_name' => 'Fisiatría',
+            'state_fke' => '1',
+            'user_id' => '1',
+        ]);
+        Departaments::create([
+            'departament_name' => 'Rayos X',
+            'state_fke' => '1',
+            'user_id' => '1',
         ]);
     }
 }
