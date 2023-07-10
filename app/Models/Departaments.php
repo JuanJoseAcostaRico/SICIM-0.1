@@ -17,17 +17,17 @@ class Departaments extends Model
         return $this->hasMany(Instruments::class, 'departament_fke');
     }
 
-    // Relación de uno a uno directa con la tabla Deparments-States
+    // Relación de uno a uno inversa con la tabla Deparments-States haciendo scope de la fke
 
     public function states()
     {
-        return $this->hasOne(States::class, 'id');
+        return $this->belongsTo(States::class, 'state_fke');
     }
 
 
     // Relación de uno a muchos directa con la tabla Departaments-User
     public function user()
     {
-        return $this->hasMany(User::class, 'id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

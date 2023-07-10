@@ -23,8 +23,8 @@
                         <tr>
                             <td>{{ $departament->id }}</td>
                             <td>{{ $departament->departament_name }}</td>
-                            <td>{{ $departament->user_id }}</td>
-                            <td>{{ $departament->state_fke }}</td>
+                            <td>{{ $departament->user->user_name }}</td>
+                            <td>{{ $departament->states->state_name }}</td>
                             <td>
                                 <a href="{{ route('departamento.show', ['id' => $departament->id]) }}" class="btn btn-xs btn-warning" title="Ver">
                                     <i class="fas fa-eye"></i>

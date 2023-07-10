@@ -20,13 +20,13 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="user_id">Jefe de departamento</label>
-                            <input type="text" id="user_id" class="form-control" value="{{ $departament->user_id }}" readonly>
+                            <input type="text" id="user_id" class="form-control" value="{{ $departament->user->user_name}}" readonly>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="state_fke">Estado</label>
-                            <input type="text" id="state_fke" class="form-control" value="{{ $departament->state_fke }}" readonly>
+                            <input type="text" id="state_fke" class="form-control" value="{{ $departament->states->state_name }}" readonly>
                         </div>
                     </div>
 

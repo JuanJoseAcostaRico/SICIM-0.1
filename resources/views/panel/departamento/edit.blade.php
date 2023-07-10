@@ -23,16 +23,29 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="user_id ">Jefe de departamento</label>
-                                <input type="text" id="user_id " name="user_id " class="form-control" required pattern="[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+" value="{{ $departament->user_id }}">
+                                <label for="user_id">Jefe de departamento</label>
+                                <select id="user_id" name="user_id" class="form-control" required>
+                                    @foreach ($users as $user)
+                                        <option value="{{ $user->id }}" {{ $user->id == $departament->user_id ? 'selected' : '' }}>
+                                            {{ $user->user_name }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="state_fke">Estado</label>
-                                <input type="text" id="state_fke" name="state_fke" class="form-control" required pattern="[0-9]{7,11}" value="{{ $departament->state_fke }}">
+                                <select id="state_fke" name="state_fke" class="form-control" required>
+                                    @foreach ($states as $state)
+                                        <option value="{{ $state->id }}" {{ $state->id == $departament->state_fke ? 'selected' : '' }}>
+                                            {{ $state->state_name }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
+                    </div>
 
                     <div class="row">
                         <div class="col-md-12">

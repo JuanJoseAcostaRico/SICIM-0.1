@@ -75,7 +75,7 @@ class DepartamentController extends Controller
         $departament->user_id = $request->user_id;
         $departament->save();
 
-        return redirect()->route('usuarios.lista');
+        return redirect()->route('departamento.lista');
 
     }
     /**
@@ -94,7 +94,10 @@ class DepartamentController extends Controller
     public function edit($id)
     {
         $departament = Departaments::findOrFail($id);
-        return view('panel.departamento.edit', compact('departament'));
+    $departamentNames = Departaments::pluck('departament_name');
+    $states = States::all();
+    $users = User::all();
+    return view('panel.departamento.edit', compact('departament', 'departamentNames', 'states', 'users'));
     }
 
     public function show($id)
