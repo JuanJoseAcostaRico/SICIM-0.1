@@ -35,9 +35,15 @@
                             <input type="text" id="user_address" class="form-control" value="{{ $user->user_address }}" readonly>
                         </div>
                     </div>
-                        <div class="text-center" style="padding-top: 10px;">
-                            <a href="{{ route('usuarios.lista') }}" class="btn btn-primary">Volver a la lista de usuarios</a>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="role">Rol</label>
+                            <input type="text" id="role" class="form-control" value="{{ $user->roles->implode('name', ', ') }}" readonly>
                         </div>
+                    </div>
+                </div>
+                <div class="text-center" style="padding-top: 10px;">
+                    <a href="{{ route('usuarios.lista') }}" class="btn btn-primary">Volver a la lista de usuarios</a>
                 </div>
             </x-adminlte-card>
         </div>

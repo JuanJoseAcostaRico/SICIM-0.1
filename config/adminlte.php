@@ -194,7 +194,7 @@ return [
     'classes_content' => '',
     'classes_sidebar' => 'sidebar-dark-primary elevation-4',
     'classes_sidebar_nav' => '',
-    'classes_topnav' => 'navbar-white navbar-light',
+    'classes_topnav' => 'navbar-gray navbar-dark',
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
 
@@ -338,27 +338,51 @@ return [
             'text' => 'Inventario',
             'icon_color' => 'white',
             'url'  => '#',
-            'icon' => '	fas fa-archive',
+            'icon' => 'fas fa-boxes',
             'submenu' => [
                 [
-                    'text' => 'Registrar insumo',
-                    'icon' => 'fas fa-edit',
-                    'url'  => '/panel/inventario/registroinsumo',
+                    'text' => 'Insumos',
+                    'icon' => 'fas fa-medkit',
+                    'submenu' => [
+                        [
+                            'text' => 'Registrar insumo',
+                            'icon' => 'fas fa-edit',
+                            'url'  => '/panel/inventario/registroinsumo',
+                            'icon_color' => 'cyan',
+                            'icon_style' => 'padding-left: 10px;',
+                            'class' => 'text-sm pl-3',
+                        ],
+                        [
+                            'text' => 'Lista de insumos',
+                            'icon' => 'far fa-clone',
+                            'url'  => '/panel/inventario/listainsumo',
+                            'icon_color' => 'cyan',
+                            'icon_style' => 'padding-left: 10px;',
+                            'class' => 'text-sm pl-3',
+                        ],
+                    ],
                 ],
                 [
-                    'text' => 'Lista de insumos',
-                    'icon' => 'far fa-clone',
-                    'url'  => '/panel/inventario/listainsumo',
-                ],
-                [
-                    'text' => 'Registrar instrumento',
-                    'icon' => 'fas fa-edit',
-                    'url'  => '/panel/inventario/registroinstrumento',
-                ],
-                [
-                    'text' => 'Lista de instrumentos',
-                    'icon' => 'far fa-clone',
-                    'url'  => '/panel/inventario/listainstrumento',
+                    'text' => 'Instrumentos',
+                    'icon' => 'fas fa-stethoscope',
+                    'submenu' => [
+                        [
+                            'text' => 'Registrar instrumento',
+                            'icon' => 'fas fa-edit',
+                            'url'  => '/panel/inventario/registroinstrumento',
+                            'icon_color' => 'cyan',
+                            'icon_style' => 'padding-left: 20px;',
+                            'class' => 'text-sm pl-6',
+                        ],
+                        [
+                            'text' => 'Lista de instrumentos',
+                            'icon' => 'far fa-clone',
+                            'url'  => '/panel/inventario/listainstrumento',
+                            'icon_color' => 'cyan',
+                            'icon_style' => 'padding-left: 20px;',
+                            'class' => 'text-sm pl-6',
+                        ],
+                    ],
                 ],
             ],
         ],
@@ -366,7 +390,7 @@ return [
             'text' => 'Departamentos',
             'icon_color' => 'white',
             'url'  => '#',
-            'icon' => '	fas fa-archive',
+            'icon' => '	fas fa-hospital',
             'submenu' => [
                 [
                     'text' => 'Registrar departamento',
@@ -533,7 +557,7 @@ return [
             ],
         ],
         'Sweetalert2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',

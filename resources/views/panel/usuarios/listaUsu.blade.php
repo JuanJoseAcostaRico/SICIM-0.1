@@ -25,6 +25,7 @@
                             <td>{{ $user->user_name }}</td>
                             <td>{{ $user->user_email }}</td>
                             <td>{{ $user->user_phone }}</td>
+                            <td>{{ $user->roles->implode('name', ', ') }}</td>
                             <td>
                                 <a href="{{ route('usuarios.show', ['id' => $user->id]) }}" class="btn btn-xs btn-warning" title="Ver">
                                     <i class="fas fa-eye"></i>

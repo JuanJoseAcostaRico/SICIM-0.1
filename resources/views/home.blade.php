@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Home | SICIM')
+@section('title', 'Inicio')
 
 @section('content_header')
     <h1 class="m-0 text-dark">Inicio</h1>
@@ -9,25 +9,75 @@
 @section('content')
     <div class="row">
         <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    <p class="mb-0">Estás logeado en SICIM! ahora disfruta de la experiencia, usuario: {{ auth()->user()->user_name }}</p>
-                    <br>
-                    @role('Administrador')
+            <x-adminlte-card title="Bienvenido a SICIM" theme="primary" icon="fas fa-lg fa-bell" collapsible>
+                Estás logeado en SICIM! ahora disfruta de la experiencia, usuario: {{ auth()->user()->user_name }}
+                <br>
+                @role('Administrador')
                     <p>Este mensaje solo lo va a ver el rol {{ $role }}</p>
-                    @endrole
-                    @role('Empleado')
+                @endrole
+                @role('Empleado')
                     <p>Solo lo va a ver el rol {{ $role }}</p>
-                    @endrole
-                </div>
-            </div>
-            <x-adminlte-card title="Bienvenido a SICIM" theme="info" icon="fas fa-lg fa-bell" collapsible>
-                    En SICIM podras gestionar tareas administrativas del CDI de Coloncito
+                @endrole
+                En SICIM podras gestionar tareas administrativas del CDI de Coloncito.
             </x-adminlte-card>
         </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box shadow">
+                <span class="info-box-icon bg-primary"><i class="fas fa-users"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Usuarios <br> Totales</span>
+                    <span class="info-box-number">8</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box shadow">
+                <span class="info-box-icon bg-info"><i class="fas fa-hospital"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Departamentos <br> Totales</span>
+                    <span class="info-box-number">10</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box shadow">
+                <span class="info-box-icon bg-warning"><i class="fas fa-medkit"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Insumos <br> Registrados</span>
+                    <span class="info-box-number">18</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box shadow">
+                <span class="info-box-icon bg-danger"><i class="fas fa-stethoscope"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Intrumentos <br> Registrados</span>
+                    <span class="info-box-number">18</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+@stop
 
 
-        {{-- INICIO AREA DE ALERTS DE EJEMPLO
+
+{{-- INICIO AREA DE ALERTS DE EJEMPLO
 
          <div class="col-12">
             <h5>Alerts</h5>
@@ -51,7 +101,7 @@
            FIN DE AREA DE ALERTS --}}
 
 
-    {{-- INICIO AREA DE CARDS DE EJEMPLOS
+{{-- INICIO AREA DE CARDS DE EJEMPLOS
     <div class="col-12">
         <h5>Cards</h5>
         <x-adminlte-card title="Dark Card" theme="dark" icon="fas fa-lg fa-moon">
@@ -75,9 +125,6 @@
     </div>
 
         FIN AREA DE CARDS DE EJEMPLO        --}}
-
-    </div>
-@stop
 
 {{-- AREA SCRIPT ALERTA DE EJEMPLO HECHO CON SWEETALERT2
 @section('js')

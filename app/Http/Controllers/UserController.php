@@ -15,12 +15,14 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::with('roles')->get();
+        //$users = User::all();
         $heads = [
             'ID',
             'Nombre',
             'Email',
             'Teléfono',
+            'Rol',
             'Acciones',
 
         ];
@@ -36,7 +38,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return View::make('panel.usuarios.registroUsu');
+        $roles = Role::all();
+        return View::make('panel.usuarios.registroUsu', compact('roles'));
     }
     public function store(Request $request)
     {
@@ -45,7 +48,7 @@ class UserController extends Controller
             'user_email' => 'required|email|unique:users',
             'password' => 'required',
             'user_phone' => 'nullable',
-            'user_address' => 'nullable',
+            'user_address' => 'required',
         ]);
 
         $user = new User();
@@ -56,7 +59,7 @@ class UserController extends Controller
         $user->user_address = $validatedData['user_address'];
         $user->save();
 
-        $user->assignRole('Empleado');
+        $user->assignRole($request->role);
 
         // Redireccionar a la página deseada después de guardar el usuario
         return redirect()->route('usuarios.lista');
@@ -85,6 +88,10 @@ class UserController extends Controller
         $user->user_phone = $request->user_phone;
         $user->user_address = $request->user_address;
 
+        // Actualizar el rol del usuario
+        $role = $request->role;
+        $user->syncRoles($role);
+
         // Verificar si se proporcionó una nueva contraseña
         if ($request->filled('new_password')) {
             $user->password = bcrypt($request->new_password);
@@ -102,14 +109,16 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::findOrFail($id);
+        $user = User::with('roles')->findOrFail($id);
+        //$user = User::findOrFail($id);
         return view('panel.usuarios.show', compact('user'));
     }
 
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        return view('panel.usuarios.edit', compact('user'));
+        $roles = Role::all();
+        return view('panel.usuarios.edit', compact('user', 'roles'));
     }
 
     public function destroy($id)

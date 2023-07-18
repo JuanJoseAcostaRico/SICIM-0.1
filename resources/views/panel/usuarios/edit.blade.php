@@ -39,24 +39,36 @@
                                 <input type="text" id="user_address" name="user_address" class="form-control" required value="{{ $user->user_address }}">
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="new_password">Nueva Contraseña</label>
-                            <div class="input-group">
-                                <input type="password" id="new_password" name="new_password" class="form-control">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button" id="toggle_password">
-                                        <i class="fas fa-eye-slash"></i>
-                                    </button>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="role">Rol</label>
+                                <select id="role" name="role" class="form-control">
+                                    @foreach($roles as $role)
+                                        <option value="{{ $role->name }}" {{ $user->hasRole($role->name) ? 'selected' : '' }}>
+                                            {{ $role->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="new_password">Nueva Contraseña</label>
+                                <div class="input-group">
+                                    <input type="password" id="new_password" name="new_password" class="form-control">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" id="toggle_password">
+                                            <i class="fas fa-eye-slash"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <button type="submit" class="btn btn-primary">Guardar cambios</button>
-                            <a href="{{ route('usuarios.lista') }}" class="btn btn-default">Cancelar</a>
+                            <x-adminlte-button label="Guardar cambios" theme="primary" icon="fas fa-save" type="submit" class="mr-3" />
+                            <a href="{{ route('usuarios.lista') }}" class="btn btn-secondary">Cancelar</a>
                         </div>
                     </div>
                 </form>
