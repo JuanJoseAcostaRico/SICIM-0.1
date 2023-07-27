@@ -15,6 +15,6 @@ class Supplies extends Model
 
     public function states()
     {
-        return $this->hasMany(States::class);
+        return $this->belongsTo(States::class, 'state_fke');
     }
 }

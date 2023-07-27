@@ -7,6 +7,7 @@ use App\Http\Controllers\SuppliesController;
 use App\Http\Controllers\DepartamentController;
 use App\Http\Controllers\InstrumentController;
 use App\Http\Controllers\ConditionController;
+use App\Models\Supplies;
 use Illuminate\Support\Facades\Auth;
 
 Route::group(['prefix' => 'panel'], function () {
@@ -27,23 +28,26 @@ Route::group(['prefix' => 'panel'], function () {
     Route::get('/departament/{id}/edit', [DepartamentController::class, 'edit'])->name('departamento.edit');
     Route::put('/departament/{id}', [DepartamentController::class, 'update'])->name('departamento.update');
     Route::delete('/departament/{id}', [DepartamentController::class, 'destroy'])->name('departamento.destroy');
+
+    //Rutas Insumos
+    Route::get('inventario/insumos/listainsumo', [SuppliesController::class, 'index'])->name('inventario.insumos.lista');
+    Route::get('inventario/insumos/registroinsumo', [SuppliesController::class, 'create'])->name('inventario.insumos.registro');
+    Route::post('inventario/insumos', [SuppliesController::class, 'store'])->name('inventario.insumos.store');
+    Route::get('inventario/insumos/{id}', [SuppliesController::class, 'show'])->name('inventario.insumos.show');
+    Route::get('inventario/insumos/{id}/edit', [SuppliesController::class, 'edit'])->name('inventario.insumos.edit');
+    Route::put('inventario/insumos/{id}', [SuppliesController::class, 'update'])->name('inventario.insumos.update');
+    Route::delete('inventario/insumos/{id}', [SuppliesController::class, 'destroy'])->name('inventario.insumos.destroy');
 });
 
-    //Rutas para Inventario Sidebar
+
+
+    //Rutas para Inventario Sidebar INSTRUMENTO
     Route::get('/panel/inventario/registroinstrumento', function () {
-        return view('panel.inventario.registroInstrumento');
+        return view('panel.inventario.instrumentos.registroInstrumento');
     });
 
     Route::get('/panel/inventario/listainstrumento', function () {
-        return view('panel.inventario.listaInstrumento');
-    });
-
-    Route::get('/panel/inventario/registroinsumo', function () {
-        return view('panel.inventario.registroInsumo');
-    });
-
-    Route::get('/panel/inventario/listainsumo', function () {
-        return view('panel.inventario.listaInsumo');
+        return view('panel.inventario.instrumentos.listaInstrumento');
     });
 
 

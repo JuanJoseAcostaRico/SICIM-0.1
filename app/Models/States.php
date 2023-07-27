@@ -14,7 +14,7 @@ class States extends Model
     //Relación uno a muchos inversa entre States-Supplies
     public function supplies()
     {
-        return $this->belongsTo(Supplies::class);
+        return $this->belongsTo(Supplies::class, 'state_fke');
     }
 
     //Relación uno a muchos inversa entre States-Departaments

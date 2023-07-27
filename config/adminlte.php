@@ -131,7 +131,7 @@ return [
 
     'usermenu_enabled' => true,
     'usermenu_header' => true,
-    'usermenu_header_class' => 'bg-info',
+    'usermenu_header_class' => 'bg-lightblue',
     'usermenu_image' => true,
     'usermenu_desc' => true,
     'usermenu_profile_url' => false,
@@ -194,7 +194,7 @@ return [
     'classes_content' => '',
     'classes_sidebar' => 'sidebar-dark-primary elevation-4',
     'classes_sidebar_nav' => '',
-    'classes_topnav' => 'navbar-gray navbar-dark',
+    'classes_topnav' => 'navbar-lightblue navbar-dark',
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
 
@@ -347,7 +347,7 @@ return [
                         [
                             'text' => 'Registrar insumo',
                             'icon' => 'fas fa-edit',
-                            'url'  => '/panel/inventario/registroinsumo',
+                            'url'  => '/panel/inventario/insumos/registroinsumo',
                             'icon_color' => 'cyan',
                             'icon_style' => 'padding-left: 10px;',
                             'class' => 'text-sm pl-3',
@@ -355,7 +355,7 @@ return [
                         [
                             'text' => 'Lista de insumos',
                             'icon' => 'far fa-clone',
-                            'url'  => '/panel/inventario/listainsumo',
+                            'url'  => '/panel/inventario/insumos/listainsumo',
                             'icon_color' => 'cyan',
                             'icon_style' => 'padding-left: 10px;',
                             'class' => 'text-sm pl-3',
