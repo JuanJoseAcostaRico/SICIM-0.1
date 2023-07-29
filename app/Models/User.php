@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+    use HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -18,11 +20,11 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'full_name',
-        'email',
+        'user_name',
+        'user_email',
         'password',
-        'phone_number',
-        'address',
+        'user_phone',
+        'user_address',
 
     ];
 
@@ -44,4 +46,31 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function adminlte_image()
+    {
+        return 'https://picsum.photos/300/300';
+    }
+    public function adminlte_desc()
+    {
+        if ($this->hasRole('Administrador')) {
+            return 'Administrador';
+        } elseif ($this->hasRole('Empleado')) {
+            return 'Empleado';
+        } else {
+            return 'No tienes un rol asignado';
+        }
+    }
+
+    // Relación directa de uno a uno entre Users-Profile
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
+
+    //Relación uno a muchos inversa entre User-Departaments
+    public function Departaments()
+    {
+        return $this->belongsTo(Departaments::class, 'user_id');
+    }
 }

@@ -1,0 +1,49 @@
+@extends('adminlte::page')
+
+@section('title', 'Lista Insumos')
+
+@section('content_header')
+    <h1 class="m-0 text-dark">Lista Insumos</h1>
+@stop
+
+@section('content')
+    <div class="row">
+        <div class="col-12">
+            <x-adminlte-card title="Lista Insumos" theme="lightblue" theme-mode="outline" collapsible>
+
+                    <x-adminlte-datatable id="table1" :heads="$heads" striped head-theme="outline">
+                        @foreach ($supplies as $supply)
+                            <tr>
+                                <td>{{ $supply->id }}</td>
+                                <td>{{ $supply->supply_name }}</td>
+                                <td>{{ $supply->supply_desc }}</td>
+                                <td>{{ $supply->supply_weight }}</td>
+                                <td>{{ $supply->supply_stock }}</td>
+                                <td>{{ $supply->states->state_name }}</td>
+                                <td>
+                                    <a href="{{ route('inventario.insumos.show', ['id' => $supply->id]) }}" class="btn btn-xs btn-warning" title="Ver">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a href="{{ route('inventario.insumos.edit', ['id' => $supply->id]) }}" class="btn btn-xs btn-primary" title="Editar">
+                                        <i class="fas fa-pencil-alt"></i>
+                                    </a>
+
+                                    <form action="{{ route('inventario.insumos.destroy', ['id' => $supply->id]) }}" method="POST" style="display: inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-xs btn-danger" title="Eliminar">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </x-adminlte-datatable>
+
+            </x-adminlte-card>
+        </div>
+    </div>
+@stop
+@section('js')
+
+@endsection
