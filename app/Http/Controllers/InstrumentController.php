@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 use App\Models\Instruments;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
+use App\Models\Conditions;
+use App\Models\Departaments;
 
 class InstrumentController extends Controller
 {
@@ -13,9 +16,18 @@ class InstrumentController extends Controller
      */
     public function index()
     {
-        //
-        $instruments = Instruments::all();
-        return $instruments;
+        $instruments = Instruments::with('conditions', 'departaments')->get();
+        $heads = [
+            'ID',
+            'Nombre',
+            'Descripción',
+            'Tamaño',
+            'Stock',
+            'Departamento',
+            'Condición',
+            'Acciones',
+        ];
+        return view::make('panel.inventario.instrumentos.listaInstrumentos', compact('instruments', 'heads'));
     }
 
     /**
@@ -25,7 +37,14 @@ class InstrumentController extends Controller
      */
     public function create()
     {
-        //
+       //
+    {
+    //$instruments = Instruments::all();//
+    $conditions = Conditions::all();
+    $departaments = Departaments::all();
+
+    return view('panel.inventario.instrumentos.registroInstrumentos', compact('conditions', 'departaments'));
+    }
     }
 
     /**
@@ -43,9 +62,10 @@ class InstrumentController extends Controller
         $instrument->instrument_size = $request->instrument_size;
         $instrument->instrument_desc = $request->instrument_desc;
         $instrument->instrument_stock = $request->instrument_stock;
-        $instrument->department_fke = $request->department_fke;
+        $instrument->departament_fke = $request->departament_fke;
         $instrument->condition_fke = $request->condition_fke;
         $instrument->save();
+        return redirect()->route('inventario.instrumentos.lista');
 
     }
 
@@ -59,8 +79,8 @@ class InstrumentController extends Controller
     public function show($id)
     {
         //
-        $instrument = Instruments::find($id);
-        return $instrument;
+        $instrument = Instruments::findorFail($id);
+        return view ('panel.inventario.instrumentos.show', compact('instrument'));
     }
 
     /**
@@ -71,6 +91,11 @@ class InstrumentController extends Controller
      */
     public function edit($id)
     {
+        $instrument = Instruments::findOrFail($id);
+        $instrumentNames = Instruments::pluck('instrument_name');
+        $conditions = Conditions::all();
+        $departaments = Departaments::all();
+        return view('panel.inventario.instrumentos.edit', compact('instrument', 'instrumentNames', 'departaments', 'conditions'));
         //
     }
 
@@ -90,10 +115,10 @@ class InstrumentController extends Controller
         $instrument->instrument_size = $request->instrument_size;
         $instrument->instrument_desc = $request->instrument_desc;
         $instrument->instrument_stock = $request->instrument_stock;
-        $instrument->department_fke = $request->department_fke;
+        $instrument->departament_fke = $request->departament_fke;
         $instrument->condition_fke = $request->condition_fke;
         $instrument->save();
-        return $instrument;
+        return redirect()->route('inventario.instrumentos.lista');
     }
 
     /**
@@ -105,7 +130,8 @@ class InstrumentController extends Controller
     public function destroy($id)
     {
         //
-        $instrument = Instruments::destroy($id);
-        return $instrument;
+        $instrument = Instruments::findorFail($id);
+        $instrument->delete();
+        return redirect()->route('inventario.instrumentos.lista');
     }
 }

@@ -14,6 +14,6 @@ class Conditions extends Model
     //Relación uno a muchos inversa entre Conditions-Instruments
     public function instruments()
     {
-        return $this->belongsTo(Instruments::class);
+        return $this->belongsTo(Instruments::class, 'condition_fke');
     }
 }

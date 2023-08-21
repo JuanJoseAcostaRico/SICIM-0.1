@@ -369,7 +369,7 @@ return [
                         [
                             'text' => 'Registrar instrumento',
                             'icon' => 'fas fa-edit',
-                            'url'  => '/panel/inventario/registroinstrumento',
+                            'url'  => '/panel/inventario/instrumentos/registroinstrumento',
                             'icon_color' => 'cyan',
                             'icon_style' => 'padding-left: 20px;',
                             'class' => 'text-sm pl-6',
@@ -377,7 +377,7 @@ return [
                         [
                             'text' => 'Lista de instrumentos',
                             'icon' => 'far fa-clone',
-                            'url'  => '/panel/inventario/listainstrumento',
+                            'url'  => '/panel/inventario/instrumentos/listainstrumento',
                             'icon_color' => 'cyan',
                             'icon_style' => 'padding-left: 20px;',
                             'class' => 'text-sm pl-6',

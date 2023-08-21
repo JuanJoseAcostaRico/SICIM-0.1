@@ -11,6 +11,7 @@ use App\Models\Supplies;
 use Illuminate\Support\Facades\Auth;
 
 Route::group(['prefix' => 'panel'], function () {
+
     // Rutas de usuarios
     Route::get('usuarios/listausu', [UserController::class, 'index'])->name('usuarios.lista');
     Route::get('usuarios/registrousu', [UserController::class, 'create'])->name('usuarios.registro');
@@ -37,20 +38,16 @@ Route::group(['prefix' => 'panel'], function () {
     Route::get('inventario/insumos/{id}/edit', [SuppliesController::class, 'edit'])->name('inventario.insumos.edit');
     Route::put('inventario/insumos/{id}', [SuppliesController::class, 'update'])->name('inventario.insumos.update');
     Route::delete('inventario/insumos/{id}', [SuppliesController::class, 'destroy'])->name('inventario.insumos.destroy');
+
+    //Rutas Instrumentos
+    Route::get('inventario/instrumentos/listainstrumento', [InstrumentController::class, 'index'])->name('inventario.instrumentos.lista');
+    Route::get('inventario/instrumentos/registroinstrumento', [InstrumentController::class, 'create'])->name('inventario.instrumentos.registro');
+    Route::post('inventario/instrumentos', [InstrumentController::class, 'store'])->name('inventario.instrumentos.store');
+    Route::get('inventario/instrumentos/{id}', [InstrumentController::class, 'show'])->name('inventario.instrumentos.show');
+    Route::get('inventario/instrumentos/{id}/edit', [InstrumentController::class, 'edit'])->name('inventario.instrumentos.edit');
+    Route::put('inventario/instrumentos/{id}', [InstrumentController::class, 'update'])->name('inventario.instrumentos.update');
+    Route::delete('inventario/instrumentos/{id}', [InstrumentController::class, 'destroy'])->name('inventario.instrumentos.destroy');
 });
-
-
-
-    //Rutas para Inventario Sidebar INSTRUMENTO
-    Route::get('/panel/inventario/registroinstrumento', function () {
-        return view('panel.inventario.instrumentos.registroInstrumento');
-    });
-
-    Route::get('/panel/inventario/listainstrumento', function () {
-        return view('panel.inventario.instrumentos.listaInstrumento');
-    });
-
-
 
     //Rutas para Respaldos Sidebar
 
@@ -80,27 +77,5 @@ Route::group(['prefix' => 'panel'], function () {
         return view('panel.sistema.gestionSicim');
     });
 
-    /*
-    // Rutas de inventario
-    Route::get('inventario/registroinsumo', [SuppliesController::class, 'create'])->name('inventario.registroinsumo');
-    Route::get('inventario/listainsumo', [SuppliesController::class, 'index'])->name('inventario.listainsumo');
-    Route::get('inventario/registroinstrumento', [InstrumentController::class, 'create'])->name('inventario.registroinstrumento');
-    Route::get('inventario/listainstrumento', [InstrumentController::class, 'index'])->name('inventario.listainstrumento');
 
-
-    // Rutas de departamentos
-    Route::get('departamento/registrodep', [DepartamentController::class, 'create'])->name('departamento.registro');
-    Route::get('departamento/listadep', [DepartamentController::class, 'index'])->name('departamento.lista');
-
-    // Rutas de respaldos
-    Route::get('respaldos/respaldo', [BackupController::class, 'backup'])->name('respaldos.respaldo');
-    Route::get('respaldos/restauracion', [BackupController::class, 'restore'])->name('respaldos.restauracion');
-
-    // Rutas de reportes
-    Route::get('reportes/listarepo', [ReportController::class, 'index'])->name('reportes.lista');
-
-    // Rutas de sistema
-    Route::get('sistema/gestioncuenta', [SystemController::class, 'accountManagement'])->name('sistema.gestioncuenta');
-    Route::get('sistema/gestionsicim', [SystemController::class, 'sicimManagement'])->name('sistema.gestionsicim');
-    */
 

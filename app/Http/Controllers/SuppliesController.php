@@ -44,6 +44,29 @@ class SuppliesController extends Controller
 // Función Guardar del CRUD
     public function store(Request $request)
     {
+
+        /* $validatedData = $request->validate([
+            'state_fke' => 'required',
+            'supply_name' => 'required|max:255',
+            'supply_weight' => 'required|alpha_num',
+            'supply_posology' => 'required|max:255',
+            'supply_desc' => 'required',
+            'supply_stock' => 'required|integer|min:0',
+        ]);
+
+        // Si el código llega aquí, significa que los datos han sido validados correctamente
+
+        $supply = new Supplies();
+        $supply->state_fke = $validatedData['state_fke'];
+        $supply->supply_name = $validatedData['supply_name'];
+        $supply->supply_weight = $validatedData['supply_weight'];
+        $supply->supply_posology = $validatedData['supply_posology'];
+        $supply->supply_desc = $validatedData['supply_desc'];
+        $supply->supply_stock = $validatedData['supply_stock'];
+        $supply->save();
+
+        return redirect()->route('inventario.insumos.lista'); */
+
         $supply = new Supplies();
         $supply->state_fke = $request->state_fke;
         $supply->supply_name = $request->supply_name;
