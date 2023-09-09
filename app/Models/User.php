@@ -63,10 +63,6 @@ class User extends Authenticatable
     }
 
     // Relación directa de uno a uno entre Users-Profile
-    public function profile()
-    {
-        return $this->hasOne(Profile::class);
-    }
 
     //Relación uno a muchos inversa entre User-Departaments
     public function Departaments()

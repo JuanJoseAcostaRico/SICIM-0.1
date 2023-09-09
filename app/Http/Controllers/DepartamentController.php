@@ -78,6 +78,22 @@ class DepartamentController extends Controller
         return redirect()->route('departamento.lista');
 
     }
+
+    public function edit($id)
+    {
+        $departament = Departaments::findOrFail($id);
+        $departamentNames = Departaments::pluck('departament_name');
+        $states = States::all();
+        $users = User::all();
+        return view('panel.departamento.edit', compact('departament', 'departamentNames', 'states', 'users'));
+    }
+
+    public function show($id)
+    {
+        $departament = Departaments::findOrFail($id);
+        return view('panel.departamento.show', compact('departament'));
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -88,22 +104,8 @@ class DepartamentController extends Controller
     {
         $departament = Departaments::findorFail($id);
         $departament->delete();
-        return redirect()->route('departamento.lista');
+        return redirect()->route('departamento.lista')->with('eliminar', 'ok');
     }
 
-    public function edit($id)
-    {
-        $departament = Departaments::findOrFail($id);
-    $departamentNames = Departaments::pluck('departament_name');
-    $states = States::all();
-    $users = User::all();
-    return view('panel.departamento.edit', compact('departament', 'departamentNames', 'states', 'users'));
-    }
-
-    public function show($id)
-    {
-        $departament = Departaments::findOrFail($id);
-        return view('panel.departamento.show', compact('departament'));
-    }
 }
 

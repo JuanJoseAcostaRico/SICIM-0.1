@@ -116,13 +116,6 @@ class SuppliesController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function destroy($id)
-    {
-        $supply = Supplies::findorFail($id);
-        $supply->delete();
-        return redirect()->route('inventario.insumos.lista');
-    }
-
     public function edit($id)
     {
         $supply = Supplies::findOrFail($id);
@@ -130,4 +123,12 @@ class SuppliesController extends Controller
         $states = States::all();
         return view('panel.inventario.insumos.edit', compact('supply', 'supplyNames', 'states'));
     }
+
+    public function destroy($id)
+    {
+        $supply = Supplies::findorFail($id);
+        $supply->delete();
+        return redirect()->route('inventario.insumos.lista')->with('eliminar', 'ok');
+    }
+
 }

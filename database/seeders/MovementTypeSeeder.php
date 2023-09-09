@@ -1,13 +1,11 @@
 <?php
 
 namespace Database\Seeders;
-
+use App\Models\MovementTypes;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Profile;
 
-
-class ProfileSeeder extends Seeder
+class MovementTypeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,13 +14,11 @@ class ProfileSeeder extends Seeder
      */
     public function run()
     {
-        Profile::create([
-            'photo' => 'IMAGEN 1 ESTANDAR',
-            'user_id' => '1',
+        MovementTypes::create([
+            'movement_type_name' => 'Ingreso',
         ]);
-        Profile::create([
-            'photo' => 'IMAGEN 2 ESTANDAR',
-            'user_id' => '2',
+        MovementTypes::create([
+            'movement_type_name' => 'Egreso',
         ]);
     }
 }

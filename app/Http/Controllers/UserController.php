@@ -125,6 +125,6 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $user->delete();
-        return redirect()->route('usuarios.lista');
+        return redirect()->route('usuarios.lista')->with('eliminar', 'ok');
     }
 }

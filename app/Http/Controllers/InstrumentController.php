@@ -132,6 +132,6 @@ class InstrumentController extends Controller
         //
         $instrument = Instruments::findorFail($id);
         $instrument->delete();
-        return redirect()->route('inventario.instrumentos.lista');
+        return redirect()->route('inventario.instrumentos.lista')->with('eliminar', 'ok');
     }
 }
