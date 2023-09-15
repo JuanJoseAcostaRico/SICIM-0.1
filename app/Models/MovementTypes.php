@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class MovementTypes extends Model
 {
     use HasFactory;
+
+    //RELACION CON MOVEMENTS
+    public function movements()
+    {
+        return $this->belongsTo(Movements::class, 'movement_types_fke');
+    }
 }

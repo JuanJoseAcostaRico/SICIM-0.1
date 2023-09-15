@@ -345,6 +345,14 @@ return [
                     'icon' => 'fas fa-medkit',
                     'submenu' => [
                         [
+                            'text' => 'Movimientos de insumos',
+                            'icon' => 'fas fa-sitemap',
+                            'url'  => '/panel/inventario/insumos/movimiento/listamovimiento',
+                            'icon_color' => 'cyan',
+                            'icon_style' => 'padding-left: 10px;',
+                            'class' => 'text-sm pl-3',
+                        ],
+                        [
                             'text' => 'Registrar insumo',
                             'icon' => 'fas fa-edit',
                             'url'  => '/panel/inventario/insumos/registroinsumo',
@@ -424,36 +432,16 @@ return [
             ],
         ],
         [
-            'text' => 'Reportes',
+            'text' => 'Gestión de Reportes',
             'icon_color' => 'white',
-            'url'  => '#',
-            'icon' => 'fas fa-chart-bar',
-            'submenu' => [
-                [
-                    'text' => 'Lista de reportes',
-                    'icon' => '	far fa-file-alt',
-                    'url'  => '/panel/reportes/listarepo',
-                ],
-            ],
-
+            'url'  => '/panel/reportes/listarepo',
+            'icon' => 'far fa-file-alt',
         ],
         [
-            'text' => 'Sistema',
-            'url'  => '#',
+            'text' => 'Gestión de cuenta',
+            'url'  => '/panel/sistema/gestioncuenta',
             'icon_color' => 'white',
-            'icon' => 'fas fa-globe',
-            'submenu' => [
-                [
-                    'text' => 'Gestión de cuenta',
-                    'icon' => 'fas fa-fw fa-user',
-                    'url'  => '/panel/sistema/gestioncuenta',
-                ],
-                [
-                    'text' => 'Gestión de SICIM',
-                    'icon' => '	fas fa-wrench',
-                    'url'  => '/panel/sistema/gestionsicim',
-                ],
-            ],
+            'icon' => 'fas fa-fw fa-user',
         ],
 
 

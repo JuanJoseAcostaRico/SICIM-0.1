@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ConditionSeeder::class);
         $this->call(InstrumentSeeder::class);
         $this->call(MovementTypeSeeder::class);
+        $this->call(MovementsSeeder::class);
 
 
     }

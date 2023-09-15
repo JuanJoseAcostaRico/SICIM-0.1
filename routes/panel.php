@@ -7,6 +7,8 @@ use App\Http\Controllers\SuppliesController;
 use App\Http\Controllers\DepartamentController;
 use App\Http\Controllers\InstrumentController;
 use App\Http\Controllers\ConditionController;
+use App\Http\Controllers\MovementsController;
+use App\Models\Movements;
 use App\Models\Supplies;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,6 +41,15 @@ Route::group(['prefix' => 'panel'], function () {
     Route::put('inventario/insumos/{id}', [SuppliesController::class, 'update'])->name('inventario.insumos.update');
     Route::delete('inventario/insumos/{id}', [SuppliesController::class, 'destroy'])->name('inventario.insumos.destroy');
 
+    //Rutas Movimientos Insumos
+    Route::get('inventario/insumos/movimiento/listamovimiento', [MovementsController::class, 'index'])->name('inventario.movimientos.lista');
+    Route::get('inventario/insumos/movimiento/registromovimiento', [MovementsController::class, 'create'])->name('inventario.movimientos.registro');
+    Route::post('inventario/insumos/movimiento', [MovementsController::class, 'store'])->name('inventario.insumos.movimientos.store');
+    Route::get('inventario/insumos/movimiento/{id}', [MovementsController::class, 'show'])->name('inventario.insumos.movimientos.show');
+    Route::get('inventario/insumos/movimiento/{id}/edit', [MovementsController::class, 'edit'])->name('inventario.insumos.movimientos.edit');
+    Route::put('inventario/insumos/movimiento/{id}', [MovementsController::class, 'update'])->name('inventario.insumos.movimientos.update');
+    Route::delete('inventario/insumos/movimiento/{id}', [MovementsController::class, 'destroy'])->name('inventario.insumos.movimientos.destroy');
+
     //Rutas Instrumentos
     Route::get('inventario/instrumentos/listainstrumento', [InstrumentController::class, 'index'])->name('inventario.instrumentos.lista');
     Route::get('inventario/instrumentos/registroinstrumento', [InstrumentController::class, 'create'])->name('inventario.instrumentos.registro');
@@ -47,10 +58,14 @@ Route::group(['prefix' => 'panel'], function () {
     Route::get('inventario/instrumentos/{id}/edit', [InstrumentController::class, 'edit'])->name('inventario.instrumentos.edit');
     Route::put('inventario/instrumentos/{id}', [InstrumentController::class, 'update'])->name('inventario.instrumentos.update');
     Route::delete('inventario/instrumentos/{id}', [InstrumentController::class, 'destroy'])->name('inventario.instrumentos.destroy');
+
+    //Rutas prestamos de Instrumentos
+
 });
 
-    //Rutas para Respaldos Sidebar
+    //Demás rutas por hacer y proteger:
 
+    //Rutas para Respaldos Sidebar
     Route::get('/panel/respaldos/respaldo', function () {
         return view('panel.respaldos.respaldo');
     });
@@ -61,20 +76,14 @@ Route::group(['prefix' => 'panel'], function () {
 
 
     //Ruta para Reportes Sidebar
-
     Route::get('/panel/reportes/listarepo', function () {
         return view('panel.reportes.listaRepo');
     });
 
 
     //Rutas para Sistema Sidebar
-
     Route::get('/panel/sistema/gestioncuenta', function () {
         return view('panel.sistema.gestionCuenta');
-    });
-
-    Route::get('/panel/sistema/gestionsicim', function () {
-        return view('panel.sistema.gestionSicim');
     });
 
 
