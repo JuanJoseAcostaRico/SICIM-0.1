@@ -73,7 +73,7 @@ class SuppliesController extends Controller
         $supply->supply_weight = $request->supply_weight;
         $supply->supply_posology = $request->supply_posology;
         $supply->supply_desc = $request->supply_desc;
-        $supply->supply_stock = $request->supply_stock;
+        $supply->supply_stock = 0;
         $supply->save();
         return redirect()->route('inventario.insumos.lista');
     }

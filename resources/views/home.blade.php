@@ -15,7 +15,7 @@
                 @role('Administrador')
                     <p>Este mensaje solo lo va a ver el rol {{ $role }}</p>
                 @endrole
-                @role('Empleado')
+                @role('Usuario')
                     <p>Solo lo va a ver el rol {{ $role }}</p>
                 @endrole
                 En SICIM podras gestionar tareas administrativas del CDI de Coloncito.

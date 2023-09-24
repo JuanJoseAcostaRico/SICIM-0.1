@@ -42,6 +42,14 @@ class MovementsController extends Controller
         return redirect()->route('inventario.movimientos.lista');
     }
 
+    public function show($id)
+    {
+        $movement = Movements::findOrFail($id);
+        return view('panel.inventario.insumos.movimientos.show', compact('movement'));
+    }
+
+    /*  COMENTADO LAS ACCIONES DE CRUD DE EDITAR, ACTUALIZAR Y ELIMINAR
+
     public function update(Request $request, $id)
     {
         $movement = Movements::findOrFail($request->id);
@@ -52,12 +60,7 @@ class MovementsController extends Controller
         $movement->save();
         return redirect()->route('inventario.movimientos.lista');
     }
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
 
     public function edit($id)
     {
@@ -68,16 +71,11 @@ class MovementsController extends Controller
         return view('panel.inventario.insumos.movimientos.edit', compact('movement', 'movementDesc', 'supplies', 'movement_types'));
     }
 
-    public function show($id)
-    {
-        $movement = Movements::findOrFail($id);
-        return view('panel.inventario.insumos.movimientos.show', compact('movement'));
-    }
-
     public function destroy($id)
     {
         $movement = Movements::findorFail($id);
         $movement->delete();
         return redirect()->route('inventario.movimientos.lista')->with('eliminar', 'ok');
     }
+     FIN DE COMENTARIO */
 }

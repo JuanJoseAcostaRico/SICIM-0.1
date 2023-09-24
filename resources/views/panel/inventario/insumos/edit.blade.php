@@ -42,7 +42,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="supply_stock">Cantidad/Stock</label>
-                                <input type="text" id="supply_stock" name="supply_stock" class="form-control" required value="{{ $supply->supply_stock }}">
+                                <input type="text" id="supply_stock" name="supply_stock" class="form-control" required value="{{ $supply->supply_stock }}" readonly>
                             </div>
                         </div>
                         <div class="col-md-6">

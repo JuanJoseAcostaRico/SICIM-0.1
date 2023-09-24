@@ -40,12 +40,12 @@
                                      :input-class="'required'" :pattern="'[a-zA-Z0-9. ]+'" />
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        {{-- <div class="col-md-6">
                             <div class="form-group">
                                 <x-adminlte-input name="supply_stock" label="Cantidad" placeholder="Cantidad/stock del insumo"
                                      :input-class="'required'" :pattern="'[a-zA-Z0-9. ]+'"/>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="state_fke">Estado</label>

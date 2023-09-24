@@ -23,11 +23,14 @@
                             <td>{{ $movement->movement_types->movement_type_name }}</td>
                             <td>{{ $movement->movement_desc }}</td>
                             <td>{{ $movement->movement_stock }}</td>
-                            <td>
+                            <td class="text-center">
                                 <a href="{{ route('inventario.insumos.movimientos.show', ['id' => $movement->id]) }}"
                                     class="btn btn-sm btn-warning" title="Ver">
                                     <i class="fas fa-eye"></i>
                                 </a>
+
+                               {{-- COMENTADO LAS ACCIONES DE CRUD DE EDITAR, ACTUALIZAR Y ELIMINAR
+
                                 <a href="{{ route('inventario.insumos.movimientos.edit', ['id' => $movement->id]) }}"
                                     class="btn btn-sm btn-primary" title="Editar">
                                     <i class="fas fa-pencil-alt"></i>
@@ -40,6 +43,8 @@
                                             <i class="fas fa-trash-alt"></i>
                                         </button>
                                     </form>
+
+                                FIN DE COMENTARIO    --}}
 
                             </td>
                         </tr>

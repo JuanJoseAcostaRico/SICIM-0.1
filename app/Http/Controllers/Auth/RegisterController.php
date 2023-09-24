@@ -76,8 +76,8 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        // Asignar el rol de "Empleado" al nuevo usuario
-        $role = Role::where('name', 'Empleado')->first();
+        // Asignar el rol de "Usuario" al nuevo usuario
+        $role = Role::where('name', 'Usuario')->first();
         $user->assignRole($role);
 
         return $user;

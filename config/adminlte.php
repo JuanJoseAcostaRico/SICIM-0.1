@@ -63,12 +63,12 @@ return [
     |
     */
 
-    'logo' => '<b>SICIM</b> V-0.1',
+    'logo' => '<b>SICIM</b> Panel',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-    'logo_img_class' => 'brand-image img-circle elevation-3',
+    'logo_img_class' => 'brand-image-xl img-circle'.'p-0 pl-2',
     'logo_img_xl' => null,
-    'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'Admin Logo',
+    'logo_img_xl_class' => 'brand-image-xl',
+    'logo_img_alt' => 'SICIM LOGO',
 
     /*
     |--------------------------------------------------------------------------
@@ -379,16 +379,14 @@ return [
                             'icon' => 'fas fa-edit',
                             'url'  => '/panel/inventario/instrumentos/registroinstrumento',
                             'icon_color' => 'cyan',
-                            'icon_style' => 'padding-left: 20px;',
-                            'class' => 'text-sm pl-6',
+                            'class' => 'text-sm pl-3',
                         ],
                         [
                             'text' => 'Lista de instrumentos',
                             'icon' => 'far fa-clone',
                             'url'  => '/panel/inventario/instrumentos/listainstrumento',
                             'icon_color' => 'cyan',
-                            'icon_style' => 'padding-left: 20px;',
-                            'class' => 'text-sm pl-6',
+                            'class' => 'text-sm pl-3',
                         ],
                     ],
                 ],
@@ -438,10 +436,10 @@ return [
             'icon' => 'far fa-file-alt',
         ],
         [
-            'text' => 'Gestión de cuenta',
+            'text' => ' Gestión de cuenta',
             'url'  => '/panel/sistema/gestioncuenta',
             'icon_color' => 'white',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-address-card',
         ],
 
 
