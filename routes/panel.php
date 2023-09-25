@@ -8,8 +8,7 @@ use App\Http\Controllers\DepartamentController;
 use App\Http\Controllers\InstrumentController;
 use App\Http\Controllers\ConditionController;
 use App\Http\Controllers\MovementsController;
-use App\Models\Movements;
-use App\Models\Supplies;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Auth;
 
 Route::group(['prefix' => 'panel'], function () {
@@ -61,6 +60,23 @@ Route::group(['prefix' => 'panel'], function () {
 
     //Rutas prestamos de Instrumentos
 
+
+    //Ruta para Reportes Sidebar
+    Route::get('reportes/listarepo', function () {return view('panel.reportes.listaRepo');});
+    // reportes insumos
+    Route::get('/reportes/insumos', [ReportController::class, 'insumos'])->name('reportes.insumos');
+    Route::get('/reportes/insumosporfechas', [ReportController::class, 'insumosporfechas'])->name('reportes.insumosporfechas');
+    //reportes instrumentos
+    Route::get('/reportes/instrumentos', [ReportController::class, 'instrumentos'])->name('reportes.instrumentos');
+    Route::get('/reportes/instrumentosporfechas', [ReportController::class, 'instrumentosporfechas'])->name('reportes.instrumentosporfechas');
+    // reportes movimientos
+    Route::get('/reportes/movimientos', [ReportController::class, 'movimientos'])->name('reportes.movimientos');
+    Route::get('/reportes/movimientosporfechas', [ReportController::class, 'movimientosporfechas'])->name('reportes.movimientosporfechas');
+    //reportes prestamos
+    /*
+    Route::get('/reportes/prestamos', [ReportController::class, 'prestamos'])->name('reportes.prestamos');
+    Route::get('/reportes/prestamosporfechas', [ReportController::class, 'prestamosporfechas'])->name('reportes.prestamosporfechas');
+    */
 });
 
     //Demás rutas por hacer y proteger:
@@ -72,12 +88,6 @@ Route::group(['prefix' => 'panel'], function () {
 
     Route::get('/panel/respaldos/restauracion', function () {
         return view('panel.respaldos.restauracion');
-    });
-
-
-    //Ruta para Reportes Sidebar
-    Route::get('/panel/reportes/listarepo', function () {
-        return view('panel.reportes.listaRepo');
     });
 
 
