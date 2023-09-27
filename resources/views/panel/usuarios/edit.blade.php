@@ -17,32 +17,37 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="user_name">Nombre</label>
+                                <label for="user_name">Nombre Completo *</label>
                                 <input type="text" id="user_name" name="user_name" class="form-control" required pattern="[a-zA-Z ]+" value="{{ $user->user_name }}">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="user_email">Email</label>
+                                <label for="user_email">Email *</label>
                                 <input type="email" id="user_email" name="user_email" class="form-control" required pattern="[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+" value="{{ $user->user_email }}">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="user_phone">Teléfono</label>
-                                <input type="text" id="user_phone" name="user_phone" class="form-control" required pattern="[0-9]{7,11}" value="{{ $user->user_phone }}">
+                                <label for="user_phone">Teléfono (opcional)</label>
+                                <input type="text" id="user_phone" name="user_phone"  class="form-control" pattern="[0-9]{11}" value="{{ $user->user_phone }}">
+                                @error('user_phone')
+                                    <span class="invalid-feedback" role="alert">
+                                        {{ $message }}
+                                    </span>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="user_address">Dirección</label>
-                                <input type="text" id="user_address" name="user_address" class="form-control" required value="{{ $user->user_address }}">
+                                <label for="user_address">Dirección (opcional)</label>
+                                <input type="text" id="user_address" name="user_address" class="form-control" value="{{ $user->user_address }}">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="role">Rol</label>
-                                <select id="role" name="role" class="form-control">
+                                <label for="role">Rol *</label>
+                                <select id="role" name="role" class="form-control" required>
                                     @foreach($roles as $role)
                                         <option value="{{ $role->name }}" {{ $user->hasRole($role->name) ? 'selected' : '' }}>
                                             {{ $role->name }}
@@ -53,7 +58,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="new_password">Nueva Contraseña</label>
+                                <label for="new_password">Nueva Contraseña (opcional)</label>
                                 <div class="input-group">
                                     <input type="password" id="new_password" name="new_password" class="form-control">
                                     <div class="input-group-append">

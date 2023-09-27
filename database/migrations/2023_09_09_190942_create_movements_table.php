@@ -16,7 +16,7 @@ return new class extends Migration
     {
         Schema::create('movements', function (Blueprint $table) {
             $table->id();
-            $table->string('movement_desc');
+            $table->string('movement_desc')->nullable();
             $table->string('movement_stock');
 
             $table->unsignedBigInteger('movement_types_fke')->nullable();

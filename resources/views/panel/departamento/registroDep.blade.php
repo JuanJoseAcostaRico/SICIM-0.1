@@ -14,13 +14,13 @@
             <form action="{{ route('departamento.store') }}" method="POST">
                 @csrf
                 <div class="row">
-                    <x-adminlte-input name="departament_name" label="Nombre de departamento" placeholder="Nombre del departamento"
-                                      fgroup-class="col-md-12" :input-class="'required'"/>
+                    <x-adminlte-input name="departament_name" label="Nombre de departamento *" placeholder="Nombre del departamento"
+                                      fgroup-class="col-md-12" :input-class="'required'" required/>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="user_id">Jefe de departamento</label>
+                            <label for="user_id">Jefe de departamento *</label>
                             <select id="user_id" name="user_id" class="form-control" required>
                                 <option value="">Seleccionar Jefe de departamento</option>
                                 @foreach ($users as $user)
@@ -34,7 +34,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="state_fke">Estado</label>
+                            <label for="state_fke">Estado *</label>
                             <select id="state_fke" name="state_fke" class="form-control" required>
                                 <option value="">Seleccionar Estado</option>
                                 @foreach ($states as $state)

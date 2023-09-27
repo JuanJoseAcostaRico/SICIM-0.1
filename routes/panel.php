@@ -58,9 +58,6 @@ Route::group(['prefix' => 'panel'], function () {
     Route::put('inventario/instrumentos/{id}', [InstrumentController::class, 'update'])->name('inventario.instrumentos.update');
     Route::delete('inventario/instrumentos/{id}', [InstrumentController::class, 'destroy'])->name('inventario.instrumentos.destroy');
 
-    //Rutas prestamos de Instrumentos
-
-
     //Ruta para Reportes Sidebar
     Route::get('reportes/listarepo', function () {return view('panel.reportes.listaRepo');});
     // reportes insumos
@@ -72,11 +69,8 @@ Route::group(['prefix' => 'panel'], function () {
     // reportes movimientos
     Route::get('/reportes/movimientos', [ReportController::class, 'movimientos'])->name('reportes.movimientos');
     Route::get('/reportes/movimientosporfechas', [ReportController::class, 'movimientosporfechas'])->name('reportes.movimientosporfechas');
-    //reportes prestamos
-    /*
-    Route::get('/reportes/prestamos', [ReportController::class, 'prestamos'])->name('reportes.prestamos');
-    Route::get('/reportes/prestamosporfechas', [ReportController::class, 'prestamosporfechas'])->name('reportes.prestamosporfechas');
-    */
+
+    
 });
 
     //Demás rutas por hacer y proteger:

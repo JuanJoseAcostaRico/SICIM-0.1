@@ -17,13 +17,13 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="departament_name">Nombre de departamento</label>
+                                <label for="departament_name">Nombre de departamento *</label>
                                 <input type="text" id="departament_name" name="departament_name" class="form-control" required pattern="[a-zA-Z ]+" value="{{ $departament->departament_name }}">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="user_id">Jefe de departamento</label>
+                                <label for="user_id">Jefe de departamento *</label>
                                 <select id="user_id" name="user_id" class="form-control" required>
                                     @foreach ($users as $user)
                                         <option value="{{ $user->id }}" {{ $user->id == $departament->user_id ? 'selected' : '' }}>
@@ -35,7 +35,7 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="state_fke">Estado</label>
+                                <label for="state_fke">Estado *</label>
                                 <select id="state_fke" name="state_fke" class="form-control" required>
                                     @foreach ($states as $state)
                                         <option value="{{ $state->id }}" {{ $state->id == $departament->state_fke ? 'selected' : '' }}>

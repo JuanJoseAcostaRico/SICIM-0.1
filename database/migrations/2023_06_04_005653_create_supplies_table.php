@@ -24,8 +24,8 @@ return new class extends Migration
 
             $table->string('supply_name');
             $table->string('supply_weight');
-            $table->string('supply_posology');
-            $table->string('supply_desc');
+            $table->string('supply_posology')->nullable();
+            $table->string('supply_desc')->nullable();
             $table->string('supply_stock');
             $table->timestamps();
         });

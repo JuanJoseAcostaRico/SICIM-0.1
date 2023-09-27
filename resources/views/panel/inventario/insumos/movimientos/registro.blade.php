@@ -17,7 +17,7 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="movement_types_fke">Tipo de movimiento</label>
+                                <label for="movement_types_fke">Tipo de movimiento *</label>
                                 <select id="movement_types_fke" name="movement_types_fke" class="form-control" required>
                                     <option value="">Seleccionar tipo de movimiento</option>
                                     @foreach ($movement_types as $movement_type)
@@ -29,14 +29,13 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <x-adminlte-input name="movement_desc" label="Descripción del movimiento" placeholder="Descripción del movimiento"
-                                     :input-class="'required'" :pattern="'[a-zA-Z0-9. ]+'" />
+                                <x-adminlte-input name="movement_desc" label="Descripción del movimiento (opcional)" placeholder="Descripción del movimiento"/>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="supply_fke">Suministro</label>
+                                <label for="supply_fke">Suministro *</label>
                                 <select id="supply_fke" name="supply_fke" class="form-control" required>
                                     <option value="">Seleccionar Suministro</option>
                                     @foreach ($supplies as $supply)
@@ -46,10 +45,10 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                       <div class="col-md-6">
                             <div class="form-group">
-                                <x-adminlte-input name="movement_stock" label="Cantidad" placeholder="Cantidad/stock"
-                                     :input-class="'required'" :pattern="'[0-9 ]+'"/>
+                                <x-adminlte-input name="movement_stock" label="Cantidad *" placeholder="Cantidad/stock"
+                                    :input-class="'required'" :pattern="'[0-9 ]+'" required min="1"/>
                             </div>
                         </div>
 

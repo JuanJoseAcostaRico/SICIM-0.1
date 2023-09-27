@@ -17,32 +17,32 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <x-adminlte-input name="instrument_name" label="Nombre de Instrumento" placeholder="Nombre del instrumento"
-                                     :input-class="'required'" :pattern="'[a-zA-Z0-9. ]+'" />
+                                <x-adminlte-input name="instrument_name" label="Nombre de Instrumento *" placeholder="Nombre del instrumento"
+                                     :input-class="'required'" :pattern="'[a-zA-Z0-9. ]+'" required/>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <x-adminlte-input name="instrument_desc" label="Descripción" type="text"
+                                <x-adminlte-input name="instrument_desc" label="Descripción (opcional)" type="text"
                                     placeholder="Descripción de instrumento"  :input-class="'required'"
                                     :pattern="'[a-zA-Z0-9. ]+'" />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <x-adminlte-input name="instrument_size" label="Tamaño" placeholder="Tamaño de instrumento"
-                                     :input-class="'required'" :pattern="'[a-zA-Z0-9. ]+'"/>
+                                <x-adminlte-input name="instrument_size" label="Tamaño *" placeholder="Tamaño de instrumento"
+                                     :input-class="'required'" :pattern="'[a-zA-Z0-9. ]+'" required/>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <x-adminlte-input name="instrument_stock" label="Cantidad" placeholder="Stock de instrumento"
-                                     :input-class="'required'" :pattern="'[0-9. ]+'" />
+                                <x-adminlte-input name="instrument_serial_code" label="Código de serial *" placeholder="Código de serial"
+                                     :input-class="'required'" :pattern="'[0-9A-Z ]+'" required minlength="11" maxlength="20"/>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="departament_fke">Departamento</label>
+                                <label for="departament_fke">Departamento *</label>
                                 <select id="departament_fke" name="departament_fke" class="form-control" required>
                                     <option value="">Seleccionar Departamento</option>
                                     @foreach ($departaments as $departament)
@@ -54,7 +54,7 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="condition_fke">Condición</label>
+                                <label for="condition_fke">Condición *</label>
                                 <select id="condition_fke" name="condition_fke" class="form-control" required>
                                     <option value="">Seleccionar condición</option>
                                     @foreach ($conditions as $condition)
