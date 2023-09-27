@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('instrument_name');
             $table->string('instrument_size');
-            $table->string('instrument_desc');
-            $table->string('instrument_stock');
+            $table->string('instrument_desc')->nullable();
+            $table->string('instrument_serial_code')->unique();
 
             $table->unsignedBigInteger('departament_fke')->nullable();
             $table->foreign('departament_fke')

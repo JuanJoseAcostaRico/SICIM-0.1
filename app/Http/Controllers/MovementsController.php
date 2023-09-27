@@ -32,13 +32,31 @@ class MovementsController extends Controller
     }
     public function store(Request $request)
     {
-        //
+        // Define las reglas de validación
+        $rules = [
+            'movement_types_fke' => 'required',
+            'supply_fke' => 'required',
+            'movement_stock' => 'required|integer|min:1',
+        ];
+
+        // Define los mensajes de error personalizados si lo deseas
+        $messages = [
+            'movement_stock.required' => 'El campo Cantidad es requerido.',
+            'movement_stock.integer' => 'El campo Cantidad debe ser un número entero.',
+            'movement_stock.min' => 'El campo Cantidad debe ser al menos 1.',
+        ];
+
+        // Valida las reglas
+        $validatedData = $request->validate($rules, $messages);
+
+        // Crea un nuevo movimiento con los datos validados
         $movement = new Movements();
-        $movement->movement_types_fke = $request->movement_types_fke;
-        $movement->movement_desc = $request->movement_desc;
-        $movement->supply_fke = $request->supply_fke;
-        $movement->movement_stock = $request->movement_stock;
+        $movement->movement_types_fke = $validatedData['movement_types_fke'];
+        $movement->movement_desc = $request->movement_desc; // Este campo es opcional
+        $movement->supply_fke = $validatedData['supply_fke'];
+        $movement->movement_stock = $validatedData['movement_stock'];
         $movement->save();
+
         return redirect()->route('inventario.movimientos.lista');
     }
 

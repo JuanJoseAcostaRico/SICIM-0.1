@@ -18,7 +18,7 @@
                                 <td>{{ $instrument->instrument_name }}</td>
                                 <td>{{ $instrument->instrument_desc }}</td>
                                 <td>{{ $instrument->instrument_size }}</td>
-                                <td>{{ $instrument->instrument_stock }}</td>
+                                <td>{{ $instrument->instrument_serial_code }}</td>
                                 <td>{{ $instrument->departaments->departament_name }}</td>
                                 <td>{{ $instrument->conditions->condition_name }}</td>
                                 <td>

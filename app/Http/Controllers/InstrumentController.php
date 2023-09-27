@@ -22,7 +22,7 @@ class InstrumentController extends Controller
             'Nombre',
             'Descripción',
             'Tamaño',
-            'Stock',
+            'Serial',
             'Departamento',
             'Condición',
             'Acciones',
@@ -56,15 +56,36 @@ class InstrumentController extends Controller
     // Función Guardar del CRUD
     public function store(Request $request)
     {
-        //
-        $instrument= new Instruments();
-        $instrument->instrument_name = $request->instrument_name;
-        $instrument->instrument_size = $request->instrument_size;
-        $instrument->instrument_desc = $request->instrument_desc;
-        $instrument->instrument_stock = $request->instrument_stock;
-        $instrument->departament_fke = $request->departament_fke;
-        $instrument->condition_fke = $request->condition_fke;
+        $rules = [
+            'instrument_name' => 'required',
+            'instrument_size' => 'required',
+            'instrument_serial_code' => 'required|regex:/^[A-Z0-9]{11,20}$/',
+            'departament_fke' => 'required',
+            'condition_fke' => 'required',
+        ];
+
+        // Definir mensajes de error personalizados
+        $messages = [
+            'instrument_name.required' => 'El nombre del instrumento es obligatorio.',
+            'instrument_size.required' => 'El tamaño del instrumento es obligatorio.',
+            'instrument_serial_code.required' => 'El código serial del instrumento es obligatorio.',
+            'instrument_serial_code.regex' => 'El código serial debe contener solo letras y números y tener entre 11 y 20 caracteres.',
+            'departament_fke.required' => 'El departamento es obligatorio.',
+            'condition_fke.required' => 'La condición del instrumento es obligatoria.',
+        ];
+
+        // Validar los datos del formulario usando las reglas y mensajes personalizados
+        $validatedData = $request->validate($rules, $messages);
+
+        $instrument = new Instruments();
+        $instrument->instrument_name = $validatedData['instrument_name'];
+        $instrument->instrument_size = $validatedData['instrument_size'];
+        $instrument->instrument_desc = $request->input('instrument_desc'); // Puede ser nulo
+        $instrument->instrument_serial_code = $validatedData['instrument_serial_code'];
+        $instrument->departament_fke = $validatedData['departament_fke'];
+        $instrument->condition_fke = $validatedData['condition_fke'];
         $instrument->save();
+
         return redirect()->route('inventario.instrumentos.lista');
 
     }
@@ -109,15 +130,37 @@ class InstrumentController extends Controller
     //Función para actualizar en el CRUD
     public function update(Request $request, $id)
     {
-        //
-        $instrument = Instruments::findOrFail($request->id);
-        $instrument->instrument_name = $request->instrument_name;
-        $instrument->instrument_size = $request->instrument_size;
-        $instrument->instrument_desc = $request->instrument_desc;
-        $instrument->instrument_stock = $request->instrument_stock;
-        $instrument->departament_fke = $request->departament_fke;
-        $instrument->condition_fke = $request->condition_fke;
+        $rules = [
+            'instrument_name' => 'required',
+            'instrument_size' => 'required',
+            'instrument_serial_code' => 'required|regex:/^[A-Z0-9]{11,20}$/',
+            'departament_fke' => 'required',
+            'condition_fke' => 'required',
+        ];
+
+        // Definir mensajes de error personalizados
+        $messages = [
+            'instrument_name.required' => 'El nombre del instrumento es obligatorio.',
+            'instrument_size.required' => 'El tamaño del instrumento es obligatorio.',
+            'instrument_serial_code.required' => 'El código serial del instrumento es obligatorio.',
+            'instrument_serial_code.regex' => 'El código serial debe contener solo letras y números y tener entre 11 y 20 caracteres.',
+            'departament_fke.required' => 'El departamento es obligatorio.',
+            'condition_fke.required' => 'La condición del instrumento es obligatoria.',
+        ];
+
+        // Validar los datos del formulario usando las reglas y mensajes personalizados
+        $validatedData = $request->validate($rules, $messages);
+
+        // En lugar de buscar el instrumento por $request->id, utiliza el ID proporcionado en la URL ($id)
+        $instrument = Instruments::findOrFail($id);
+        $instrument->instrument_name = $validatedData['instrument_name'];
+        $instrument->instrument_size = $validatedData['instrument_size'];
+        $instrument->instrument_desc = $request->input('instrument_desc'); // Puede ser nulo
+        $instrument->instrument_serial_code = $validatedData['instrument_serial_code'];
+        $instrument->departament_fke = $validatedData['departament_fke'];
+        $instrument->condition_fke = $validatedData['condition_fke'];
         $instrument->save();
+
         return redirect()->route('inventario.instrumentos.lista');
     }
 

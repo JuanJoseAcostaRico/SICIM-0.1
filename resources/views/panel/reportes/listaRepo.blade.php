@@ -8,7 +8,6 @@
 
 @section('content')
 
-
     <div class="col-12">
 
         <x-adminlte-card title="Reportes de insumos" theme="primary" icon="fas fa-medkit" collapsible>
@@ -20,11 +19,11 @@
                         <div class="row text-center mt-3">
                             <div class="col-md-6">
                                 <label for="start_date">Fecha de inicio</label>
-                                <input type="date" name="start_date" class="form-control">
+                                <input type="date" name="start_date" class="form-control" min="2023-01-02" max="<?= date('Y-m-d'); ?>" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="end_date">Fecha de fin</label>
-                                <input type="date" name="end_date" class="form-control">
+                                <input type="date" name="end_date" class="form-control" min="2023-01-02" max="<?= date('Y-m-d'); ?>" required>
                             </div>
                             <div class="col-md-12 mt-1">
                                 <button type="submit" class="btn btn-primary mt-3">Generar Reporte por rango de fechas</button>
@@ -52,11 +51,11 @@
                         <div class="row text-center mt-3">
                             <div class="col-md-6">
                                 <label for="start_date">Fecha de inicio</label>
-                                <input type="date" name="start_date" class="form-control">
+                                <input type="date" name="start_date" class="form-control" min="2023-01-02" max="<?= date('Y-m-d'); ?>" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="end_date">Fecha de fin</label>
-                                <input type="date" name="end_date" class="form-control">
+                                <input type="date" name="end_date" class="form-control" min="2023-01-02" max="<?= date('Y-m-d'); ?>" required>
                             </div>
                             <div class="col-md-12 mt-1">
                                 <button type="submit" class="btn btn-primary mt-3">Generar Reporte por rango de fechas</button>
@@ -84,11 +83,11 @@
                         <div class="row text-center mt-3">
                             <div class="col-md-6">
                                 <label for="start_date">Fecha de inicio</label>
-                                <input type="date" name="start_date" class="form-control">
+                                <input type="date" name="start_date" class="form-control" min="2023-01-02" max="<?= date('Y-m-d'); ?>" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="end_date">Fecha de fin</label>
-                                <input type="date" name="end_date" class="form-control">
+                                <input type="date" name="end_date" class="form-control" min="2023-01-02" max="<?= date('Y-m-d'); ?>" required>
                             </div>
                             <div class="col-md-12 mt-1">
                                 <button type="submit" class="btn btn-primary mt-3">Generar Reporte por rango de fechas</button>
@@ -107,36 +106,4 @@
             </div>
         </x-adminlte-card>
 
-        {{-- COMENTADO REPORTE PRESTAMO D EINSTRUMENTOS
-            <x-adminlte-card title="Reportes de prestamos de instrumentos" theme="primary" icon="fas fa-stethoscope" collapsible>
-            <div class="col-md-12">
-                <div class="box-body ml-4 mr-4">
-                    <h3 class="text-center">Reporte de prestamos de instrumentos por rango de fechas:</h3>
-                    <form action="" method="get">
-                        @csrf
-                        <div class="row text-center mt-3">
-                            <div class="col-md-6">
-                                <label for="start_date">Fecha de inicio</label>
-                                <input type="date" name="start_date" class="form-control">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="end_date">Fecha de fin</label>
-                                <input type="date" name="end_date" class="form-control">
-                            </div>
-                            <div class="col-md-12 mt-1">
-                                <button type="submit" class="btn btn-primary mt-3">Generar Reporte por rango de fechas</button>
-                            </div>
-                        </div>
-                    </form>
-                    <hr>
-                    <h3 class="text-center">Reporte de prestamos de instrumentos general:</h3>
-                    <p align="justify" class="mt-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit debitis sed porro!
-                        Enim adipisci at, dolores tempora, odit repellendus ipsum, placeat et cum quae suscipit itaque!
-                        Culpa necessitatibus corporis expedita?</p>
-                    <div class="text-center">
-                        <a href="{{ route('reportes.prestamos') }}" class="btn btn-primary mt-1">Generar Reporte General</a>
-                    </div>
-                </div>
-            </div>
-        </x-adminlte-card> --}}
     @stop

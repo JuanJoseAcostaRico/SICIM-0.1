@@ -31,8 +31,8 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="instrument_stock">Cantidad/Stock</label>
-                            <input type="text" id="instrument_stock" class="form-control" value="{{ $instrument->instrument_stock }}" readonly>
+                            <label for="instrument_serial_code">Código de serial</label>
+                            <input type="text" id="instrument_serial_code" class="form-control" value="{{ $instrument->instrument_serial_code }}" readonly>
                         </div>
                     </div>
                     <div class="col-md-6">
