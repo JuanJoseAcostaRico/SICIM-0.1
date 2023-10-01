@@ -414,20 +414,8 @@ return [
         [
             'text' => 'Respaldos',
             'icon_color' => 'white',
-            'url'  => '#',
+            'url'  => '/panel/respaldos/respaldo',
             'icon' => '	fas fa-database',
-            'submenu' => [
-                [
-                    'text' => 'Respaldar',
-                    'icon' => '	fas fa-upload',
-                    'url'  => '/panel/respaldos/respaldo',
-                ],
-                [
-                    'text' => 'Restaurar',
-                    'icon' => 'fas fa-download',
-                    'url'  => '/panel/respaldos/restauracion',
-                ],
-            ],
         ],
         [
             'text' => 'Gestión de Reportes',
@@ -515,6 +503,7 @@ return [
                     'asset' => false,
                     'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
                 ],
+
             ],
         ],
         'Select2' => [

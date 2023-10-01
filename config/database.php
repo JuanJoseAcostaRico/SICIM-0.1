@@ -58,6 +58,11 @@ return [
             'prefix_indexes' => true,
             'strict' => false,
             'engine' => 'InnoDB',
+            'useSingleTransaction' => true, // Utilizar transacción única para una copia de seguridad más consistente
+            'dump' => [
+                'dump_binary_path' => 'C:/xampp/mysql/bin/',
+            ],
+            'timeout' => 60 * 3, // 3 minute timeout
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
