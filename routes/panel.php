@@ -9,6 +9,7 @@ use App\Http\Controllers\InstrumentController;
 use App\Http\Controllers\ConditionController;
 use App\Http\Controllers\MovementsController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\BackupController;
 use Illuminate\Support\Facades\Auth;
 
 Route::group(['prefix' => 'panel'], function () {
@@ -70,15 +71,11 @@ Route::group(['prefix' => 'panel'], function () {
     Route::get('/reportes/movimientos', [ReportController::class, 'movimientos'])->name('reportes.movimientos');
     Route::get('/reportes/movimientosporfechas', [ReportController::class, 'movimientosporfechas'])->name('reportes.movimientosporfechas');
 
-    
+    //Respaldos
+    Route::get('/respaldos/respaldo', [BackupController::class, 'index'])->name('respaldo.index');
+    Route::post('/respaldos', [BackupController::class, 'crearRespaldo'])->name('respaldo.crearRespaldo');
+
 });
-
-    //Demás rutas por hacer y proteger:
-
-    //Rutas para Respaldos Sidebar
-    Route::get('/panel/respaldos/respaldo', function () {
-        return view('panel.respaldos.respaldo');
-    });
 
     Route::get('/panel/respaldos/restauracion', function () {
         return view('panel.respaldos.restauracion');
