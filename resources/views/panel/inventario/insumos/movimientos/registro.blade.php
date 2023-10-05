@@ -39,7 +39,11 @@
                                 <select id="supply_fke" name="supply_fke" class="form-control" required>
                                     <option value="">Seleccionar Suministro</option>
                                     @foreach ($supplies as $supply)
-                                        <option value="{{ $supply->id }}">{{ $supply->supply_name }}</option>
+                                        <option value=
+                                            "{{ $supply->id }}">
+                                            {{ $supply->supply_name }}
+                                            (Stock: {{ $supply->supply_stock }})
+                                        </option>
                                     @endforeach
                                 </select>
                             </div>
@@ -48,7 +52,7 @@
                        <div class="col-md-6">
                             <div class="form-group">
                                 <x-adminlte-input name="movement_stock" label="Cantidad *" placeholder="Cantidad/stock"
-                                    :input-class="'required'" :pattern="'[0-9 ]+'" required min="1"/>
+                                    :input-class="'required'" :pattern="'^[1-9][0-9]*$'" required min="1"/>
                             </div>
                         </div>
 
@@ -67,6 +71,7 @@
 @stop
 
 @section('js')
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const newsupplyForm = document.getElementById('new_supply_form');
