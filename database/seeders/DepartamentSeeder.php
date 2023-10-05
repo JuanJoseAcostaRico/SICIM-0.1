@@ -31,7 +31,7 @@ class DepartamentSeeder extends Seeder
             'user_id' => '1',
         ]);
         Departaments::create([
-            'departament_name' => 'odontología',
+            'departament_name' => 'Odontología',
             'state_fke' => '1',
             'user_id' => '1',
         ]);

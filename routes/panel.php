@@ -71,15 +71,16 @@ Route::group(['prefix' => 'panel'], function () {
     Route::get('/reportes/movimientos', [ReportController::class, 'movimientos'])->name('reportes.movimientos');
     Route::get('/reportes/movimientosporfechas', [ReportController::class, 'movimientosporfechas'])->name('reportes.movimientosporfechas');
 
-    //Respaldos
+    //Respaldos Y Restauración
     Route::get('/respaldos/respaldo', [BackupController::class, 'index'])->name('respaldo.index');
-    Route::post('/respaldos', [BackupController::class, 'crearRespaldo'])->name('respaldo.crearRespaldo');
+    Route::post('/respaldos/crear', [BackupController::class, 'crearRespaldo'])->name('respaldo.crearRespaldo');
+    Route::post('/respaldos/restaurar', [BackupController::class, 'restaurarRespaldo'])->name('respaldo.restaurarRespaldo');
 
 });
 
-    Route::get('/panel/respaldos/restauracion', function () {
+    /*Route::get('/panel/respaldos/restauracion', function () {
         return view('panel.respaldos.restauracion');
-    });
+    });*/
 
 
     //Rutas para Sistema Sidebar

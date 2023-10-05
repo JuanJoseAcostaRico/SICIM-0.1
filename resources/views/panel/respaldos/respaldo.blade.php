@@ -12,21 +12,21 @@
             <x-adminlte-card title="Crear respaldo" theme="primary" icon="fas fa-upload" collapsible>
                 <form method="POST" action="{{ route('respaldo.crearRespaldo') }}" class="form-backup">
                     @csrf
-                    <h3 class="text-center">Boton generar backup de la base de datos</h3>
+                    <h3 class="text-center">Generar respaldo de SICIM</h3>
                     <p align="justify" class="mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore enim
                         dolore veritatis
                         sint maxime? Beatae nam, tenetur maiores repellat minima aut voluptatibus? Corrupti
                         sed tempore porro neque fugiat nesciunt sint?</p>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-danger mt-3">Crear respaldo de base de datos</button>
+                        <button type="submit" class="btn btn-danger mt-3">Crear respaldo</button>
                     </div>
                 </form>
             </x-adminlte-card>
 
             <x-adminlte-card title="Restauración de respaldo" theme="primary" icon="fas fa-download" collapsible>
-                <form method="POST" action="" class="form-restore" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('respaldo.restaurarRespaldo') }}" class="form-restore" enctype="multipart/form-data">
                     @csrf
-                    <h3 class="text-center">Restauración de base de datos del sistema</h3>
+                    <h3 class="text-center">Restauración de SICIM</h3>
                     <p align="justify" class="mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
                         tempore
                         ipsa corporis tenetur repellat itaque fugiat error quod odit voluptatibus distinctio quae, eius,
@@ -74,6 +74,16 @@
             Swal.fire(
                 'Acción realizada exitosamente!',
                 'El respaldo se creo correctamente',
+                "success"
+            )
+        </script>
+    @endif
+
+    @if (session('restaurado') == 'ok')
+        <script>
+            Swal.fire(
+                'Acción realizada exitosamente!',
+                'La restauración se realizó correctamente',
                 "success"
             )
         </script>

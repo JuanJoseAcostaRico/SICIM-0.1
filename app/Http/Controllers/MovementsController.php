@@ -49,6 +49,19 @@ class MovementsController extends Controller
         // Valida las reglas
         $validatedData = $request->validate($rules, $messages);
 
+        // Verifica si el stock disponible es suficiente para un movimiento de egreso
+
+        if ($validatedData['movement_types_fke'] == 2) {
+            $supply = Supplies::find($validatedData['supply_fke']);
+            if ($supply && $supply->supply_stock < $validatedData['movement_stock']) {
+                // Manejar el escenario de stock insuficiente
+                return redirect()->route('inventario.movimientos.lista')->with('creado', 'error');
+            }
+        }
+
+        //return redirect()->route('inventario.movimientos.lista')->with('creado', 'ok');
+        //return redirect()->route('inventario.movimientos.lista')->with('creado', 'error');
+
         // Crea un nuevo movimiento con los datos validados
         $movement = new Movements();
         $movement->movement_types_fke = $validatedData['movement_types_fke'];
@@ -57,7 +70,7 @@ class MovementsController extends Controller
         $movement->movement_stock = $validatedData['movement_stock'];
         $movement->save();
 
-        return redirect()->route('inventario.movimientos.lista');
+        return redirect()->route('inventario.movimientos.lista')->with('creado', 'ok');
     }
 
     public function show($id)
