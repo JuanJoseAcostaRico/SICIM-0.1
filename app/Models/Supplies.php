@@ -17,4 +17,10 @@ class Supplies extends Model
     {
         return $this->belongsTo(States::class, 'state_fke');
     }
+
+    //RELACION CON MOVEMENTS
+    public function movements()
+    {
+        return $this->belongsTo(Movements::class, 'supply_fke');
+    }
 }

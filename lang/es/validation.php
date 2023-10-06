@@ -162,6 +162,7 @@ return [
         'district'                 => 'distrito',
         'duration'                 => 'duración',
         'email'                    => 'correo electrónico',
+        'user_email'               => 'email',
         'excerpt'                  => 'extracto',
         'filter'                   => 'filtro',
         'first_name'               => 'nombre',

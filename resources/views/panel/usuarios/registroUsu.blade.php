@@ -17,32 +17,32 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <x-adminlte-input name="user_name" label="Nombre" placeholder="Nombre del usuario"
-                                     :input-class="'required'" :pattern="'[a-zA-Z ]+'" />
+                                <x-adminlte-input name="user_name" label="Nombre Completo *" placeholder="Ingrese su nombre completo"
+                                     :input-class="'required'" :pattern="'[a-zA-Z ]+'" required/>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <x-adminlte-input name="user_email" label="Email" type="email"
+                                <x-adminlte-input name="user_email" label="Email *" type="email"
                                     placeholder="Email del usuario"  :input-class="'required'"
-                                    :pattern="'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+'" />
+                                    :pattern="'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+'" required/>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <x-adminlte-input name="user_phone" label="Teléfono" placeholder="Teléfono del usuario"
-                                     :input-class="'required'" :pattern="'[0-9]{7,11}'" minlength="11" />
+                                <x-adminlte-input name="user_phone" label="Teléfono (opcional)" placeholder="Ingresa tu número de teléfono sin letras ni signos"
+                                     :pattern="'[0-9]{7,11}'" minlength="11"/>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <x-adminlte-input name="user_address" label="Dirección" placeholder="Dirección del usuario"
-                                     :input-class="'required'" />
+                                <x-adminlte-input name="user_address" label="Dirección (opcional)" placeholder="Dirección del usuario"
+                                     />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="role">Rol</label>
+                                <label for="role">Rol *</label>
                                 <select name="role" id="role" class="form-control" required>
                                     <option value="">Seleccione un rol</option>
                                     @foreach ($roles as $role)
@@ -53,7 +53,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="password">Contraseña</label>
+                                <label for="password">Contraseña *</label>
                                 <div class="input-group">
                                     <input type="password" id="password" name="password" class="form-control" minlength="8" required>
                                     <div class="input-group-append">

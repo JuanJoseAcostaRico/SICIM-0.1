@@ -63,12 +63,12 @@ return [
     |
     */
 
-    'logo' => '<b>SICIM</b> V-0.1',
+    'logo' => '<b>SICIM</b> Panel',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-    'logo_img_class' => 'brand-image img-circle elevation-3',
+    'logo_img_class' => 'brand-image-xl img-circle'.'p-0 pl-2',
     'logo_img_xl' => null,
-    'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'Admin Logo',
+    'logo_img_xl_class' => 'brand-image-xl',
+    'logo_img_alt' => 'SICIM LOGO',
 
     /*
     |--------------------------------------------------------------------------
@@ -345,6 +345,14 @@ return [
                     'icon' => 'fas fa-medkit',
                     'submenu' => [
                         [
+                            'text' => 'Movimientos de insumos',
+                            'icon' => 'fas fa-sitemap',
+                            'url'  => '/panel/inventario/insumos/movimiento/listamovimiento',
+                            'icon_color' => 'cyan',
+                            'icon_style' => 'padding-left: 10px;',
+                            'class' => 'text-sm pl-3',
+                        ],
+                        [
                             'text' => 'Registrar insumo',
                             'icon' => 'fas fa-edit',
                             'url'  => '/panel/inventario/insumos/registroinsumo',
@@ -369,18 +377,16 @@ return [
                         [
                             'text' => 'Registrar instrumento',
                             'icon' => 'fas fa-edit',
-                            'url'  => '/panel/inventario/registroinstrumento',
+                            'url'  => '/panel/inventario/instrumentos/registroinstrumento',
                             'icon_color' => 'cyan',
-                            'icon_style' => 'padding-left: 20px;',
-                            'class' => 'text-sm pl-6',
+                            'class' => 'text-sm pl-3',
                         ],
                         [
                             'text' => 'Lista de instrumentos',
                             'icon' => 'far fa-clone',
-                            'url'  => '/panel/inventario/listainstrumento',
+                            'url'  => '/panel/inventario/instrumentos/listainstrumento',
                             'icon_color' => 'cyan',
-                            'icon_style' => 'padding-left: 20px;',
-                            'class' => 'text-sm pl-6',
+                            'class' => 'text-sm pl-3',
                         ],
                     ],
                 ],
@@ -408,52 +414,20 @@ return [
         [
             'text' => 'Respaldos',
             'icon_color' => 'white',
-            'url'  => '#',
+            'url'  => '/panel/respaldos/respaldo',
             'icon' => '	fas fa-database',
-            'submenu' => [
-                [
-                    'text' => 'Respaldar',
-                    'icon' => '	fas fa-upload',
-                    'url'  => '/panel/respaldos/respaldo',
-                ],
-                [
-                    'text' => 'Restaurar',
-                    'icon' => 'fas fa-download',
-                    'url'  => '/panel/respaldos/restauracion',
-                ],
-            ],
         ],
         [
-            'text' => 'Reportes',
+            'text' => 'Gestión de Reportes',
             'icon_color' => 'white',
-            'url'  => '#',
-            'icon' => 'fas fa-chart-bar',
-            'submenu' => [
-                [
-                    'text' => 'Lista de reportes',
-                    'icon' => '	far fa-file-alt',
-                    'url'  => '/panel/reportes/listarepo',
-                ],
-            ],
-
+            'url'  => '/panel/reportes/listarepo',
+            'icon' => 'far fa-file-alt',
         ],
         [
-            'text' => 'Sistema',
-            'url'  => '#',
+            'text' => ' Gestión de cuenta',
+            'url'  => '/panel/sistema/gestioncuenta',
             'icon_color' => 'white',
-            'icon' => 'fas fa-globe',
-            'submenu' => [
-                [
-                    'text' => 'Gestión de cuenta',
-                    'icon' => 'fas fa-fw fa-user',
-                    'url'  => '/panel/sistema/gestioncuenta',
-                ],
-                [
-                    'text' => 'Gestión de SICIM',
-                    'icon' => '	fas fa-wrench',
-                    'url'  => '/panel/sistema/gestionsicim',
-                ],
-            ],
+            'icon' => 'fas fa-address-card',
         ],
 
 
@@ -529,6 +503,7 @@ return [
                     'asset' => false,
                     'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
                 ],
+
             ],
         ],
         'Select2' => [

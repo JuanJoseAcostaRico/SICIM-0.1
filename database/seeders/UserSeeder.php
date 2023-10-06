@@ -30,7 +30,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('12345678'),
             'user_phone' => '04247537848',
             'user_address' => 'Coloncito calle 11',
-        ])->assignRole('Empleado');
+        ])->assignRole('Usuario');
 
         User::create([
             'user_name' => 'Director',
@@ -46,6 +46,6 @@ class UserSeeder extends Seeder
             'password' => Hash::make('12345678'),
             'user_phone' => '04247537848',
             'user_address' => 'Coloncito calle 11',
-        ])->assignRole('Empleado');
+        ])->assignRole('Usuario');
     }
 }

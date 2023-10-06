@@ -34,7 +34,7 @@
                                     <i class="fas fa-pencil-alt"></i>
                                 </a>
 
-                                <form action="{{ route('usuarios.destroy', ['id' => $user->id]) }}" method="POST" style="display: inline;">
+                                <form action="{{ route('usuarios.destroy', ['id' => $user->id]) }}" method="POST" class="form-delete" style="display: inline;">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-xs btn-danger" title="Eliminar">
@@ -52,6 +52,37 @@
 @stop
 
 @section('js')
+
+    @if (session('eliminar') == 'ok')
+        <script>
+            Swal.fire(
+                'Eliminado!',
+                'Registro fue eliminado exitosamente',
+                "success"
+            )
+        </script>
+    @endif
+
+    <script>
+        $('.form-delete').submit(function(e) {
+            e.preventDefault();
+
+            Swal.fire({
+                title: 'Estás seguro de eliminar el usuario?',
+                text: "No puedes revertir esto!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, eliminar',
+                cancelButtonText: 'No, cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.submit();
+                }
+            })
+        });
+    </script>
 
 @endsection
 

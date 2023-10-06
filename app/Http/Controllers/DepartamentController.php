@@ -45,11 +45,30 @@ class DepartamentController extends Controller
     }
     public function store(Request $request)
     {
+        // Define las reglas de validación
+        $rules = [
+            'departament_name' => 'required',
+            'state_fke' => 'required',
+            'user_id' => 'required',
+        ];
+
+        // Define los mensajes de error personalizados si lo deseas
+        $messages = [
+            'departament_name.required' => 'El campo Nombre del Departamento es requerido.',
+            'state_fke.required' => 'El campo Estado es requerido.',
+            'user_id.required' => 'El campo ID de Usuario es requerido.',
+        ];
+
+        // Valida las reglas
+        $validatedData = $request->validate($rules, $messages);
+
+        // Crea un nuevo departamento con los datos validados
         $departament = new Departaments();
-        $departament->departament_name = $request->departament_name;
-        $departament->state_fke = $request->state_fke;
-        $departament->user_id = $request->user_id;
+        $departament->departament_name = $validatedData['departament_name'];
+        $departament->state_fke = $validatedData['state_fke'];
+        $departament->user_id = $validatedData['user_id'];
         $departament->save();
+
         return redirect()->route('departamento.lista');
     }
     /**
@@ -69,15 +88,53 @@ class DepartamentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $departament = Departaments::findOrFail($request->id);
-        $departament->departament_name = $request->departament_name;
-        $departament->state_fke = $request->state_fke;
-        $departament->user_id = $request->user_id;
+        // Define las reglas de validación
+        $rules = [
+            'departament_name' => 'required',
+            'state_fke' => 'required',
+            'user_id' => 'required',
+        ];
+
+        // Define los mensajes de error personalizados si lo deseas
+        $messages = [
+            'departament_name.required' => 'El campo Nombre del Departamento es requerido.',
+            'state_fke.required' => 'El campo Estado es requerido.',
+            'user_id.required' => 'El campo ID de Usuario es requerido.',
+        ];
+
+        // Valida las reglas
+        $validatedData = $request->validate($rules, $messages);
+
+        // Encuentra el departamento por ID
+        $departament = Departaments::findOrFail($id);
+
+        // Actualiza los campos con los datos validados
+        $departament->departament_name = $validatedData['departament_name'];
+        $departament->state_fke = $validatedData['state_fke'];
+        $departament->user_id = $validatedData['user_id'];
+
+        // Guarda los cambios
         $departament->save();
 
         return redirect()->route('departamento.lista');
 
     }
+
+    public function edit($id)
+    {
+        $departament = Departaments::findOrFail($id);
+        $departamentNames = Departaments::pluck('departament_name');
+        $states = States::all();
+        $users = User::all();
+        return view('panel.departamento.edit', compact('departament', 'departamentNames', 'states', 'users'));
+    }
+
+    public function show($id)
+    {
+        $departament = Departaments::findOrFail($id);
+        return view('panel.departamento.show', compact('departament'));
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -88,22 +145,8 @@ class DepartamentController extends Controller
     {
         $departament = Departaments::findorFail($id);
         $departament->delete();
-        return redirect()->route('departamento.lista');
+        return redirect()->route('departamento.lista')->with('eliminar', 'ok');
     }
 
-    public function edit($id)
-    {
-        $departament = Departaments::findOrFail($id);
-    $departamentNames = Departaments::pluck('departament_name');
-    $states = States::all();
-    $users = User::all();
-    return view('panel.departamento.edit', compact('departament', 'departamentNames', 'states', 'users'));
-    }
-
-    public function show($id)
-    {
-        $departament = Departaments::findOrFail($id);
-        return view('panel.departamento.show', compact('departament'));
-    }
 }
 

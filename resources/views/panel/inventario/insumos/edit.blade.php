@@ -17,37 +17,37 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="supply_name">Nombre Insumo</label>
+                                <label for="supply_name">Nombre Insumo *</label>
                                 <input type="text" id="supply_name" name="supply_name" class="form-control" required value="{{ $supply->supply_name }}">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="supply_desc">Descripción</label>
-                                <input type="text" id="supply_desc" name="supply_desc" class="form-control" required value="{{ $supply->supply_desc }}">
+                                <label for="supply_desc">Descripción (opcional)</label>
+                                <input type="text" id="supply_desc" name="supply_desc" class="form-control" value="{{ $supply->supply_desc }}">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="supply_weight">Peso</label>
+                                <label for="supply_weight">Peso *</label>
                                 <input type="text" id="supply_weight" name="supply_weight" class="form-control" required value="{{ $supply->supply_weight }}">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="supply_posology">Posología</label>
-                                <input type="text" id="supply_posology" name="supply_posology" class="form-control" required value="{{ $supply->supply_posology }}">
+                                <label for="supply_posology">Posología (opcional)</label>
+                                <input type="text" id="supply_posology" name="supply_posology" class="form-control" value="{{ $supply->supply_posology }}">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="supply_stock">Cantidad/Stock</label>
-                                <input type="text" id="supply_stock" name="supply_stock" class="form-control" required value="{{ $supply->supply_stock }}">
+                                <label for="supply_stock">Cantidad/Stock (no editable)</label>
+                                <input type="text" id="supply_stock" name="supply_stock" class="form-control" required value="{{ $supply->supply_stock }}" readonly>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="state_fke">Estado</label>
+                                <label for="state_fke">Estado *</label>
                                 <select id="state_fke" name="state_fke" class="form-control" required>
                                     @foreach ($states as $state)
                                         <option value="{{ $state->id }}" {{ $state->id == $supply->state_fke ? 'selected' : '' }}>

@@ -17,38 +17,38 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <x-adminlte-input name="supply_name" label="Nombre de insumo" placeholder="Nombre del insumo"
-                                     :input-class="'required'" :pattern="'[a-zA-Z0-9. ]+'" />
+                                <x-adminlte-input name="supply_name" label="Nombre de insumo *" placeholder="Nombre del insumo"
+                                     :input-class="'required'" :pattern="'[a-zA-Z0-9. ]+'" required/>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <x-adminlte-input name="supply_desc" label="Descripción" type="text"
+                                <x-adminlte-input name="supply_desc" label="Descripción (opcional)" type="text"
                                     placeholder="Descripción de insumo"  :input-class="'required'"
                                     :pattern="'[a-zA-Z0-9. ]+'" />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <x-adminlte-input name="supply_weight" label="Peso" placeholder="Peso de insumo"
-                                     :input-class="'required'" :pattern="'[a-zA-Z0-9. ]+'"/>
+                                <x-adminlte-input name="supply_weight" label="Peso *" placeholder="Peso de insumo"
+                                     :input-class="'required'" :pattern="'[a-zA-Z0-9. ]+'" required/>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <x-adminlte-input name="supply_posology" label="Posología" placeholder="Posología del insumo"
+                                <x-adminlte-input name="supply_posology" label="Posología (opcional)" placeholder="Posología del insumo"
                                      :input-class="'required'" :pattern="'[a-zA-Z0-9. ]+'" />
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        {{-- <div class="col-md-6">
                             <div class="form-group">
                                 <x-adminlte-input name="supply_stock" label="Cantidad" placeholder="Cantidad/stock del insumo"
                                      :input-class="'required'" :pattern="'[a-zA-Z0-9. ]+'"/>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="state_fke">Estado</label>
+                                <label for="state_fke">Estado *</label>
                                 <select id="state_fke" name="state_fke" class="form-control" required>
                                     <option value="">Seleccionar Estado</option>
                                     @foreach ($states as $state)

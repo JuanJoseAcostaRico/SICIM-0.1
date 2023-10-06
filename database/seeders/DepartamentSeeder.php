@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Departaments;
 
-class Departamentseeder extends Seeder
+class DepartamentSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -31,7 +31,7 @@ class Departamentseeder extends Seeder
             'user_id' => '1',
         ]);
         Departaments::create([
-            'departament_name' => 'odontología',
+            'departament_name' => 'Odontología',
             'state_fke' => '1',
             'user_id' => '1',
         ]);

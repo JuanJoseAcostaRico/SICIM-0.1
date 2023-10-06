@@ -49,24 +49,21 @@ class User extends Authenticatable
 
     public function adminlte_image()
     {
-        return 'https://picsum.photos/300/300';
+        // return 'https://picsum.photos/300/300';
+        return asset('images/logocdi.png');
     }
     public function adminlte_desc()
     {
         if ($this->hasRole('Administrador')) {
             return 'Administrador';
-        } elseif ($this->hasRole('Empleado')) {
-            return 'Empleado';
+        } elseif ($this->hasRole('Usuario')) {
+            return 'Usuario';
         } else {
             return 'No tienes un rol asignado';
         }
     }
 
     // Relación directa de uno a uno entre Users-Profile
-    public function profile()
-    {
-        return $this->hasOne(Profile::class);
-    }
 
     //Relación uno a muchos inversa entre User-Departaments
     public function Departaments()

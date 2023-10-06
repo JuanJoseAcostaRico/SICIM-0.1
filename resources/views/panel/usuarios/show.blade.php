@@ -13,7 +13,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="user_name">Nombre</label>
+                            <label for="user_name">Nombre Completo</label>
                             <input type="text" id="user_name" class="form-control" value="{{ $user->user_name }}" readonly>
                         </div>
                     </div>
