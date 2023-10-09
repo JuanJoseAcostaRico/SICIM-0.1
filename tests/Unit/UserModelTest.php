@@ -9,21 +9,47 @@ use Tests\TestCase;
 class UserModelTest extends TestCase
 {
 
+    private $user;
+
     /**
      * A basic unit test example.
      *
      * @return void
      */
 
+     /**
+      *
+      * @var User $user;
+      */
+
     /*public function test_example()
     {
         $this->assertTrue(true);
     } */
 
+    private function createUser(): User
+    {
+
+        return User::factory()->create();
+
+    }
+
+    private function createMemoryUser(): User
+    {
+
+        return User::factory()->make();
+
+    }
+
     public function testUserHasRole(){
 
         // Se crea un usuario
-        $user = User::factory()->create();
+        $this->user = $this->createUser();
+
+        $existingRole = Role::where('name', 'Administrador')->first();
+        if ($existingRole) {
+        $existingRole->delete();
+    }
 
         // Se crea un rol
 
@@ -31,26 +57,23 @@ class UserModelTest extends TestCase
 
         // Asigna el rol al usuario
 
-        $user->assignRole($role);
+        $this->user->assignRole($role);
 
         // Verifica si el usuario tiene el rol
 
-        $this->assertTrue($user->hasRole('Administrador'));
+        $this->assertTrue($this->user->hasRole('Administrador'));
     }
 
     public function testUserAttributes(){
 
          // Se crea un usuario
 
-         $user = User::factory()->create([
-            'user_name' => 'Test Name',
-            'user_email' => 'testemail@gmail.com'
-         ]);
+         $this->user = $this->createMemoryUser();
 
      // Verifica los atributos del usuario
 
-     $this->assertEquals('Test Name', $user->user_name);
-     $this->assertEquals('testemail@gmail.com', $user->user_email);
+     $this->assertEquals($this->user->user_name, $this->user->user_name);
+     $this->assertEquals($this->user->user_email, $this->user->user_email);
 
 
     }

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
-
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Departaments;
+use App\Models\Supplies;
+use App\Models\Instruments;
 
 class HomeController extends Controller
 {
@@ -24,9 +27,16 @@ class HomeController extends Controller
      */
     public function index()
     {
+
         $user = Auth::user();
         $role = $user->roles->first()->name;
 
-        return view('home', compact('role'));
+        $totalUsers = User::count();
+        $totalDepartaments = Departaments::count();
+        $totalSupplies = Supplies::count();
+        $totalInstruments =Instruments::count();
+
+        return view('home', compact('role', 'totalUsers', 'totalDepartaments',
+         'totalSupplies', 'totalInstruments'));
     }
 }

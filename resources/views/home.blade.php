@@ -29,7 +29,7 @@
                 <span class="info-box-icon bg-primary"><i class="fas fa-users"></i></span>
                 <div class="info-box-content">
                     <span class="info-box-text">Usuarios <br> Totales</span>
-                    <span class="info-box-number">8</span>
+                    <span class="info-box-number">{{ $totalUsers }}</span>
                 </div>
 
             </div>
@@ -41,7 +41,7 @@
                 <span class="info-box-icon bg-info"><i class="fas fa-hospital"></i></span>
                 <div class="info-box-content">
                     <span class="info-box-text">Departamentos <br> Totales</span>
-                    <span class="info-box-number">10</span>
+                    <span class="info-box-number">{{ $totalDepartaments }}</span>
                 </div>
 
             </div>
@@ -53,7 +53,7 @@
                 <span class="info-box-icon bg-warning"><i class="fas fa-medkit"></i></span>
                 <div class="info-box-content">
                     <span class="info-box-text">Insumos <br> Registrados</span>
-                    <span class="info-box-number">18</span>
+                    <span class="info-box-number">{{ $totalSupplies }}</span>
                 </div>
 
             </div>
@@ -65,7 +65,7 @@
                 <span class="info-box-icon bg-danger"><i class="fas fa-stethoscope"></i></span>
                 <div class="info-box-content">
                     <span class="info-box-text">Intrumentos <br> Registrados</span>
-                    <span class="info-box-number">18</span>
+                    <span class="info-box-number">{{ $totalInstruments }}</span>
                 </div>
 
             </div>
