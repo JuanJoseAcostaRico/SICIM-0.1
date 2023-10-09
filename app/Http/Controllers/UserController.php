@@ -27,7 +27,7 @@ class UserController extends Controller
 
         ];
         // Retornamos la vista con las 2 variables creadas anteriormente
-        return View::make('panel.usuarios.listaUsu', compact('users', 'heads'));
+        return View::make('panel.usuarios.listausu', compact('users', 'heads'));
 
     }
 
