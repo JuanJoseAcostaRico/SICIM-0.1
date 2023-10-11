@@ -36,7 +36,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="instrument_serial_code">Código de serial *</label>
-                                <input type="text" id="instrument_serial_code" name="instrument_serial_code" class="form-control" pattern="'[0-9A-Z ]+'" required minlength="11" maxlength="20" value="{{ $instrument->instrument_serial_code }}">
+                                <input type="text" id="instrument_serial_code" name="instrument_serial_code" class="form-control" pattern="[0-9A-Z]+" required minlength="11" maxlength="20" value="{{ $instrument->instrument_serial_code }}">
                             </div>
                         </div>
                         <div class="col-md-6">

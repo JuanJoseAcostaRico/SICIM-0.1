@@ -35,9 +35,9 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="supply_fke">Suministro *</label>
+                                <label for="supply_fke">Insumo *</label>
                                 <select id="supply_fke" name="supply_fke" class="form-control" required>
-                                    <option value="">Seleccionar Suministro</option>
+                                    <option value="">Seleccionar Insumo</option>
                                     @foreach ($supplies as $supply)
                                         <option value=
                                             "{{ $supply->id }}">

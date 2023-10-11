@@ -37,7 +37,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <x-adminlte-input name="instrument_serial_code" label="Código de serial *" placeholder="Código de serial"
-                                     :input-class="'required'" :pattern="'[0-9A-Z ]+'" required minlength="11" maxlength="20"/>
+                                     :input-class="'required'" :pattern="'[0-9A-Z]+'" required minlength="11" maxlength="20"/>
                             </div>
                         </div>
                         <div class="col-md-6">

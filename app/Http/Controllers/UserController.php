@@ -39,7 +39,7 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::all();
-        return View::make('panel.usuarios.registroUsu', compact('roles'));
+        return View::make('panel.usuarios.registrousu', compact('roles'));
     }
     public function store(Request $request)
     {
@@ -77,7 +77,7 @@ class UserController extends Controller
         $user->assignRole($request->role);
 
         // Redireccionar a la página deseada después de guardar el usuario
-        return redirect()->route('usuarios.lista');
+        return redirect()->route('usuarios.lista')->with('creacion', 'ok');
     }
     /**
      * Display the specified resource.
@@ -135,7 +135,7 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect()->route('usuarios.lista');
+        return redirect()->route('usuarios.lista')->with('edicion', 'ok');
     }
     /**
      * Remove the specified resource from storage.

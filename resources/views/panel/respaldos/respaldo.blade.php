@@ -24,7 +24,8 @@
             </x-adminlte-card>
 
             <x-adminlte-card title="Restauración de respaldo" theme="primary" icon="fas fa-download" collapsible>
-                <form method="POST" action="{{ route('respaldo.restaurarRespaldo') }}" class="form-restore" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('respaldo.restaurarRespaldo') }}" class="form-restore"
+                    enctype="multipart/form-data">
                     @csrf
                     <h3 class="text-center">Restauración de SICIM</h3>
                     <p align="justify" class="mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
@@ -35,7 +36,8 @@
 
                     <div class="text-center mb-3 ml-5 mr-5">
                         <div class="justify-content-center">
-                            <x-adminlte-input-file name="backup" placeholder="Seleccionar archivo .zip" id="fileInput" igroup-size="xl">
+                            <x-adminlte-input-file name="backup" placeholder="Seleccionar archivo .zip" id="fileInput"
+                                igroup-size="xl">
                                 <x-slot name="prependSlot">
                                     <div class="input-group-text">
                                         <i class="fas fa-file-archive"></i>
@@ -69,12 +71,22 @@
 
 @section('js')
 
-    @if (session('creado') == 'ok')
+    @if (session('creadorespaldo') == 'ok')
         <script>
             Swal.fire(
-                'Acción realizada exitosamente!',
-                'El respaldo se creo correctamente',
+                'Creación exitosa!',
+                'El respaldo de la base de datos fue creado exitosamente',
                 "success"
+            )
+        </script>
+    @endif
+
+    @if (session('creadorespaldo') == 'error')
+        <script>
+            Swal.fire(
+                'Error al crear respaldo',
+                'Hubo un problema al crear el respaldo de la base de datos',
+                "error"
             )
         </script>
     @endif
@@ -82,22 +94,24 @@
     @if (session('restaurado') == 'ok')
         <script>
             Swal.fire(
-                'Acción realizada exitosamente!',
-                'La restauración se realizó correctamente',
+                'Restauración exitosa!',
+                'Los datos de la base de datos se restauraron exitosamente',
                 "success"
             )
         </script>
     @endif
 
-    {{--     @if (session('creado') == 'Oops...')
+    @if (session('restaurado') == 'error')
         <script>
             Swal.fire(
-                '¡Algo salió mal!',
-                'El respaldo se no creo correctamente',
+                'Error al restaurar respaldo',
+                'Hubo un problema al restaurar el respaldo de la base de datos',
                 "error"
             )
         </script>
-    @endif --}}
+    @endif
+
+
 
     <script>
         $('.form-backup').submit(function(e) {

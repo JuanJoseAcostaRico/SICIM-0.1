@@ -38,7 +38,7 @@ class SuppliesController extends Controller
     {
         $states = States::all();
 
-        return view('panel.inventario.insumos.registroInsumos', compact('states'));
+        return view('panel.inventario.insumos.registroinsumos', compact('states'));
     }
 
 // Función Guardar del CRUD
@@ -73,7 +73,7 @@ class SuppliesController extends Controller
         $supply->save();
 
         // Redireccionar a la página deseada después de guardar el insumo
-        return redirect()->route('inventario.insumos.lista');
+        return redirect()->route('inventario.insumos.lista')->with('creacion', 'ok');
     }
     /**
      * Display the specified resource.
@@ -126,7 +126,7 @@ class SuppliesController extends Controller
         $supply->supply_stock = $validatedData['supply_stock'];
         $supply->save();
 
-        return redirect()->route('inventario.insumos.lista');
+        return redirect()->route('inventario.insumos.lista')->with('edicion', 'ok');
     }
     /**
      * Remove the specified resource from storage.

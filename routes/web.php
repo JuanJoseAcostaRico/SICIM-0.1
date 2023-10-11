@@ -31,6 +31,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/register', [App\Http\Controllers\HomeController::class, 'showRegistrationForm'])->name('showRegistrationForm');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 /* Route::controller(UserController::class)->group(function () {

@@ -82,4 +82,10 @@ class RegisterController extends Controller
 
         return $user;
     }
+
+    public function showRegistrationForm()
+    {
+        // Redirigir a la página de inicio (Home)
+        return redirect()->route('home');
+    }
 }

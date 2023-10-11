@@ -60,6 +60,26 @@
         </script>
     @endif
 
+    @if (session('creacion') == 'ok')
+        <script>
+            Swal.fire(
+                'Creación exitosa!',
+                'El insumo fue creado exitosamente',
+                "success"
+            )
+        </script>
+    @endif
+
+    @if (session('edicion') == 'ok')
+        <script>
+            Swal.fire(
+                'Edición exitosa!',
+                'El insumo fue editado exitosamente',
+                "success"
+            )
+        </script>
+    @endif
+
     <script>
         $('.form-delete').submit(function(e) {
             e.preventDefault();

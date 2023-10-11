@@ -107,3 +107,30 @@
         </x-adminlte-card>
 
     @stop
+
+    @section('js')
+
+    {{-- @if (session('insumos_general') == 'ok')
+        <script>
+            Swal.fire(
+                'Reporte generado con éxito!',
+                'El reporte general de los insumos se generó exitosamente',
+                "success"
+            )
+        </script>
+    @endif
+
+    @if (session('insumos_por_fecha') == 'ok')
+        <script>
+            Swal.fire(
+                'Reporte generado con éxito!',
+                'El reporte por fechas de los insumos se generó exitosamente',
+                "success"
+            )
+        </script>
+
+    @endif --}}
+
+
+
+    @endsection

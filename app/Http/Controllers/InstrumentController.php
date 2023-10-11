@@ -86,7 +86,7 @@ class InstrumentController extends Controller
         $instrument->condition_fke = $validatedData['condition_fke'];
         $instrument->save();
 
-        return redirect()->route('inventario.instrumentos.lista');
+        return redirect()->route('inventario.instrumentos.lista')->with('creacion', 'ok');
 
     }
 
@@ -161,7 +161,7 @@ class InstrumentController extends Controller
         $instrument->condition_fke = $validatedData['condition_fke'];
         $instrument->save();
 
-        return redirect()->route('inventario.instrumentos.lista');
+        return redirect()->route('inventario.instrumentos.lista')->with('edicion', 'ok');
     }
 
     /**

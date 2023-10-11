@@ -68,6 +68,16 @@
         </script>
     @endif
 
+    @if (session('creado') == 'ok')
+        <script>
+            Swal.fire(
+                'Creación exitosa!',
+                'El movimiento de insumo fue registrado exitosamente',
+                "success"
+            )
+        </script>
+    @endif
+
     <script>
         $('.form-delete').submit(function(e) {
             e.preventDefault();

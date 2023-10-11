@@ -69,7 +69,7 @@ class DepartamentController extends Controller
         $departament->user_id = $validatedData['user_id'];
         $departament->save();
 
-        return redirect()->route('departamento.lista');
+        return redirect()->route('departamento.lista')->with('creacion', 'ok');
     }
     /**
      * Display the specified resource.
@@ -116,7 +116,7 @@ class DepartamentController extends Controller
         // Guarda los cambios
         $departament->save();
 
-        return redirect()->route('departamento.lista');
+        return redirect()->route('departamento.lista')->with('edicion', 'ok');
 
     }
 

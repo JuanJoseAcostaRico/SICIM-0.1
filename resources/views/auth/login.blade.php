@@ -94,13 +94,13 @@
     @endif --}}
 
     {{-- Register link --}}
-    @if($register_url)
+    {{-- @if($register_url)
         <p class="my-0">
             <a href="{{ $register_url }}">
                 {{ __('adminlte::adminlte.register_a_new_membership') }}
             </a>
         </p>
-    @endif
+    @endif --}}
 
     <div class="text-center" style="padding-top: 10px;">
     <a href="{{ route('custom_welcome') }}" class="btn btn-primary">Volver a la página principal</a>

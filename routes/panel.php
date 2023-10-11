@@ -60,7 +60,7 @@ Route::group(['prefix' => 'panel'], function () {
     Route::delete('inventario/instrumentos/{id}', [InstrumentController::class, 'destroy'])->name('inventario.instrumentos.destroy');
 
     //Ruta para Reportes Sidebar
-    Route::get('reportes/listarepo', function () {return view('panel.reportes.listaRepo');});
+    Route::get('reportes/listarepo', function () {return view('panel.reportes.listaRepo');})->name('panel.reportes');
     // reportes insumos
     Route::get('/reportes/insumos', [ReportController::class, 'insumos'])->name('reportes.insumos');
     Route::get('/reportes/insumosporfechas', [ReportController::class, 'insumosporfechas'])->name('reportes.insumosporfechas');

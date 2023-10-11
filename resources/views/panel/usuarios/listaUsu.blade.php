@@ -63,6 +63,26 @@
         </script>
     @endif
 
+    @if (session('creacion') == 'ok')
+        <script>
+            Swal.fire(
+                'Registro exitoso!',
+                'El usuario fue registrado exitosamente',
+                "success"
+            )
+        </script>
+    @endif
+
+    @if (session('edicion') == 'ok')
+        <script>
+            Swal.fire(
+                'Edición exitosa!',
+                'El usuario fue editado exitosamente',
+                "success"
+            )
+        </script>
+    @endif
+
     <script>
         $('.form-delete').submit(function(e) {
             e.preventDefault();

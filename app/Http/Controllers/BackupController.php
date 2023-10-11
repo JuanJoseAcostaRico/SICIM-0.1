@@ -16,49 +16,47 @@ class BackupController extends Controller
 
     public function crearRespaldo(Request $request)
     {
-        // Ejecutar el comando para crear el respaldo
-        Artisan::call('backup:run', ['--only-db' => true,
-        '--disable-notifications' => true]);
+        try {
+            // Ejecutar el comando para crear el respaldo
+            Artisan::call('backup:run', ['--only-db' => true, '--disable-notifications' => true]);
 
-        // Redirigir de vuelta con un mensaje de éxito
-        return redirect()->route('respaldo.index')->with('creado', 'ok');
+            // Redirigir de vuelta con un mensaje de éxito
+            return redirect()->route('respaldo.index')->with('creadorespaldo', 'ok');
+        } catch (\Exception $e) {
+            // Algo salió mal, redirigir con un mensaje de error
+            return redirect()->route('respaldo.index')->with('creadorespaldo', 'error');
+        }
     }
 
     public function restaurarRespaldo(Request $request)
     {
+        try {
+            $backupFile = $request->file('backup');
 
-        $backupFile = $request->file('backup');
+            if ($backupFile) {
+                // Mover el archivo a una ubicación temporal (storage/app/temp)
+                $temporaryPath = $backupFile->storeAs('temp', $backupFile->getClientOriginalName(), 'local');
 
-        if($backupFile){
-            // Mover el archivo a una ubicación temporal (storage/app/temp)
-            $temporaryPath = $backupFile->storeAs
-            ('temp', $backupFile->getClientOriginalName(), 'local');
+                // Ejecutar comando artisan:restore con flags
+                Artisan::call('backup:restore', [
+                    '--disk' => 'local',
+                    '--backup' => $temporaryPath,
+                    '--env' => true,
+                    '-n' => true,
+                ]);
 
-            //Ejecutar comando artisan:restore con flags
+                // Eliminar el archivo temporal creado
+                Storage::disk('local')->delete($temporaryPath);
 
-            Artisan::call('backup:restore', [
-                '--disk' => 'local',
-                '--backup' => $temporaryPath,
-                '--env' => true,
-                '-n' => true
-
-            ]);
-
-            // Eliminar el archivo temporal creado
-
-            Storage::disk('local')->delete($temporaryPath);
-
-            //
-
-            return redirect()->route('respaldo.index')->with('restaurado', 'ok');
-
-
-
-
-        } else{
-
-            return redirect()->route('respaldo.index')->with('creado', 'ok');
+                // Redirigir de vuelta con un mensaje de éxito
+                return redirect()->route('respaldo.index')->with('restaurado', 'ok');
+            } else {
+                // Algo salió mal, redirigir con un mensaje de error
+                return redirect()->route('respaldo.index')->with('restaurado', 'error');
+            }
+        } catch (\Exception $e) {
+            // Algo salió mal, redirigir con un mensaje de error
+            return redirect()->route('respaldo.index')->with('restaurado', 'error');
         }
-
     }
 }

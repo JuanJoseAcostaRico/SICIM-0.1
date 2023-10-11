@@ -20,12 +20,13 @@ class ReportController extends Controller
     //Reporte general insumos
     public function insumos(Request $request)
     {
-        $now = Carbon::now(); // Obtiene la fecha y hora actual
-        // Formatea la fecha en el formato que desees (por ejemplo, Y-m-d_His para incluir fecha y hora)
+        $now = Carbon::now();
+
         $formattedDate = $now->format('Y-m-d_His');
         $fileName = 'insumos_lista_general_reporte_'.$formattedDate.'.xlsx';
-        // Genera un reporte general con el nombre de archivo que incluye la fecha
+
         return Excel::download(new InsumosExport(), $fileName);
+        // return redirect()->route('panel.reportes')->with('insumos_general', 'ok');
     }
 
     //Reporte por fechas insumos
