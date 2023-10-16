@@ -26,9 +26,10 @@
                             <td>{{ $departament->user->user_name }}</td>
                             <td>{{ $departament->states->state_name }}</td>
                             <td>
-                                <a href="{{ route('departamento.show', ['id' => $departament->id]) }}" class="btn btn-xs btn-warning" title="Ver">
+                                <a href="{{ route('departamento.show', ['id' => $departament->id]) }}" class="btn btn-xs btn-info" title="Ver">
                                     <i class="fas fa-eye"></i>
                                 </a>
+                                @can('departamento.buttons')
                                 <a href="{{ route('departamento.edit', ['id' => $departament->id]) }}" class="btn btn-xs btn-primary" title="Editar">
                                     <i class="fas fa-pencil-alt"></i>
                                 </a>
@@ -40,6 +41,7 @@
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
                                 </form>
+                                @endcan
                             </td>
                         </tr>
                     @endforeach

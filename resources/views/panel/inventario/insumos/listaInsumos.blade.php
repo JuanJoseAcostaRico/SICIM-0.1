@@ -22,9 +22,11 @@
                             <td>{{ $supply->states->state_name }}</td>
                             <td>
                                 <a href="{{ route('inventario.insumos.show', ['id' => $supply->id]) }}"
-                                    class="btn btn-xs btn-warning" title="Ver">
+                                    class="btn btn-xs btn-info" title="Ver">
                                     <i class="fas fa-eye"></i>
                                 </a>
+
+                                @can('inventario.insumos.buttons')
                                 <a href="{{ route('inventario.insumos.edit', ['id' => $supply->id]) }}"
                                     class="btn btn-xs btn-primary" title="Editar">
                                     <i class="fas fa-pencil-alt"></i>
@@ -37,7 +39,7 @@
                                             <i class="fas fa-trash-alt"></i>
                                         </button>
                                     </form>
-
+                                @endcan
                             </td>
                         </tr>
                     @endforeach

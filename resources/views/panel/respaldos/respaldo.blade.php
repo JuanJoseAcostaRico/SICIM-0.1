@@ -12,13 +12,18 @@
             <x-adminlte-card title="Crear respaldo" theme="primary" icon="fas fa-upload" collapsible>
                 <form method="POST" action="{{ route('respaldo.crearRespaldo') }}" class="form-backup">
                     @csrf
-                    <h3 class="text-center">Generar respaldo de SICIM</h3>
-                    <p align="justify" class="mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore enim
-                        dolore veritatis
-                        sint maxime? Beatae nam, tenetur maiores repellat minima aut voluptatibus? Corrupti
-                        sed tempore porro neque fugiat nesciunt sint?</p>
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-danger mt-3">Crear respaldo</button>
+                    <div class="ml-5 mr-5">
+                        <h4 class="text-center">Generar respaldo de SICIM</h4>
+                        <p align="justify" class="mt-3">Para generar un respaldo en SICIM y mantener tus datos seguros,
+                            simplemente presiona el botón "Crear respaldo". Esta acción te permitirá guardar una copia de
+                            seguridad de tu sistema, asegurando la protección de tus valiosos datos y facilitando su
+                            recuperación en caso de ser necesario. Es un proceso rápido y sencillo que garantiza la
+                            continuidad y la seguridad de tu información en SICIM.</p>
+                        @can('panel.respaldo.buttons')
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-info mt-3">Crear respaldo</button>
+                        </div>
+                        @endcan
                     </div>
                 </form>
             </x-adminlte-card>
@@ -27,29 +32,32 @@
                 <form method="POST" action="{{ route('respaldo.restaurarRespaldo') }}" class="form-restore"
                     enctype="multipart/form-data">
                     @csrf
-                    <h3 class="text-center">Restauración de SICIM</h3>
-                    <p align="justify" class="mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
-                        tempore
-                        ipsa corporis tenetur repellat itaque fugiat error quod odit voluptatibus distinctio quae, eius,
-                        aliquam quasi! Nihil unde libero rerum cum.</p>
+                    <div class="ml-5 mr-5">
+                        <h4 class="text-center">Restauración de SICIM</h4>
+                        <p align="justify" class="mt-3">Para restaurar datos en SICIM y recuperar información previamente
+                            respaldada, simplemente presiona el botón "Buscar", selecciona el archivo .zip y presiona el
+                            botón "Restaurar". Al hacerlo, podrás acceder a tus datos previos y restaurar tu sistema a un
+                            estado anterior, en caso de ser necesario. Este proceso es fácil y rápido, permitiéndote
+                            recuperar datos de manera eficiente y mantener la continuidad de tu trabajo en SICIM.</p>
 
-
-                    <div class="text-center mb-3 ml-5 mr-5">
-                        <div class="justify-content-center">
-                            <x-adminlte-input-file name="backup" placeholder="Seleccionar archivo .zip" id="fileInput"
-                                igroup-size="xl">
-                                <x-slot name="prependSlot">
-                                    <div class="input-group-text">
-                                        <i class="fas fa-file-archive"></i>
-                                    </div>
-                                </x-slot>
-                                <x-slot name="appendSlot">
-                                    <button class="btn btn-primary" type="submit">Restaurar</button>
-                                </x-slot>
-                            </x-adminlte-input-file>
+                        @can('panel.respaldo.buttons')
+                        <div class="text-center mb-3 ml-5 mr-5">
+                            <div class="justify-content-center">
+                                <x-adminlte-input-file name="backup" placeholder="Seleccionar archivo .zip" id="fileInput"
+                                    igroup-size="xl" accept=".zip" max="100MB">
+                                    <x-slot name="prependSlot">
+                                        <div class="input-group-text">
+                                            <i class="fas fa-file-archive"></i>
+                                        </div>
+                                    </x-slot>
+                                    <x-slot name="appendSlot">
+                                        <button class="btn btn-primary" type="submit">Restaurar</button>
+                                    </x-slot>
+                                </x-adminlte-input-file>
+                            </div>
                         </div>
+                        @endcan
                     </div>
-
                 </form>
             </x-adminlte-card>
         </div>
@@ -154,5 +162,15 @@
             })
         });
     </script>
+
+     @if (session('creadorespaldo') == 'Demasiados intentos. Intente nuevamente más tarde')
+        <script>
+            Swal.fire(
+                    'Demasiados intentos',
+                    'Intente nuevamente más tarde',
+                    "error"
+                )
+        </script>
+    @endif
 
 @endsection

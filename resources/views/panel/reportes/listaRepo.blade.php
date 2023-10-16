@@ -10,6 +10,7 @@
 
     <div class="col-12">
 
+        @can('panel.reportes.buttons')
         <x-adminlte-card title="Reportes de insumos" theme="primary" icon="fas fa-medkit" collapsible>
             <div class="col-md-12">
                 <div class="box-body ml-4 mr-4">
@@ -105,6 +106,7 @@
                 </div>
             </div>
         </x-adminlte-card>
+        @endcan
 
     @stop
 

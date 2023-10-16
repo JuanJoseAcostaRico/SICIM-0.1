@@ -10,15 +10,34 @@
     <div class="row">
         <div class="col-12">
             <x-adminlte-card title="Bienvenido a SICIM" theme="primary" icon="fas fa-lg fa-bell" collapsible>
-                Estás logeado en SICIM! ahora disfruta de la experiencia, usuario: {{ auth()->user()->user_name }}
-                <br>
-                @role('Administrador')
-                    <p>Este mensaje solo lo va a ver el rol {{ $role }}</p>
-                @endrole
-                @role('Usuario')
-                    <p>Solo lo va a ver el rol {{ $role }}</p>
-                @endrole
-                En SICIM podras gestionar tareas administrativas del CDI de Coloncito.
+
+                <div class="ml-5 mr-5">
+                    <h4 class="text-center">¡Bienvenido al Sistema SICIM usuario: {{ auth()->user()->user_name }}, con el
+                        rol: {{ $role }} ! </h4>
+
+                    <p align="justify" class="mt-3">En el Sistema de Inventario de Control Médico (SICIM), podras gestionar
+                        tareas administrativas del CDI de Coloncito.. Si eres
+                        nuevo en SICIM o simplemente deseas refrescar tus conocimientos sobre cómo utilizar este sistema,
+                        estamos aquí para brindarte toda la ayuda que necesitas. Para acceder al Manual Explicativo y
+                        aprender a sacar el máximo provecho de SICIM, simplemente haz clic
+                        en el botón de "Ver Manual Explicativo". Este recurso te
+                        proporcionará instrucciones claras y fáciles de seguir para navegar por el sistema de manera
+                        eficiente.
+                    @role('Administrador')
+                        <div class="text-center  mt-4">
+                            <a href="{{ asset('manuals/normas.pdf#toolbar=0') }}" target="_blank"><button
+                                    class="btn btn-primary">Ver Manual Explicativo</button></a>
+                        </div>
+                    @endrole
+                    @role('Usuario')
+                        <div class="text-center  mt-4">
+                            <a href="{{ asset('manuals/normas.pdf#toolbar=0') }}" target="_blank"><button
+                                    class="btn btn-primary">Ver Manual Explicativo</button></a>
+                        </div>
+                    @endrole
+                    </p>
+                </div>
+
             </x-adminlte-card>
         </div>
     </div>
@@ -38,7 +57,7 @@
 
         <div class="col-md-3 col-sm-6 col-12">
             <div class="info-box shadow">
-                <span class="info-box-icon bg-info"><i class="fas fa-hospital"></i></span>
+                <span class="info-box-icon bg-secondary"><i class="fas fa-hospital"></i></span>
                 <div class="info-box-content">
                     <span class="info-box-text">Departamentos <br> Totales</span>
                     <span class="info-box-number">{{ $totalDepartaments }}</span>
@@ -50,7 +69,7 @@
 
         <div class="col-md-3 col-sm-6 col-12">
             <div class="info-box shadow">
-                <span class="info-box-icon bg-warning"><i class="fas fa-medkit"></i></span>
+                <span class="info-box-icon bg-info"><i class="fas fa-medkit"></i></span>
                 <div class="info-box-content">
                     <span class="info-box-text">Insumos <br> Registrados</span>
                     <span class="info-box-number">{{ $totalSupplies }}</span>
@@ -125,16 +144,3 @@
     </div>
 
         FIN AREA DE CARDS DE EJEMPLO        --}}
-
-{{-- AREA SCRIPT ALERTA DE EJEMPLO HECHO CON SWEETALERT2
-@section('js')
-    <script>
-        Swal.fire(
-            'Buen Trabajo, todo funciona bien!',
-            'Presiona el botón!',
-            'success'
-            )
-    </script>
-@stop
-
---}}

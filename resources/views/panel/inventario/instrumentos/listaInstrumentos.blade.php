@@ -22,20 +22,22 @@
                                 <td>{{ $instrument->departaments->departament_name }}</td>
                                 <td>{{ $instrument->conditions->condition_name }}</td>
                                 <td>
-                                    <a href="{{ route('inventario.instrumentos.show', ['id' => $instrument->id]) }}" class="btn btn-xs btn-warning" title="Ver">
+                                    <a href="{{ route('inventario.instrumentos.show', ['id' => $instrument->id]) }}" class="btn btn-xs btn-info" title="Ver">
                                         <i class="fas fa-eye"></i>
                                     </a>
-                                    <a href="{{ route('inventario.instrumentos.edit', ['id' => $instrument->id]) }}" class="btn btn-xs btn-primary" title="Editar">
-                                        <i class="fas fa-pencil-alt"></i>
-                                    </a>
+                                    @can('inventario.instrumentos.buttons')
+                                        <a href="{{ route('inventario.instrumentos.edit', ['id' => $instrument->id]) }}" class="btn btn-xs btn-primary" title="Editar">
+                                            <i class="fas fa-pencil-alt"></i>
+                                        </a>
 
-                                    <form action="{{ route('inventario.instrumentos.destroy', ['id' => $instrument->id]) }}" method="POST" class="form-delete" style="display: inline;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-xs btn-danger" title="Eliminar">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
-                                    </form>
+                                        <form action="{{ route('inventario.instrumentos.destroy', ['id' => $instrument->id]) }}" method="POST" class="form-delete" style="display: inline;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-xs btn-danger" title="Eliminar">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </form>
+                                    @endcan
                                 </td>
                             </tr>
                         @endforeach

@@ -27,9 +27,10 @@
                             <td>{{ $user->user_phone }}</td>
                             <td>{{ $user->roles->implode('name', ', ') }}</td>
                             <td>
-                                <a href="{{ route('usuarios.show', ['id' => $user->id]) }}" class="btn btn-xs btn-warning" title="Ver">
+                                <a href="{{ route('usuarios.show', ['id' => $user->id]) }}" class="btn btn-xs btn-info" title="Ver">
                                     <i class="fas fa-eye"></i>
                                 </a>
+                                @can('usuarios.buttons')
                                 <a href="{{ route('usuarios.edit', ['id' => $user->id]) }}" class="btn btn-xs btn-primary" title="Editar">
                                     <i class="fas fa-pencil-alt"></i>
                                 </a>
@@ -41,6 +42,7 @@
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
                                 </form>
+                                 @endcan
                             </td>
                         </tr>
                     @endforeach

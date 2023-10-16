@@ -319,6 +319,7 @@ return [
             'icon_color' => 'white',
             'url'  => '#',
             'icon' => 'fas fa-fw fa-users',
+            'can' => 'menu.admin',
             'submenu' => [
                 [
                     'text' => 'Registrar Usuario',
@@ -401,6 +402,7 @@ return [
                 [
                     'text' => 'Registrar departamento',
                     'icon' => 'fas fa-edit',
+                    'can' => 'menu.admin',
                     'url'  => '/panel/departamento/registrodep',
                 ],
                 [
@@ -410,25 +412,27 @@ return [
                 ],
             ],
         ],
-        ['header' => 'Área de Sistema'],
+
         [
             'text' => 'Respaldos',
             'icon_color' => 'white',
             'url'  => '/panel/respaldos/respaldo',
+            'can' => 'menu.admin',
             'icon' => '	fas fa-database',
         ],
         [
             'text' => 'Gestión de Reportes',
             'icon_color' => 'white',
             'url'  => '/panel/reportes/listarepo',
+            'can' => 'menu.admin',
             'icon' => 'far fa-file-alt',
         ],
-        [
+        /* [
             'text' => ' Gestión de cuenta',
             'url'  => '/panel/sistema/gestioncuenta',
             'icon_color' => 'white',
             'icon' => 'fas fa-address-card',
-        ],
+        ], */
 
 
         /*

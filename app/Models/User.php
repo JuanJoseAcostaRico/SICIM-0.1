@@ -70,4 +70,8 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Departaments::class, 'user_id');
     }
+
+    public function adminlte_profile_url(){
+        
+    }
 }

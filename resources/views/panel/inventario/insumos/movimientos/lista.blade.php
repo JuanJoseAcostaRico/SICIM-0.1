@@ -25,7 +25,7 @@
                             <td>{{ $movement->movement_stock }}</td>
                             <td class="text-center">
                                 <a href="{{ route('inventario.insumos.movimientos.show', ['id' => $movement->id]) }}"
-                                    class="btn btn-sm btn-warning" title="Ver">
+                                    class="btn btn-sm btn-info" title="Ver">
                                     <i class="fas fa-eye"></i>
                                 </a>
 
