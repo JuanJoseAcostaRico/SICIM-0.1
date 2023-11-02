@@ -24,7 +24,7 @@
                             <td>{{ $user->id }}</td>
                             <td>{{ $user->user_name }}</td>
                             <td>{{ $user->user_email }}</td>
-                            <td>{{ $user->user_phone  ?? 'Campo sin información' }}</td>
+                            <td>{{ $user->user_phone  ?? 'Sin información' }}</td>
                             <td>{{ $user->roles->implode('name', ', ') }}</td>
                             <td>
                                 <a href="{{ route('usuarios.show', ['id' => $user->id]) }}" class="btn btn-xs btn-info" title="Ver">

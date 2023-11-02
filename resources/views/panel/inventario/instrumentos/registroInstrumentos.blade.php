@@ -18,20 +18,20 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <x-adminlte-input name="instrument_name" label="Nombre de Instrumento *" placeholder="Nombre del instrumento"
-                                     :input-class="'required'" :pattern="'[a-zA-Z0-9. ]+'" required/>
+                                     :input-class="'required'" :pattern="'[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9. ]+'" required/>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <x-adminlte-input name="instrument_desc" label="Descripción (opcional)" type="text"
                                     placeholder="Descripción de instrumento"  :input-class="'required'"
-                                    :pattern="'[a-zA-Z0-9. ]+'" />
+                                    :pattern="'[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9. ]+'" />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <x-adminlte-input name="instrument_size" label="Tamaño *" placeholder="Tamaño de instrumento"
-                                     :input-class="'required'" :pattern="'[a-zA-Z0-9. ]+'" required/>
+                                     :input-class="'required'" :pattern="'[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9. ]+'" required/>
                             </div>
                         </div>
                         <div class="col-md-6">

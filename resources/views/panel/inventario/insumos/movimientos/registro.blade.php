@@ -52,7 +52,7 @@
                        <div class="col-md-6">
                             <div class="form-group">
                                 <x-adminlte-input name="movement_stock" label="Cantidad *" placeholder="Cantidad/stock"
-                                    :input-class="'required'" :pattern="'^[1-9][0-9]*$'" required min="1"/>
+                                    :input-class="'required'" :pattern="'^[1-9][0-9]*$'" required type="number" min="1" max="100" />
                             </div>
                         </div>
 

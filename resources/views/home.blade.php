@@ -15,7 +15,7 @@
                     <h4 class="text-center">¡Bienvenido al Sistema SICIM usuario: {{ auth()->user()->user_name }}, con el
                         rol: {{ $role }} ! </h4>
 
-                    <p align="justify" class="mt-3">En el Sistema de Inventario de Control Médico (SICIM), podras gestionar
+                    <p align="justify" class="mt-3">En el Sistema de Inventario de Control Médico (SICIM), podrás gestionar
                         tareas administrativas del CDI de Coloncito.. Si eres
                         nuevo en SICIM o simplemente deseas refrescar tus conocimientos sobre cómo utilizar este sistema,
                         estamos aquí para brindarte toda la ayuda que necesitas. Para acceder al Manual Explicativo y
@@ -43,55 +43,52 @@
     </div>
 
     <div class="row">
-        <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box shadow">
-                <span class="info-box-icon bg-primary"><i class="fas fa-users"></i></span>
-                <div class="info-box-content">
-                    <span class="info-box-text">Usuarios <br> Totales</span>
-                    <span class="info-box-number">{{ $totalUsers }}</span>
+    <div class="col-12">
+        <x-adminlte-card title="Resumen de la información general de SICIM" theme="primary" icon="fas fa-lg fa-bell" collapsible>
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-12">
+                    <div class="info-box shadow">
+                        <span class="info-box-icon bg-primary"><i class="fas fa-users"></i></span>
+                        <div class="info-box-content">
+                            <span class="info-box-text">Usuarios <br> Totales</span>
+                            <span class="info-box-number">{{ $totalUsers }}</span>
+                        </div>
+                    </div>
                 </div>
 
-            </div>
-
-        </div>
-
-        <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box shadow">
-                <span class="info-box-icon bg-secondary"><i class="fas fa-hospital"></i></span>
-                <div class="info-box-content">
-                    <span class="info-box-text">Departamentos <br> Totales</span>
-                    <span class="info-box-number">{{ $totalDepartaments }}</span>
+                <div class="col-md-3 col-sm-6 col-12">
+                    <div class="info-box shadow">
+                        <span class="info-box-icon bg-secondary"><i class="fas fa-hospital"></i></span>
+                        <div class="info-box-content">
+                            <span class="info-box-text">Departamentos <br> Totales</span>
+                            <span class="info-box-number">{{ $totalDepartaments }}</span>
+                        </div>
+                    </div>
                 </div>
 
-            </div>
-
-        </div>
-
-        <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box shadow">
-                <span class="info-box-icon bg-info"><i class="fas fa-medkit"></i></span>
-                <div class="info-box-content">
-                    <span class="info-box-text">Insumos <br> Registrados</span>
-                    <span class="info-box-number">{{ $totalSupplies }}</span>
+                <div class="col-md-3 col-sm-6 col-12">
+                    <div class="info-box shadow">
+                        <span class="info-box-icon bg-info"><i class="fas fa-medkit"></i></span>
+                        <div class="info-box-content">
+                            <span class="info-box-text">Insumos <br> Registrados</span>
+                            <span class="info-box-number">{{ $totalSupplies }}</span>
+                        </div>
+                    </div>
                 </div>
 
-            </div>
-
-        </div>
-
-        <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box shadow">
-                <span class="info-box-icon bg-danger"><i class="fas fa-stethoscope"></i></span>
-                <div class="info-box-content">
-                    <span class="info-box-text">Intrumentos <br> Registrados</span>
-                    <span class="info-box-number">{{ $totalInstruments }}</span>
+                <div class="col-md-3 col-sm-6 col-12">
+                    <div class="info-box shadow">
+                        <span class="info-box-icon bg-danger"><i class="fas fa-stethoscope"></i></span>
+                        <div class="info-box-content">
+                            <span class="info-box-text">Instrumentos <br> Registrados</span>
+                            <span class="info-box-number">{{ $totalInstruments }}</span>
+                        </div>
+                    </div>
                 </div>
-
             </div>
-
-        </div>
-
+        </x-adminlte-card>
     </div>
+</div>
 @stop
 
 

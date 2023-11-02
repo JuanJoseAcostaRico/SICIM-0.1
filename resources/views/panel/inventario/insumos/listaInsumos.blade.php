@@ -16,7 +16,7 @@
                         <tr>
                             <td>{{ $supply->id }}</td>
                             <td>{{ $supply->supply_name }}</td>
-                            <td>{{ $supply->supply_desc ?? 'Campo sin información' }}</td>
+                            <td>{{ $supply->supply_desc ?? 'Sin información' }}</td>
                             <td>{{ $supply->supply_weight }}</td>
                             <td>{{ $supply->supply_stock }}</td>
                             <td>{{ $supply->states->state_name }}</td>

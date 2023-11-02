@@ -18,14 +18,14 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <x-adminlte-input name="user_name" label="Nombre Completo *" placeholder="Ingrese su nombre completo"
-                                     :input-class="'required'" :pattern="'[a-zA-Z ]+'" required/>
+                                     :input-class="'required'" :pattern="'[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+'" required/>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <x-adminlte-input name="user_email" label="Email *" type="email"
                                     placeholder="Email del usuario"  :input-class="'required'"
-                                    :pattern="'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+'" required/>
+                                    :pattern="'[a-zA-ZñÑ0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+'" required/>
                             </div>
                         </div>
                         <div class="col-md-6">

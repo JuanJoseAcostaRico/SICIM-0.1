@@ -16,7 +16,7 @@
                             <tr>
                                 <td>{{ $instrument->id }}</td>
                                 <td>{{ $instrument->instrument_name }}</td>
-                                <td>{{ $instrument->instrument_desc ?? 'Campo sin información' }}</td>
+                                <td>{{ $instrument->instrument_desc ?? 'Sin información' }}</td>
                                 <td>{{ $instrument->instrument_size }}</td>
                                 <td>{{ $instrument->instrument_serial_code }}</td>
                                 <td>{{ $instrument->departaments->departament_name }}</td>

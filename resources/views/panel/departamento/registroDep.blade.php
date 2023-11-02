@@ -15,7 +15,7 @@
                 @csrf
                 <div class="row">
                     <x-adminlte-input name="departament_name" label="Nombre de departamento *" placeholder="Nombre del departamento"
-                                      fgroup-class="col-md-12" :input-class="'required'" required/>
+                                      fgroup-class="col-md-12" :input-class="'required'" :pattern="'[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9. ]+'" required />
                 </div>
                 <div class="row">
                     <div class="col-md-12">

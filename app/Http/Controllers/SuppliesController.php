@@ -18,8 +18,8 @@ class SuppliesController extends Controller
         $supplies = Supplies::with('states')->get();
         $heads = [
             'ID',
-            'Nombre suministro',
-            'Descrición',
+            'Nombre',
+            'Descripción',
             'Peso',
             'Stock',
             'Estado',

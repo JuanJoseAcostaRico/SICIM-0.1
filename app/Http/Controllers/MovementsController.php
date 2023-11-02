@@ -16,7 +16,7 @@ class MovementsController extends Controller
             'ID',
             'Insumo',
             'Tipo Movimiento',
-            'Descrición',
+            'Descripción',
             'Stock',
             'Acciones',
         ];
@@ -36,7 +36,7 @@ class MovementsController extends Controller
         $rules = [
             'movement_types_fke' => 'required',
             'supply_fke' => 'required',
-            'movement_stock' => 'required|integer|min:1',
+            'movement_stock' => 'required|integer|min:1|max:100',
         ];
 
         // Define los mensajes de error personalizados si lo deseas
@@ -55,7 +55,7 @@ class MovementsController extends Controller
             $supply = Supplies::find($validatedData['supply_fke']);
             if ($supply && $supply->supply_stock < $validatedData['movement_stock']) {
                 // Manejar el escenario de stock insuficiente
-                return redirect()->route('inventario.movimientos.lista')->with('creado', 'error');
+                return redirect()->route('inventario.movimientos.lista')->with('nocreado', 'error');
             }
         }
 

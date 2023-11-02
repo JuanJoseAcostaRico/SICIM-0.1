@@ -20,7 +20,7 @@ class DepartamentController extends Controller
         $departaments = Departaments::with('states', 'user')->get();
         $heads = [
             'ID',
-            'Nombre departamento',
+            'Nombre',
             'Jefe de departamento',
             'Estado',
             'Acciones',

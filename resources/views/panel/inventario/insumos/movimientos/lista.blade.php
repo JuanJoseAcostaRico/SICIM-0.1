@@ -21,7 +21,7 @@
                             <td>{{ $movement->id }}</td>
                             <td>{{ $movement->supplies->supply_name }}</td>
                             <td>{{ $movement->movement_types->movement_type_name }}</td>
-                            <td>{{ $movement->movement_desc ?? 'Campo sin información' }}</td>
+                            <td>{{ $movement->movement_desc ?? 'Sin información' }}</td>
                             <td>{{ $movement->movement_stock }}</td>
                             <td class="text-center">
                                 <a href="{{ route('inventario.insumos.movimientos.show', ['id' => $movement->id]) }}"
@@ -58,7 +58,7 @@
 
 @section('js')
 
-    @if (session('eliminar') == 'ok')
+   {{--  @if (session('eliminar') == 'ok')
         <script>
             Swal.fire(
                 'Eliminado!',
@@ -66,7 +66,7 @@
                 "success"
             )
         </script>
-    @endif
+    @endif --}}
 
     @if (session('creado') == 'ok')
         <script>
@@ -74,6 +74,16 @@
                 'Creación exitosa!',
                 'El movimiento de insumo fue registrado exitosamente',
                 "success"
+            )
+        </script>
+    @endif
+
+    @if (session('nocreado') == 'error')
+        <script>
+            Swal.fire(
+                'Acción Abortada!',
+                'El stock del insumo seleccionado es insuficiente para realizar este movimiento',
+                "error"
             )
         </script>
     @endif
