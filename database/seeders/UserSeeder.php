@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
         User::create([
             'user_name' => 'Administrador',
             'user_email' => 'admin@admin.com',
-            'password' => Hash::make('12345678'),
+            'user_password' => Hash::make('12345678'),
             'user_phone' => '04247537848',
             'user_address' => 'Coloncito calle 11',
         ])->assignRole('Administrador');
@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
         User::create([
             'user_name' => 'User1',
             'user_email' => 'user1@gmail.com',
-            'password' => Hash::make('12345678'),
+            'user_password' => Hash::make('12345678'),
             'user_phone' => '04247537848',
             'user_address' => 'Coloncito calle 11',
         ])->assignRole('Usuario');
@@ -35,7 +35,7 @@ class UserSeeder extends Seeder
         User::create([
             'user_name' => 'Director',
             'user_email' => 'tech@admin.com',
-            'password' => Hash::make('12345678'),
+            'user_password' => Hash::make('12345678'),
             'user_phone' => '04247537848',
             'user_address' => 'Coloncito calle 11',
         ])->assignRole('Administrador');
@@ -43,7 +43,7 @@ class UserSeeder extends Seeder
         User::create([
             'user_name' => 'User2',
             'user_email' => 'user2@gmail.com',
-            'password' => Hash::make('12345678'),
+            'user_password' => Hash::make('12345678'),
             'user_phone' => '04247537848',
             'user_address' => 'Coloncito calle 11',
         ])->assignRole('Usuario');

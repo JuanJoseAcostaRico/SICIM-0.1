@@ -47,7 +47,7 @@ class UserController extends Controller
         $rules = [
             'user_name' => 'required',
             'user_email' => 'required|email|unique:users',
-            'password' => 'required',
+            'user_password' => 'required',
             'user_phone' => 'nullable',
             'user_address' => 'nullable',
         ];
@@ -58,7 +58,7 @@ class UserController extends Controller
             'user_email.required' => 'El correo electrónico es obligatorio.',
             'user_email.email' => 'El correo electrónico debe ser una dirección de correo válida.',
             'user_email.unique' => 'El correo electrónico ya está en uso.',
-            'password.required' => 'La contraseña es obligatoria.',
+            'user_password.required' => 'La contraseña es obligatoria.',
         ];
 
         // Validar los datos del formulario usando las reglas y mensajes personalizados
@@ -68,7 +68,7 @@ class UserController extends Controller
         $user = new User();
         $user->user_name = $validatedData['user_name'];
         $user->user_email = $validatedData['user_email'];
-        $user->password = bcrypt($validatedData['password']);
+        $user->user_password = bcrypt($validatedData['user_password']);
         $user->user_phone = $validatedData['user_phone'];
         $user->user_address = $validatedData['user_address'];
         $user->save();
@@ -126,7 +126,7 @@ class UserController extends Controller
 
         // Verificar si se proporcionó una nueva contraseña
         if ($request->filled('new_password')) {
-            $user->password = bcrypt($validatedData['new_password']);
+            $user->user_password = bcrypt($validatedData['new_password']);
         }
 
         // Actualizar el rol del usuario

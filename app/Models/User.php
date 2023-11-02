@@ -22,7 +22,7 @@ class User extends Authenticatable
     protected $fillable = [
         'user_name',
         'user_email',
-        'password',
+        'user_password',
         'user_phone',
         'user_address',
 
@@ -34,7 +34,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
+        'user_password',
         'remember_token',
     ];
 
@@ -72,6 +72,6 @@ class User extends Authenticatable
     }
 
     public function adminlte_profile_url(){
-        
+
     }
 }

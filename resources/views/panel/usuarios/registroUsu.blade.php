@@ -55,7 +55,7 @@
                             <div class="form-group">
                                 <label for="password">Contraseña *</label>
                                 <div class="input-group">
-                                    <input type="password" id="password" name="password" class="form-control" minlength="8" required>
+                                    <input type="password" id="password" name="user_password" class="form-control" minlength="8" required>
                                     <div class="input-group-append">
                                         <button class="btn btn-outline-secondary" type="button" id="toggle_password">
                                             <i class="fas fa-eye-slash"></i>

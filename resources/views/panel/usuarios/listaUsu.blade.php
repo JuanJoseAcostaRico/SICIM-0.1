@@ -3,7 +3,7 @@
 @section('title', 'Lista Usuarios')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Lista Usuarios</h1>
+    <h1 class="m-0 text-dark">Lista Usuarios Totales Registrados</h1>
 @stop
 
 @section('content')
@@ -24,7 +24,7 @@
                             <td>{{ $user->id }}</td>
                             <td>{{ $user->user_name }}</td>
                             <td>{{ $user->user_email }}</td>
-                            <td>{{ $user->user_phone }}</td>
+                            <td>{{ $user->user_phone  ?? 'Campo sin información' }}</td>
                             <td>{{ $user->roles->implode('name', ', ') }}</td>
                             <td>
                                 <a href="{{ route('usuarios.show', ['id' => $user->id]) }}" class="btn btn-xs btn-info" title="Ver">
