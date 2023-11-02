@@ -1,6 +1,7 @@
 <?php
 
 namespace Tests\Unit;
+
 use Tests\TestCase;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -44,11 +45,5 @@ class UserControllerTest extends TestCase
         $this->assertTrue(password_verify('password123', $createdUser->password));
 
         $this->assertEquals(302, $response->getStatusCode());
-
     }
-
-
-
-
-
 }

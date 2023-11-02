@@ -52,7 +52,7 @@ class SuppliesFactory extends Factory
                 ($nbSentences = 3, $variableNbSentences = true),
                 'supply_desc' => fake()->paragraph
                 ($nbSentences = 3, $variableNbSentences = true),
-                'supply_stock' => rand(0, 100),
+                'supply_stock' => '0',
                 'created_at' => fake()->dateTimeBetween('-1 year,', 'now'),
                 'updated_at' => fake()->dateTimeBetween('-1 year,', 'now'),
 

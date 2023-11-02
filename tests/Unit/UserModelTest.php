@@ -5,51 +5,57 @@ namespace Tests\Unit;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class UserModelTest extends TestCase
+
 {
+    use RefreshDatabase;
+
+    private $adminUser;
 
     private $user;
 
-    /**
-     * A basic unit test example.
-     *
-     * @return void
-     */
+    private $existingAdminUser;
 
-     /**
-      *
-      * @var User $user;
-      */
-
-    /*public function test_example()
-    {
-        $this->assertTrue(true);
-    } */
+    private $existingUser;
 
     private function createUser(): User
     {
 
         return User::factory()->create();
-
     }
 
     private function createMemoryUser(): User
     {
 
         return User::factory()->make();
-
     }
 
-    public function testUserHasRole(){
+    private function queryAdminUser(): User
+
+    {
+
+        return User::with('roles')->where('user_email', 'admin@admin.com')->first();
+    }
+
+    private function queryUser(): User
+
+    {
+
+        return User::with('roles')->where('user_email', 'user1@gmail.com')->first();
+    }
+
+    public function testCreatedUserHasAdminRole()
+    {
 
         // Se crea un usuario
         $this->user = $this->createUser();
 
-        $existingRole = Role::where('name', 'Administrador')->first();
-        if ($existingRole) {
-        $existingRole->delete();
-    }
+        $adminRole = Role::where('name', 'Administrador')->first();
+        if ($adminRole) {
+            $adminRole->delete();
+        }
 
         // Se crea un rol
 
@@ -64,20 +70,57 @@ class UserModelTest extends TestCase
         $this->assertTrue($this->user->hasRole('Administrador'));
     }
 
-    public function testUserAttributes(){
+    public function testCreatedUserHasUserRole()
+    {
 
-         // Se crea un usuario
+        // Se crea un usuario
+        $this->user = $this->createUser();
 
-         $this->user = $this->createMemoryUser();
+        $userRole = Role::where('name', 'Usuario')->first();
+        if ($userRole) {
+            $userRole->delete();
+        }
 
-     // Verifica los atributos del usuario
+        // Se crea un rol
 
-     $this->assertEquals($this->user->user_name, $this->user->user_name);
-     $this->assertEquals($this->user->user_email, $this->user->user_email);
+        $role = Role::create(['name' => 'Usuario']);
+
+        // Asigna el rol al usuario
+
+        $this->user->assignRole($role);
+
+        // Verifica si el usuario tiene el rol
+
+        $this->assertTrue($this->user->hasRole('Usuario'));
+    }
+
+    public function testExistingUserHasAdminRole(){
+
+        $this->existingAdminUser = $this->queryAdminUser();
+
+        $this->assertTrue($this->existingAdminUser->hasRole('Administrador'));
 
 
     }
 
+    public function testExistingUserHasUserRole(){
 
+        $this->existingUser = $this->queryUser();
 
+        $this->assertTrue($this->existingUser->hasRole('Usuario'));
+
+    }
+
+    public function testUserAttributes()
+    {
+
+        // Se crea un usuario
+
+        $this->user = $this->createMemoryUser();
+
+        // Verifica los atributos del usuario
+
+        $this->assertEquals($this->user->user_name, $this->user->user_name);
+        $this->assertEquals($this->user->user_email, $this->user->user_email);
+    }
 }

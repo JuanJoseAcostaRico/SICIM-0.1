@@ -2,49 +2,46 @@
 
 namespace Tests\Feature;
 
-use App\Http\Controllers\SuppliesController;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Models\States;
 use Illuminate\Http\Request;
 use Tests\TestCase;
 use App\Models\Supplies;
 use App\Models\User;
-use Database\Seeders\StateSeeder;
 
-class FeatureSuppliesControllerTest extends TestCase
+class FeatureRegisterSuppliesTest extends TestCase
 {
 
     use RefreshDatabase;
 
-    protected $seeder = StateSeeder::class;
-
-
-    public function testCreateSupplyIntegration ()
+    public function testCreateSupplyIntegration()
     {
+        $this->withoutMiddleware();
+
         $stateId = States::first()->id;
 
         // Crear un usuario de prueba
         $user = User::factory()->create();
         $this->actingAs($user); // Autenticar el usuario
 
-         // Crear Solicitud HTTP
+        // Crear Solicitud HTTP
         $request = new Request([
-        'state_fke' => $stateId,
-        'supply_name' => 'Supply Example',
-        'supply_weight' => 'Supply weight',
-        'supply_posology' => 'Supply Posology',
-        'supply_desc' => 'Supply Description',
-        'supply_stock' => '0',
-     ]);
+            'state_fke' => $stateId,
+            'supply_name' => 'Supply Example',
+            'supply_weight' => 'Supply weight',
+            'supply_posology' => 'Supply Posology',
+            'supply_desc' => 'Supply Description',
+            'supply_stock' => '0',
+        ]);
 
 
-         // Generar la URL para la acción 'store' utilizando el helper route()
+        // Generar la URL para la acción 'store' utilizando el helper route()
         $storeUrl = route('inventario.insumos.store');
 
         // Realizar la solicitud HTTP POST a la URL generada
         $response = $this->post($storeUrl, $request->all());
 
-         // Verificar que la respuesta sea una redirección
+        // Verificar que la respuesta sea una redirección
 
         $response->assertRedirect();
 
@@ -58,9 +55,9 @@ class FeatureSuppliesControllerTest extends TestCase
         $supply = Supplies::with('states')->where('state_fke', $stateId)->first();
         $stateName = $supply->states->state_name;
         //
-        $this->assertDatabaseHas('supplies',[
+        $this->assertDatabaseHas('supplies', [
             'state_fke' => $stateId,
-           'supply_name' => 'Supply Example',
+            'supply_name' => 'Supply Example',
 
 
         ]);
@@ -72,20 +69,5 @@ class FeatureSuppliesControllerTest extends TestCase
         // Verificar que la respuesta es exitosa
 
         $this->assertEquals(200, $response->getStatusCode());
-
-
     }
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    /*public function test_example()
-    {
-        $response = $this->get('/');
-
-        $response->assertStatus(200);
-    }*/
-
-
 }

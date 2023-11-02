@@ -1,12 +1,9 @@
 <?php
 
-namespace Tests\Feature;
-
 namespace Tests\Unit;
+
 use Tests\TestCase;
 use App\Models\User;
-use Illuminate\Http\Request;
-use App\Http\Controllers\UserController;
 
 class UserViewTest extends TestCase
 {
@@ -19,19 +16,19 @@ class UserViewTest extends TestCase
      */
 
     /**
-      *
-      * @var User $user;
-      */
+     *
+     * @var User $user;
+     */
 
-      private function createUser(): User
-      {
-          return User::factory()->create();
-      }
+    private function createUser(): User
+    {
+        return User::factory()->create();
+    }
     public function testUserPageContainsNonEmptyTables()
     {
+        $this->withoutMiddleware();
         // Se crea un usuario
-        $this->user = $this->createUser([
-        ]);
+        $this->user = $this->createUser([]);
 
         $this->assertDatabaseHas('users', [
             'user_name' => $this->user->user_name,
@@ -49,14 +46,17 @@ class UserViewTest extends TestCase
 
         $response->assertViewIs('panel.usuarios.listausu');
 
-        $response->assertDontSee('No data available in table');
+        $response->assertSee($this->user->user_name);
+
+        $response->assertSee($this->user->user_email);
     }
 
     public function testUserPageContainsEmptyTables()
     {
+        $this->withoutMiddleware();
         // Se crea un usuario
-        $this->user = $this->createUser([
-        ]);
+
+        $this->user = $this->createUser([]);
 
         $this->assertDatabaseHas('users', [
             'user_name' => $this->user->user_name,
@@ -75,8 +75,5 @@ class UserViewTest extends TestCase
         $response->assertViewIs('panel.usuarios.listausu');
 
         $response->assertDontSee('No data available in table');
-
     }
 }
-
-
