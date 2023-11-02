@@ -20,7 +20,7 @@ class UserControllerTest extends TestCase
         $request = new Request([
             'user_name' => $user->user_name,
             'user_email' => $user->user_email,
-            'password' => 'password123', // no se utiliza hash aquí
+            'user_password' => 'password123', // no se utiliza hash aquí
             'user_phone' => '04148524534',
             'user_address' => 'la fria',
         ]);
@@ -42,7 +42,7 @@ class UserControllerTest extends TestCase
         $createdUser = User::where('user_email', $user->user_email)->first();
 
         // Verifica que la contraseña almacenada en la base de datos esté encriptada correctamente con bcrypt
-        $this->assertTrue(password_verify('password123', $createdUser->password));
+        $this->assertTrue(password_verify('password123', $createdUser->user_password));
 
         $this->assertEquals(302, $response->getStatusCode());
     }
