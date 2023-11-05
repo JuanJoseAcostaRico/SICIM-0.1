@@ -283,7 +283,7 @@
                                 </div>
                                 <div class="col-lg-5">
                                     <div class="dept_thumb">
-                                        <img src="assets/img/gallery/department_man.png" alt="" />
+                                        <img src="assets/img/gallery/1.jpg" alt="" />
                                     </div>
                                 </div>
                             </div>
@@ -317,7 +317,7 @@
                                 </div>
                                 <div class="col-lg-5">
                                     <div class="dept_thumb">
-                                        <img src="assets/img/gallery/department_man.png" alt="" />
+                                        <img src="assets/img/gallery/2.png" alt="" />
                                     </div>
                                 </div>
                             </div>
@@ -349,7 +349,7 @@
                                 </div>
                                 <div class="col-lg-5">
                                     <div class="dept_thumb">
-                                        <img src="assets/img/gallery/department_man.png" alt="" />
+                                        <img src="assets/img/gallery/3.jpg" alt="" />
                                     </div>
                                 </div>
                             </div>
@@ -381,7 +381,7 @@
                                 </div>
                                 <div class="col-lg-5">
                                     <div class="dept_thumb">
-                                        <img src="assets/img/gallery/department_man.png" alt="" />
+                                        <img src="assets/img/gallery/4.jpg" alt="" />
                                     </div>
                                 </div>
                             </div>
@@ -411,7 +411,7 @@
                                 </div>
                                 <div class="col-lg-5">
                                     <div class="dept_thumb">
-                                        <img src="assets/img/gallery/department_man.png" alt="" />
+                                        <img src="assets/img/gallery/5.jpg" alt="" />
                                     </div>
                                 </div>
                             </div>
@@ -429,18 +429,18 @@
                                             Los servicios incluyen: Extracción de sangre, hematologías, provisión de
                                             recipientes para muestras de orina, esputo, heces, cultivo y serología de
                                             hongos.
+
+                                        </p>
+                                        <p>
                                             De igual forma, presenta una variedad de servicios de pruebas en el lugar de
                                             atención médica; pruebas de tuberculina; electrocardiogramas; exámenes de la
                                             retina; y recolección de muestras de sudor y aliento y muestras con hisopo.
-                                        </p>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit
                                         </p>
                                     </div>
                                 </div>
                                 <div class="col-lg-5">
                                     <div class="dept_thumb">
-                                        <img src="assets/img/gallery/department_man.png" alt="" />
+                                        <img src="assets/img/gallery/6.jpg" alt="" />
                                     </div>
                                 </div>
                             </div>

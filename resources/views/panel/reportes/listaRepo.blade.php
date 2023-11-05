@@ -15,6 +15,8 @@
             <div class="col-md-12">
                 <div class="box-body ml-4 mr-4">
                     <h3 class="text-center">Reporte de insumos por rango de fechas:</h3>
+
+                    <p align="justify" class="mt-3">Seleccione aquí el rango de fechas (Fecha de inicio y fin) disponibles para asignar a su reporte personalizado de insumos y haga clic en el botón "Generar Reporte por rango de fechas", para crear un reporte y exportarlos a su ordenador a través de un documento de Excel.</p>
                     <form action="{{ route('reportes.insumosporfechas') }}" method="get">
                         @csrf
                         <div class="row text-center mt-3">
@@ -33,11 +35,9 @@
                     </form>
                     <hr>
                     <h3 class="text-center">Reporte de insumos general:</h3>
-                    <p align="justify" class="mt-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit debitis sed porro!
-                        Enim adipisci at, dolores tempora, odit repellendus ipsum, placeat et cum quae suscipit itaque!
-                        Culpa necessitatibus corporis expedita?</p>
+                    <p align="justify" class="mt-3">Haga clic en el botón "Generar Reporte", para crear un reporte general de todos los insumos existentes dentro del sistema SICIM, y exportarlos a su ordenador a través de un documento de Excel.</p>
                     <div class="text-center">
-                        <a href="{{ route('reportes.insumos') }}" class="btn btn-primary mt-1">Generar Reporte General</a>
+                        <a href="{{ route('reportes.insumos') }}" class="btn btn-primary mt-1">Generar Reporte</a>
                     </div>
                 </div>
             </div>
@@ -47,6 +47,9 @@
             <div class="col-md-12">
                 <div class="box-body ml-4 mr-4">
                     <h3 class="text-center">Reporte de movimientos de insumos por rango de fechas:</h3>
+
+                    <p align="justify" class="mt-3">Seleccione aquí el rango de fechas (Fecha de inicio y fin) disponibles para asignar a su reporte personalizado de movimientos de insumos y haga clic en el botón "Generar Reporte por rango de fechas", para crear un reporte y exportarlos a su ordenador a través de un documento de Excel.</p>
+
                     <form action="{{ route('reportes.movimientosporfechas') }}" method="get">
                         @csrf
                         <div class="row text-center mt-3">
@@ -65,11 +68,10 @@
                     </form>
                     <hr>
                     <h3 class="text-center">Reporte de movimientos de insumos general:</h3>
-                    <p align="justify" class="mt-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit debitis sed porro!
-                        Enim adipisci at, dolores tempora, odit repellendus ipsum, placeat et cum quae suscipit itaque!
-                        Culpa necessitatibus corporis expedita?</p>
+
+                    <p align="justify" class="mt-3">Haga clic en el botón "Generar Reporte", para crear un reporte general de todos los movimientos existentes de insumos dentro del sistema SICIM, y exportarlos a su ordenador a través de un documento de Excel.</p>
                     <div class="text-center">
-                        <a href="{{ route('reportes.movimientos') }}" class="btn btn-primary mt-1">Generar Reporte General</a>
+                        <a href="{{ route('reportes.movimientos') }}" class="btn btn-primary mt-1">Generar Reporte</a>
                     </div>
                 </div>
             </div>
@@ -79,6 +81,9 @@
             <div class="col-md-12">
                 <div class="box-body ml-4 mr-4">
                     <h3 class="text-center">Reporte de instrumentos por rango de fechas:</h3>
+
+                    <p align="justify" class="mt-3">Seleccione aquí el rango de fechas (Fecha de inicio y fin) disponibles para asignar a su reporte personalizado de instrumentos y haga clic en el botón "Generar Reporte por rango de fechas", para crear un reporte y exportarlos a su ordenador a través de un documento de Excel.</p>
+
                     <form action="{{ route('reportes.instrumentosporfechas') }}" method="get">
                         @csrf
                         <div class="row text-center mt-3">
@@ -97,11 +102,9 @@
                     </form>
                     <hr>
                     <h3 class="text-center">Reporte de instrumentos general:</h3>
-                    <p align="justify" class="mt-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit debitis sed porro!
-                        Enim adipisci at, dolores tempora, odit repellendus ipsum, placeat et cum quae suscipit itaque!
-                        Culpa necessitatibus corporis expedita?</p>
+                    <p align="justify" class="mt-3">Haga clic en el botón "Generar Reporte", para crear un reporte general de todos los instrumentos existentes dentro del sistema SICIM, y exportarlos a su ordenador a través de un documento de Excel.</p>
                     <div class="text-center">
-                        <a href="{{ route('reportes.instrumentos') }}" class="btn btn-primary mt-1">Generar Reporte General</a>
+                        <a href="{{ route('reportes.instrumentos') }}" class="btn btn-primary mt-1">Generar Reporte</a>
                     </div>
                 </div>
             </div>
