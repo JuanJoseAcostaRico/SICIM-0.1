@@ -19,8 +19,7 @@ class InstrumentSeeder extends Seeder
         Instruments::create([
             'instrument_name' => 'Estetoscopio',
             'instrument_size' => '69 cm, 150 grs',
-            'instrument_desc' => 'dispositivo acustico que amplifica
-             los ruidos corporales',
+            'instrument_desc' => 'dispositivo acustico que amplifica los ruidos corporales',
             'instrument_serial_code' => 'JPXFBM7U5BPL',
             'departament_fke' => '1',
             'condition_fke' => '1',
@@ -29,8 +28,7 @@ class InstrumentSeeder extends Seeder
         Instruments::create([
             'instrument_name' => 'Cama Hospitalaria',
             'instrument_size' => '224 cm x 104,5 cm, 114kg',
-            'instrument_desc' => 'Camilla para pacientes, tambien pueden ser
-             designadas a uso particular',
+            'instrument_desc' => 'Camilla para pacientes, tambien pueden ser designadas a uso particular',
             'instrument_serial_code' => 'P3XAUGMSSQTP',
             'departament_fke' => '2',
             'condition_fke' => '3',

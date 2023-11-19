@@ -423,9 +423,23 @@ return [
         [
             'text' => 'Gestión de Reportes',
             'icon_color' => 'white',
-            'url'  => '/panel/reportes/listarepo',
             'can' => 'menu.admin',
+            'url'  => '#',
             'icon' => 'far fa-file-alt',
+            'submenu' => [
+                [
+                    'text' => 'Reportes Insumos',
+                    'icon' => 'fas fa-medkit',
+                    'can' => 'menu.admin',
+                    'url'  => '/panel/reportes/listareposupply',
+                ],
+                [
+                    'text' => 'Reportes Instrumentos',
+                    'icon' => 'fas fa-stethoscope',
+                    'can' => 'menu.admin',
+                    'url'  => '/panel/reportes/listarepoinstrument',
+                ],
+            ],
         ],
         /* [
             'text' => ' Gestión de cuenta',
@@ -499,13 +513,13 @@ return [
                 ],
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables/js/dataTables.bootstrap4.min.js',
                 ],
                 [
                     'type' => 'css',
-                    'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
+                    'asset' => true,
+                    'location' => 'vendor/datatables/css/dataTables.bootstrap4.min.css',
                 ],
 
             ],
@@ -539,9 +553,14 @@ return [
             'active' => true,
             'files' => [
                 [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'assets/sweet/sweetalert2/dist/sweetalert2.min.css',
+                ],
+                [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
+                    'asset' => true,
+                    'location' => 'assets/sweet/sweetalert2/dist/sweetalert2.all.min.js',
                 ],
             ],
         ],

@@ -51,7 +51,7 @@
                                         </div>
                                     </x-slot>
                                     <x-slot name="appendSlot">
-                                        <button class="btn btn-primary" type="submit">Restaurar</button>
+                                        <button class="btn btn-info" type="submit">Restaurar</button>
                                     </x-slot>
                                 </x-adminlte-input-file>
                             </div>

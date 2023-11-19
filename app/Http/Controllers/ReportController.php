@@ -8,15 +8,27 @@ use App\Exports\InsumosExport;
 use App\Exports\InsumosPorFechasExport;
 use App\Exports\InstrumentosExport;
 use App\Exports\InstrumentosPorFechasExport;
+use App\Exports\InstrumentosPorDepartamentosExport;
 use App\Exports\MovimientosExport;
 use App\Exports\MovimientosPorFechasExport;
 use Carbon\Carbon;
 use App\Models\Instruments;
+use App\Models\Conditions;
 use App\Models\Movements;
 use App\Models\Supplies;
+use App\Models\Departaments;
+use Illuminate\Support\Facades\View;
 
 class ReportController extends Controller
 {
+    //Vista reportes instrumentos
+    public function listaRepoInstrumentView()
+    {
+        $departaments = Departaments::all();
+
+        return view::make('panel.reportes.listaRepoInstrument', compact('departaments'));
+    }
+
     //Reporte general insumos
     public function insumos(Request $request)
     {
@@ -65,10 +77,31 @@ class ReportController extends Controller
         $end_date = $request->input('end_date');
         // Genera un reporte por rango de fechas
 
-        $instruemntos = Instruments::whereBetween('created_at', [$start_date, $end_date])->get();
+        $instrumentos = Instruments::whereBetween('created_at', [$start_date, $end_date])->get();
 
         return Excel::download(new InstrumentosPorFechasExport($start_date, $end_date), $fileName);
     }
+
+    public function instrumentospordepartamento(Request $request)
+    {
+        $selected_department = $request->input('selected_department');
+
+        // Obtén los instrumentos del departamento seleccionado
+        $instrumentos = Instruments::where('departament_fke', $selected_department)->get();
+
+        // Obtén el nombre del departamento seleccionado
+        $departamento = Departaments::find($selected_department);
+
+        // Genera el nombre del archivo
+        $now = Carbon::now();
+        $formattedDate = $now->format('Y-m-d_His');
+        $fileName = 'instrumentos_por_departamento_' . $departamento->departament_name . '_' . $formattedDate . '.xlsx';
+
+        // Descarga el archivo Excel
+        return Excel::download(new InstrumentosPorDepartamentosExport($instrumentos, $departamento), $fileName);
+    }
+
+
 
     //Reporte general movimientos
     public function movimientos(Request $request)
@@ -92,7 +125,7 @@ class ReportController extends Controller
 
         $instruemntos = Movements::whereBetween('created_at', [$start_date, $end_date])->get();
 
-        return Excel::download(new MovimientosPorFechasExport($start_date, $end_date), 'movimientos_por_fechas_report.xlsx');
+        return Excel::download(new MovimientosPorFechasExport($start_date, $end_date), $fileName);
     }
 
 }

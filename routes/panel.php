@@ -60,18 +60,21 @@ Route::group(['prefix' => 'panel'], function () {
     Route::delete('inventario/instrumentos/{id}', [InstrumentController::class, 'destroy'])->name('inventario.instrumentos.destroy');
 
     //Ruta para Reportes Sidebar
-    Route::get('reportes/listarepo', function () {
-        return view('panel.reportes.listaRepo');
-    })->middleware('can:panel.reportes')->name('panel.reportes');
+    Route::get('reportes/listareposupply', function () {
+        return view('panel.reportes.listaRepoSupply');
+    })->middleware('can:panel.reportes')->name('panel.reportes.supply');
+    Route::get('reportes/listarepoinstrument', [ReportController::class, 'listaRepoInstrumentView'])->middleware('can:panel.reportes')->name('panel.reportes.instrument');
     // reportes insumos
     Route::get('/reportes/insumos', [ReportController::class, 'insumos'])->name('reportes.insumos');
     Route::get('/reportes/insumosporfechas', [ReportController::class, 'insumosporfechas'])->name('reportes.insumosporfechas');
     //reportes instrumentos
     Route::get('/reportes/instrumentos', [ReportController::class, 'instrumentos'])->name('reportes.instrumentos');
     Route::get('/reportes/instrumentosporfechas', [ReportController::class, 'instrumentosporfechas'])->name('reportes.instrumentosporfechas');
+    Route::get('/reportes/instrumentospordepartamento', [ReportController::class, 'instrumentospordepartamento'])->name('reportes.instrumentospordepartamento');
     // reportes movimientos
     Route::get('/reportes/movimientos', [ReportController::class, 'movimientos'])->name('reportes.movimientos');
     Route::get('/reportes/movimientosporfechas', [ReportController::class, 'movimientosporfechas'])->name('reportes.movimientosporfechas');
+    Route::get('/reportes/movimientosporinsumo', [ReportController::class, 'movimientosporinsumo'])->name('reportes.movimientosporinsumo');
 
     //Respaldos Y Restauración
     Route::get('/respaldos/respaldo', [BackupController::class, 'index'])->middleware('can:respaldo.index')->name('respaldo.index');

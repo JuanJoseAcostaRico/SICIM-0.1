@@ -16,6 +16,11 @@ class DepartamentSeeder extends Seeder
     public function run()
     {
         Departaments::create([
+            'departament_name' => 'Inventario General',
+            'state_fke' => '1',
+            'user_id' => '1',
+        ]);
+        Departaments::create([
             'departament_name' => 'Medicina General',
             'state_fke' => '1',
             'user_id' => '1',

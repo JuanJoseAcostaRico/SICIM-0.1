@@ -40,17 +40,6 @@
                                      :input-class="'required'" :pattern="'[0-9A-Z]+'" required minlength="11" maxlength="20"/>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="departament_fke">Departamento *</label>
-                                <select id="departament_fke" name="departament_fke" class="form-control" required>
-                                    <option value="">Seleccionar Departamento</option>
-                                    @foreach ($departaments as $departament)
-                                        <option value="{{ $departament->id }}">{{ $departament->departament_name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
 
                         <div class="col-md-6">
                             <div class="form-group">

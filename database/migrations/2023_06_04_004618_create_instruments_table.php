@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('instrument_desc')->nullable();
             $table->string('instrument_serial_code')->unique();
 
-            $table->unsignedBigInteger('departament_fke')->nullable();
+            $table->unsignedBigInteger('departament_fke')->default(1);
             $table->foreign('departament_fke')
             ->references('id')
             ->on('Departaments')

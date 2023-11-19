@@ -60,7 +60,6 @@ class InstrumentController extends Controller
             'instrument_name' => 'required',
             'instrument_size' => 'required',
             'instrument_serial_code' => 'required|regex:/^[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9]{11,20}$/',
-            'departament_fke' => 'required',
             'condition_fke' => 'required',
         ];
 
@@ -70,7 +69,6 @@ class InstrumentController extends Controller
             'instrument_size.required' => 'El tamaño del instrumento es obligatorio.',
             'instrument_serial_code.required' => 'El código serial del instrumento es obligatorio.',
             'instrument_serial_code.regex' => 'El código serial debe contener solo letras y números y tener entre 11 y 20 caracteres.',
-            'departament_fke.required' => 'El departamento es obligatorio.',
             'condition_fke.required' => 'La condición del instrumento es obligatoria.',
         ];
 
@@ -82,7 +80,7 @@ class InstrumentController extends Controller
         $instrument->instrument_size = $validatedData['instrument_size'];
         $instrument->instrument_desc = $request->input('instrument_desc'); // Puede ser nulo
         $instrument->instrument_serial_code = $validatedData['instrument_serial_code'];
-        $instrument->departament_fke = $validatedData['departament_fke'];
+        $instrument->departament_fke = 1;
         $instrument->condition_fke = $validatedData['condition_fke'];
         $instrument->save();
 

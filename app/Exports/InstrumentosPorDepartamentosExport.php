@@ -3,6 +3,8 @@
 namespace App\Exports;
 
 use App\Models\Instruments;
+use App\Models\Departaments;
+use App\Models\Conditions;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\FromCollection;
@@ -12,32 +14,21 @@ use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
 use Maatwebsite\Excel\Concerns\WithCustomStartCell;
 use Maatwebsite\Excel\Concerns\WithStyles;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
-use Carbon\Carbon;
 
-class InstrumentosPorFechasExport implements FromCollection, WithDrawings, WithHeadings, WithMapping, ShouldAutoSize, WithCustomStartCell, WithStyles
+class InstrumentosPorDepartamentosExport implements FromCollection, WithDrawings, WithHeadings, WithMapping, ShouldAutoSize, WithCustomStartCell, WithStyles
 {
-    /**
-    * @return \Illuminate\Support\Collection
-    */
-    protected $start_date;
-    protected $end_date;
+    protected $instrumentos;
+    protected $departamento;
 
-    public function __construct($start_date = null, $end_date = null)
+    public function __construct($instrumentos, $departamento)
     {
-        $this->start_date = $start_date;
-        $this->end_date = $end_date;
+        $this->instrumentos = $instrumentos;
+        $this->departamento = $departamento;
     }
 
     public function collection()
     {
-        // Filtra los registros de insumos basados en las fechas si se proporcionaron
-        $query = Instruments::query();
-
-        if ($this->start_date && $this->end_date) {
-            $query->whereBetween('created_at', [Carbon::parse($this->start_date), Carbon::parse($this->end_date)]);
-        }
-
-        return $query->get();
+        return $this->instrumentos;
     }
 
     public function startCell(): string
@@ -77,13 +68,12 @@ class InstrumentosPorFechasExport implements FromCollection, WithDrawings, WithH
 
     public function headings(): array
     {
-        // Especifica los encabezados de las columnas
         $headings = [
             'ID',
             'Nombre',
             'Tamaño',
             'Descripción',
-            'Stock',
+            'Serial',
             'Departamento',
             'Condición',
             'Fecha de Creación',
@@ -127,18 +117,18 @@ class InstrumentosPorFechasExport implements FromCollection, WithDrawings, WithH
         return $rowNumber;
     }
 
-    public function map($instrument): array
+    public function map($instrumentos): array
     {
         return [
-            $instrument->id,
-            $instrument->instrument_name,
-            $instrument->instrument_size,
-            $instrument->instrument_desc,
-            $instrument->instrument_stock,
-            $instrument->departaments->departament_name,
-            $instrument->conditions->condition_name,
-            $instrument->created_at,
-            $instrument->updated_at,
+            $instrumentos->id,
+            $instrumentos->instrument_name,
+            $instrumentos->instrument_size,
+            $instrumentos->instrument_desc,
+            $instrumentos->instrument_serial_code,
+            $instrumentos->departaments->departament_name, // Accede al nombre del departamento
+            $instrumentos->conditions->condition_name,
+            $instrumentos->created_at,
+            $instrumentos->updated_at,
         ];
     }
 }

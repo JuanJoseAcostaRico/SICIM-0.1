@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('Departaments', function (Blueprint $table) {
             $table->id();
-            $table->string('departament_name');
+            $table->string('departament_name')->unique();
 
             $table->unsignedBigInteger('state_fke')->nullable();
             $table->foreign('state_fke')
