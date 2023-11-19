@@ -23,4 +23,10 @@ class Movements extends Model
     {
         return $this->belongsTo(MovementTypes::class, 'movement_types_fke');
     }
+
+    //Relación uno a muchos inversa entre Movements-Departaments
+    public function departaments()
+    {
+        return $this->belongsTo(Departaments::class, 'departament_fke');
+    }
 }

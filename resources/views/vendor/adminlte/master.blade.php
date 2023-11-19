@@ -105,7 +105,7 @@
     {{-- Custom Scripts --}}
     @yield('adminlte_js')
 
-<!-- SweetAlert2 ESTÁ EN PUBLIC, PASAR A NODE_MODULES-->
+<!-- SweetAlert2 Public-->
     <script src="{{ asset('assets/sweet/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('assets/sweet/sweetalert2/dist/sweetalert2.min.css') }}">
     <script src="{{ asset('/resources/js/app.js') }}"></script>

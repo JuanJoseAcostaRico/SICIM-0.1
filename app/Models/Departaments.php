@@ -30,4 +30,10 @@ class Departaments extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    // Relación de uno a muchos directa con la tabla Departaments-Movements
+    public function movements()
+    {
+        return $this->hasMany(Movements::class, 'departament_fke');
+    }
 }

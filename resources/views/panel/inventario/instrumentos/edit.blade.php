@@ -39,7 +39,8 @@
                                 <input type="text" id="instrument_serial_code" name="instrument_serial_code" class="form-control" pattern="[0-9A-Z]+" required minlength="11" maxlength="20" value="{{ $instrument->instrument_serial_code }}">
                             </div>
                         </div>
-                        <div class="col-md-6">
+
+                        {{-- <div class="col-md-6">
                             <div class="form-group">
                                 <label for="departament_fke">Departamento *</label>
                                 <select id="departament_fke" name="departament_fke" class="form-control" required>
@@ -50,7 +51,23 @@
                                     @endforeach
                                 </select>
                             </div>
+                        </div> --}}
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <x-adminlte-select2 name="departament_fke" id="departament_fke" label="Departamento *" required
+                                    data-placeholder="Seleccione">
+                                    <option value="">Seleccionar departamento</option>
+                                    @foreach ($departaments as $departament)
+                                        <option value="{{ $departament->id }}"
+                                            {{ $departament->id == $instrument->departament_fke ? 'selected' : '' }}>
+                                            {{ $departament->departament_name }}
+                                        </option>
+                                    @endforeach
+                                </x-adminlte-select2>
+                            </div>
                         </div>
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="condition_fke">Condición *</label>

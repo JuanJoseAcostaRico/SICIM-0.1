@@ -33,7 +33,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                       {{--  <div class="col-md-6">
                             <div class="form-group">
                                 <label for="supply_fke">Insumo *</label>
                                 <select id="supply_fke" name="supply_fke" class="form-control" required>
@@ -46,6 +46,47 @@
                                         </option>
                                     @endforeach
                                 </select>
+                            </div>
+                        </div> --}}
+
+                         <div class="col-md-6">
+                            <div class="form-group">
+                                <x-adminlte-select2 name="supply_fke" id="supply_fke" label="Insumo *" required data-placeholder="Seleccione" >
+                                    <option value="">Seleccionar Insumo</option>
+                                    @foreach ($supplies as $supply)
+                                        <option value="{{ $supply->id }}">
+                                            {{ $supply->supply_name }} (Stock: {{ $supply->supply_stock }})
+                                        </option>
+                                    @endforeach
+                                </x-adminlte-select2>
+                            </div>
+                        </div>
+
+                         <div class="col-md-6">
+                            <div class="form-group">
+                                <x-adminlte-select2 name="departament_fke" id="departament_fke" label="Departamento *" required data-placeholder="Seleccione" >
+                                    <option value="">Seleccionar Departamento</option>
+                                    @foreach ($departaments as $departament)
+                                        <option value="{{ $departament->id }}">
+                                            {{ $departament->departament_name }}
+                                        </option>
+                                    @endforeach
+                                </x-adminlte-select2>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <x-adminlte-input name="movement_batch" label="Código de lote *" placeholder="Código de lote"
+                                     :input-class="'required'" :pattern="'[0-9A-Z]+'" required minlength="6" maxlength="12"/>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="movement_expiration_date">Fecha de caducidad *</label>
+                                <input type="date" id="movement_expiration_date" name="movement_expiration_date" class="form-control" required
+                                       min="{{ date('Y-m-d') }}" max="{{ date('Y-m-d', strtotime('+5 years')) }}">
                             </div>
                         </div>
 
@@ -74,15 +115,15 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const newsupplyForm = document.getElementById('new_supply_form');
+            const newMovementForm = document.getElementById('new_movement_form');
 
-            newsupplyForm.addEventListener('submit', function (event) {
-                if (!newsupplyForm.checkValidity()) {
+            newMovementForm.addEventListener('submit', function (event) {
+                if (!newMovementForm.checkValidity()) {
                     event.preventDefault();
                     event.stopPropagation();
                 }
 
-                newsupplyForm.classList.add('was-validated');
+                newMovementForm.classList.add('was-validated');
             });
         });
     </script>

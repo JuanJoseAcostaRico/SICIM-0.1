@@ -25,13 +25,13 @@
                         eficiente.
                     @role('Administrador')
                         <div class="text-center  mt-4">
-                            <a href="{{ asset('manuals/normas.pdf#toolbar=0') }}" target="_blank"><button
+                            <a href="{{ asset('manuals/manual_admin.pdf#toolbar=0') }}" target="_blank"><button
                                     class="btn btn-primary">Ver Manual Explicativo</button></a>
                         </div>
                     @endrole
                     @role('Usuario')
                         <div class="text-center  mt-4">
-                            <a href="{{ asset('manuals/normas.pdf#toolbar=0') }}" target="_blank"><button
+                            <a href="{{ asset('manuals/manual_user.pdf#toolbar=0') }}" target="_blank"><button
                                     class="btn btn-primary">Ver Manual Explicativo</button></a>
                         </div>
                     @endrole

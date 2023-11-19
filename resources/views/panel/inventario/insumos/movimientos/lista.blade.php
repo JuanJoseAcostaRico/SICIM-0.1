@@ -21,7 +21,8 @@
                             <td>{{ $movement->id }}</td>
                             <td>{{ $movement->supplies->supply_name }}</td>
                             <td>{{ $movement->movement_types->movement_type_name }}</td>
-                            <td>{{ $movement->movement_desc ?? 'Sin información' }}</td>
+                            <td>{{ $movement->movement_batch }}</td>
+                            <td>{{ $movement->departaments->departament_name }}</td>
                             <td>{{ $movement->movement_stock }}</td>
                             <td class="text-center">
                                 <a href="{{ route('inventario.insumos.movimientos.show', ['id' => $movement->id]) }}"

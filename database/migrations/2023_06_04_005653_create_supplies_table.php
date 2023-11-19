@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
 
             $table->string('supply_name');
-            $table->string('supply_presentation'); // esta es la presentación
+            //$table->string('supply_presentation'); // esta es la presentación
             $table->string('supply_weight'); //peso, debe ser de en g, ml, ect.
             $table->string('supply_posology')->nullable();
             $table->string('supply_desc')->nullable();

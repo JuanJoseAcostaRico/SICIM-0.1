@@ -9,15 +9,17 @@
 @section('content')
 
     <div class="row">
-    <div class="col-12">
-        <x-adminlte-card title="Registro" theme="lightblue" theme-mode="outline" collapsible>
-            <form action="{{ route('departamento.store') }}" method="POST">
-                @csrf
-                <div class="row">
-                    <x-adminlte-input name="departament_name" label="Nombre de departamento *" placeholder="Nombre del departamento"
-                                      fgroup-class="col-md-12" :input-class="'required'" :pattern="'[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9. ]+'" required />
-                </div>
-                <div class="row">
+        <div class="col-12">
+            <x-adminlte-card title="Registro" theme="lightblue" theme-mode="outline" collapsible>
+                <form id="new_departament_form"action="{{ route('departamento.store') }}" method="POST">
+                    @csrf
+                    <div class="row">
+                        <x-adminlte-input name="departament_name" label="Nombre de departamento *"
+                            placeholder="Nombre del departamento" fgroup-class="col-md-12" :input-class="'required'"
+                            :pattern="'[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9. ]+'" required />
+                    </div>
+
+                    {{-- <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="user_id">Jefe de departamento *</label>
@@ -29,29 +31,45 @@
                             </select>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="state_fke">Estado *</label>
-                            <select id="state_fke" name="state_fke" class="form-control" required>
-                                <option value="">Seleccionar Estado</option>
-                                @foreach ($states as $state)
-                                    <option value="{{ $state->id }}">{{ $state->state_name }}</option>
-                                @endforeach
-                            </select>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <x-adminlte-select2 name="user_id" id="user_id" label="Jefe de Departamento *" required
+                                    data-placeholder="Seleccione">
+                                    <option value="">Seleccionar jefe de departamento</option>
+                                    @foreach ($users as $user)
+                                        <option value="{{ $user->id }}">
+                                            {{ $user->user_name }}
+                                        </option>
+                                    @endforeach
+                                </x-adminlte-select2>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-md-6">
-                        <x-adminlte-button label="Registrar" theme="primary" icon="fas fa-save" type="submit"/>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="state_fke">Estado *</label>
+                                <select id="state_fke" name="state_fke" class="form-control" required>
+                                    <option value="">Seleccionar Estado</option>
+                                    @foreach ($states as $state)
+                                        <option value="{{ $state->id }}">{{ $state->state_name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </form>
-        </x-adminlte-card>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <x-adminlte-button label="Registrar" theme="primary" icon="fas fa-save" type="submit" />
+                        </div>
+                    </div>
+                </form>
+            </x-adminlte-card>
+        </div>
     </div>
-</div>
 
 @stop

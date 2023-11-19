@@ -18,10 +18,12 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="departament_name">Nombre de departamento *</label>
-                                <input type="text" id="departament_name" name="departament_name" class="form-control" required pattern="[a-zA-Z ]+" value="{{ $departament->departament_name }}">
+                                <input type="text" id="departament_name" name="departament_name" class="form-control"
+                                    required pattern="[a-zA-Z ]+" value="{{ $departament->departament_name }}">
                             </div>
                         </div>
-                        <div class="col-md-12">
+
+                        {{-- <div class="col-md-12">
                             <div class="form-group">
                                 <label for="user_id">Jefe de departamento *</label>
                                 <select id="user_id" name="user_id" class="form-control" required>
@@ -32,13 +34,31 @@
                                     @endforeach
                                 </select>
                             </div>
+                        </div> --}}
+
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <x-adminlte-select2 name="user_id" id="user_id" label="Jefe de Departamento *" required
+                                    data-placeholder="Seleccione">
+                                    <option value="">Seleccionar jefe de departamento</option>
+                                    @foreach ($users as $user)
+                                        <option value="{{ $user->id }}"
+                                            {{ $user->id == $departament->user_id ? 'selected' : '' }}>
+                                            {{ $user->user_name }}
+                                        </option>
+                                    @endforeach
+                                </x-adminlte-select2>
+                            </div>
                         </div>
+
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="state_fke">Estado *</label>
                                 <select id="state_fke" name="state_fke" class="form-control" required>
                                     @foreach ($states as $state)
-                                        <option value="{{ $state->id }}" {{ $state->id == $departament->state_fke ? 'selected' : '' }}>
+                                        <option value="{{ $state->id }}"
+                                            {{ $state->id == $departament->state_fke ? 'selected' : '' }}>
                                             {{ $state->state_name }}
                                         </option>
                                     @endforeach
@@ -58,4 +78,3 @@
         </div>
     </div>
 @stop
-
