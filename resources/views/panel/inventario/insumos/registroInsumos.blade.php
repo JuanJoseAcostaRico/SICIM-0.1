@@ -30,8 +30,21 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <x-adminlte-input name="supply_weight" label="Peso *" placeholder="Peso de insumo"
-                                     :input-class="'required'" :pattern="'[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9. ]+'" required/>
+                                <label for="supply_weight">Peso *</label>
+                                <div class="input-group">
+                                    <x-adminlte-input name="supply_weight" id="supply_weight" placeholder="Peso de insumo"
+                                        :input-class="'required'" :pattern="'[0-9 ]+'" required/>
+                                    <div class="input-group-append">
+                                        <x-adminlte-select2 name="unit_fke" id="unit_fke" required  >
+                                            <option value="">Seleccionar unidad</option>
+                                            @foreach ($units as $unit)
+                                                <option value="{{ $unit->id }}">
+                                                    {{ $unit->unit_name }}
+                                                </option>
+                                            @endforeach
+                                        </x-adminlte-select2>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -40,12 +53,21 @@
                                      :input-class="'required'" :pattern="'[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9. ]+'" />
                             </div>
                         </div>
-                        {{-- <div class="col-md-6">
+
+
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <x-adminlte-input name="supply_stock" label="Cantidad" placeholder="Cantidad/stock del insumo"
-                                     :input-class="'required'" :pattern="'[a-zA-Z0-9. ]+'"/>
+                                <x-adminlte-select2 name="presentation_fke" id="presentation_fke" label="Presentación *" required >
+                                    <option value="">Seleccionar Presentación</option>
+                                    @foreach ($presentations as $presentation)
+                                        <option value="{{ $presentation->id }}">
+                                            {{ $presentation->presentation_name }}
+                                        </option>
+                                    @endforeach
+                                </x-adminlte-select2>
                             </div>
-                        </div> --}}
+                        </div>
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="state_fke">Estado *</label>

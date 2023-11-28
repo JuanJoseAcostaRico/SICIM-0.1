@@ -68,6 +68,28 @@
                         </div>
                         <hr>
                         <div>
+                            <h3 class="text-center">Reporte de Movimientos por lote:</h3>
+                            <p align="justify" class="mt-3">Es un reporte creado con la finalidad de llevar un registro en Excel de los movimientos que pertenecen a un lote determinado
+                                Una vez ingresado el número de lote, al presionar en el botón de "Generar Reporte por lote se descargará un archivo de excel con la información solicitada.</p>
+
+                            <form action="{{ route('reportes.movimientosporlote') }}" method="get">
+                                @csrf
+                                <div class="row text-center mt-3">
+                                    <div class="col-md-12">
+                                        <label for="movement_batch">Código del lote</label>
+                                        <input type="text" id="movement_batch" name="movement_batch" class="form-control">
+                                        @error('movement_batch')
+                                        <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="col-md-12 mt-1">
+                                        <button type="submit" class="btn btn-primary mt-3">Generar Reporte por lote</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <hr>
+                        <div>
                             <h3 class="text-center">Reporte de movimientos de insumos por rango de fechas:</h3>
                             <p align="justify" class="mt-3">Seleccione aquí el rango de fechas (Fecha de inicio y fin)
                                 disponibles para asignar a su reporte personalizado de movimientos de insumos y haga clic en el

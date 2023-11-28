@@ -18,6 +18,7 @@
                             <td>{{ $supply->supply_name }}</td>
                             <td>{{ $supply->supply_desc ?? 'Sin información' }}</td>
                             <td>{{ $supply->supply_weight }}</td>
+                            <td>{{ $supply->units->unit_name }}</td>
                             <td>{{ $supply->supply_stock }}</td>
                             <td>{{ $supply->states->state_name }}</td>
                             <td>

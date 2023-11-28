@@ -17,11 +17,23 @@ return new class extends Migration
             $table->id();
 
             $table->string('supply_name');
-            //$table->string('supply_presentation'); // esta es la presentación
-            $table->string('supply_weight'); //peso, debe ser de en g, ml, ect.
+            $table->integer('supply_weight');
+
+            $table->unsignedBigInteger('unit_fke')->nullable();
+            $table->foreign('unit_fke')
+            ->references('id')
+            ->on('units')
+            ->onDelete('cascade');
+
             $table->string('supply_posology')->nullable();
             $table->string('supply_desc')->nullable();
             $table->string('supply_stock');
+
+            $table->unsignedBigInteger('presentation_fke')->nullable();
+            $table->foreign('presentation_fke')
+            ->references('id')
+            ->on('presentations')
+            ->onDelete('cascade');
 
             $table->unsignedBigInteger('state_fke')->nullable();
             $table->foreign('state_fke')

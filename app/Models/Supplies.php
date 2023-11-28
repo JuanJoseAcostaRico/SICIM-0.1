@@ -23,4 +23,14 @@ class Supplies extends Model
     {
         return $this->belongsTo(Movements::class, 'supply_fke');
     }
+
+    public function presentations()
+    {
+        return $this->belongsTo(Presentations::class, 'presentation_fke');
+    }
+
+    public function units()
+    {
+        return $this->belongsTo(Units::class, 'unit_fke');
+    }
 }

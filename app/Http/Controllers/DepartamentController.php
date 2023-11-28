@@ -91,7 +91,7 @@ class DepartamentController extends Controller
     {
         // Define las reglas de validación
         $rules = [
-            'departament_name' => 'required',
+            'departament_name' => 'required|unique:departaments,departament_name,' . $id,
             'state_fke' => 'required',
             'user_id' => 'required',
         ];
@@ -101,6 +101,7 @@ class DepartamentController extends Controller
             'departament_name.required' => 'El campo Nombre del Departamento es requerido.',
             'state_fke.required' => 'El campo Estado es requerido.',
             'user_id.required' => 'El campo ID de Usuario es requerido.',
+            'departament_name.unique' => 'El nombre del departamento ya está en uso.',
         ];
 
         // Valida las reglas

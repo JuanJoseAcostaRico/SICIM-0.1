@@ -131,7 +131,7 @@ class InstrumentController extends Controller
         $rules = [
             'instrument_name' => 'required',
             'instrument_size' => 'required',
-            'instrument_serial_code' => 'required|regex:/^[A-Z0-9]{11,20}$/|unique:instruments',
+            'instrument_serial_code' => 'required|regex:/^[A-Z0-9]{11,20}$/|unique:instruments,instrument_serial_code,' . $id,
             'departament_fke' => 'required',
             'condition_fke' => 'required',
         ];

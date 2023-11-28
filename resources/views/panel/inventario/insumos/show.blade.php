@@ -25,8 +25,20 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="supply_weight">Peso</label>
-                            <input type="text" id="supply_weight" class="form-control" value="{{ $supply->supply_weight }}" readonly>
+                            <label for="supply_weight">Peso *</label>
+                            <div class="input-group">
+                                <input type="text" id="supply_weight" class="form-control"
+                                    value="{{ $supply->supply_weight }}" readonly>
+                                <div class="input-group-append">
+                                    <input type="text" class="form-control" value="{{ $supply->units->unit_name }}" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="supply_posology">Presentación</label>
+                            <input type="text" class="form-control" value="{{ $supply->presentations->presentation_name }}" readonly>
                         </div>
                     </div>
                     <div class="col-md-6">

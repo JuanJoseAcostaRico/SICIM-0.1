@@ -54,6 +54,28 @@
                         </div>
                         <hr>
                         <div>
+                            <h3 class="text-center">Reporte de instrumentos por nombre:</h3>
+                            <p align="justify" class="mt-3">Es un reporte creado con la finalidad de llevar un registro en Excel de todas las ocurrencias que pertenezcan a un instrumento determinado.
+                                Una vez ingresado el instrumento, al presionar en el botón de "Generar Reporte por nombre" se descargará un archivo de excel con la información solicitada.</p>
+
+                            <form action="{{ route('reportes.instrumentospornombre') }}" method="get">
+                                @csrf
+                                <div class="row text-center mt-3">
+                                    <div class="col-md-12">
+                                        <label for="instrument_name">Nombre del instrumento</label>
+                                        <input type="text" id="instrument_name" name="instrument_name" class="form-control">
+                                        @error('instrument_name')
+                                        <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="col-md-12 mt-1">
+                                        <button type="submit" class="btn btn-primary mt-3">Generar Reporte por nombre</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <hr>
+                        <div>
                             <h3 class="text-center">Reporte de instrumentos por departamento:</h3>
                             <p align="justify" class="mt-3">Es un reporte creado con la finalidad de llevar un registro en Excel de los instrumentos que hay en un departamento en específico.
                                 Una vez seleccionado el departamento, al presionar en el botón de "Generar Reporte de instrumentos por departamento" se descargará un archivo de excel con la información solicitada.</p>

@@ -27,25 +27,50 @@
                                 <input type="text" id="supply_desc" name="supply_desc" class="form-control" value="{{ $supply->supply_desc }}">
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="supply_weight">Peso *</label>
-                                <input type="text" id="supply_weight" name="supply_weight" class="form-control" required value="{{ $supply->supply_weight }}">
+                                <div class="input-group">
+                                    <x-adminlte-input name="supply_weight" id="supply_weight" placeholder="Peso de insumo"
+                                        :input-class="'required'" :pattern="'[0-9 ]+'" required
+                                        value="{{ old('supply_weight', $supply->supply_weight) }}" />
+                                    <div class="input-group-append">
+                                        <x-adminlte-select2 name="unit_fke" id="unit_fke" required>
+                                            <option value="">Seleccionar unidad</option>
+                                            @foreach ($units as $unit)
+                                                <option value="{{ $unit->id }}" {{ $unit->id == $supply->unit_fke ? 'selected' : '' }}>
+                                                    {{ $unit->unit_name }}
+                                                </option>
+                                            @endforeach
+                                        </x-adminlte-select2>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <x-adminlte-select2 name="presentation_fke" id="presentation_fke" label="Presentación *" required
+                                    data-placeholder="Seleccione">
+                                    <option value="">Seleccionar presentación</option>
+                                    @foreach ($presentations as $presentation)
+                                        <option value="{{ $presentation->id }}"
+                                            {{ $presentation->id == $supply->presentation_fke ? 'selected' : '' }}>
+                                            {{ $presentation->presentation_name }}
+                                        </option>
+                                    @endforeach
+                                </x-adminlte-select2>
+                            </div>
+                        </div>
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="supply_posology">Posología (opcional)</label>
                                 <input type="text" id="supply_posology" name="supply_posology" class="form-control" value="{{ $supply->supply_posology }}">
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="supply_stock">Cantidad/Stock (no editable)</label>
-                                <input type="text" id="supply_stock" name="supply_stock" class="form-control" required value="{{ $supply->supply_stock }}" readonly>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
+                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="state_fke">Estado *</label>
                                 <select id="state_fke" name="state_fke" class="form-control" required>
@@ -57,6 +82,13 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="supply_stock">Cantidad/Stock (no editable)</label>
+                                <input type="text" id="supply_stock" name="supply_stock" class="form-control" required value="{{ $supply->supply_stock }}" readonly>
+                            </div>
+                        </div>
+
 
                     </div>
                     <div class="row">

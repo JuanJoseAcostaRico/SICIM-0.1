@@ -70,10 +70,12 @@ Route::group(['prefix' => 'panel'], function () {
     //reportes instrumentos
     Route::get('/reportes/instrumentos', [ReportController::class, 'instrumentos'])->name('reportes.instrumentos');
     Route::get('/reportes/instrumentosporfechas', [ReportController::class, 'instrumentosporfechas'])->name('reportes.instrumentosporfechas');
+    Route::get('/reportes/instrumentospornombre', [ReportController::class, 'instrumentospornombre'])->name('reportes.instrumentospornombre');
     Route::get('/reportes/instrumentospordepartamento', [ReportController::class, 'instrumentospordepartamento'])->name('reportes.instrumentospordepartamento');
     // reportes movimientos
     Route::get('/reportes/movimientos', [ReportController::class, 'movimientos'])->name('reportes.movimientos');
     Route::get('/reportes/movimientosporfechas', [ReportController::class, 'movimientosporfechas'])->name('reportes.movimientosporfechas');
+    Route::get('/reportes/movimientosporlote', [ReportController::class, 'movimientosporlote'])->name('reportes.movimientosporlote');
     Route::get('/reportes/movimientosporinsumo', [ReportController::class, 'movimientosporinsumo'])->name('reportes.movimientosporinsumo');
 
     //Respaldos Y Restauración
