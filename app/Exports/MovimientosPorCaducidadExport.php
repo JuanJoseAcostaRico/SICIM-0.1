@@ -14,21 +14,28 @@ use Maatwebsite\Excel\Concerns\WithStyles;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 use Carbon\Carbon;
 
-class MovimientosPorLoteExport implements FromCollection, WithDrawings, WithHeadings, WithMapping, ShouldAutoSize, WithCustomStartCell, WithStyles
+class MovimientosPorCaducidadExport implements FromCollection, WithDrawings, WithHeadings, WithMapping, ShouldAutoSize, WithCustomStartCell, WithStyles
 {
     /**
      * @return \Illuminate\Support\Collection
      */
-    protected $lote;
+    protected $expiration_date;
 
-    public function __construct($lote)
+    public function __construct($expiration_date = null)
     {
-        $this->lote = $lote;
+        $this->expiration_date = $expiration_date;
     }
 
     public function collection()
     {
-        return $this->lote;
+        // Filtra los registros de insumos basados en las fechas si se proporcionaron
+        $query = Movements::query();
+
+        if ($this->expiration_date) {
+            $query->whereDate('movement_expiration_date', [Carbon::parse($this->expiration_date)]);
+        }
+
+        return $query->get();
     }
 
     public function startCell(): string
@@ -79,7 +86,6 @@ class MovimientosPorLoteExport implements FromCollection, WithDrawings, WithHead
             'Stock',
             'Fecha de Creación'
         ];
-
         $numColumns = $this->getNumberFromStartCell();
 
         $this->setStylesForColumns($headings, $numColumns);

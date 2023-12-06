@@ -19,7 +19,7 @@
                             <div class="form-group">
                                 <label for="departament_name">Nombre de departamento *</label>
                                 <input type="text" id="departament_name" name="departament_name" class="form-control"
-                                    required pattern="[a-zA-Z ]+" value="{{ $departament->departament_name }}">
+                                    required pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9 ]+" value="{{ $departament->departament_name }}">
                             </div>
                         </div>
 

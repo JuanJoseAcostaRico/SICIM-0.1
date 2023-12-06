@@ -57,7 +57,7 @@ class InstrumentSeeder extends Seeder
             'instrument_size' => '200 cm, 350 gr',
             'instrument_desc' => 'Dispositivo para realizar reanimaciones, en caso de paro cardiaco',
             'instrument_serial_code' => 'NSKLY2QWFIWU',
-            'departament_fke' => '3',
+            'departament_fke' => '4',
             'condition_fke' => '1',
             'created_at' => '2019-11-23 20:52:12'
         ]);

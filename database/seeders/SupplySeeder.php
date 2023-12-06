@@ -24,7 +24,7 @@ class SupplySeeder extends Seeder
             'supply_posology' => '2 veces cada 12hx 10 dias',
             'supply_desc' => 'para tratar heridas o quemaduras',
             'supply_stock' => '30',
-            'created_at' => '2024-09-21 20:52:12',
+            'created_at' => '2023-11-21 20:52:12',
         ]);
 
         Supplies::create([
@@ -36,7 +36,7 @@ class SupplySeeder extends Seeder
             'supply_posology' => '3 veces cada 8hx 3 dias',
             'supply_desc' => 'para tratar heridas o quemaduras',
             'supply_stock' => '20',
-            'created_at' => '2023-09-20 20:52:12',
+            'created_at' => '2023-11-20 20:52:12',
         ]);
         Supplies::create([
             'state_fke' => '2',
@@ -47,7 +47,7 @@ class SupplySeeder extends Seeder
             'supply_posology' => '2 veces cada 6 hx 15 dias',
             'supply_desc' => 'para tratar heridas o quemaduras',
             'supply_stock' => '40',
-            'created_at' => '2023-09-21 20:52:12',
+            'created_at' => '2023-11-21 20:52:12',
         ]);
         Supplies::create([
             'state_fke' => '2',
@@ -58,7 +58,7 @@ class SupplySeeder extends Seeder
             'supply_posology' => '1 veces cada 12h x 4 dias',
             'supply_desc' => 'para tratar heridas o quemaduras',
             'supply_stock' => '50',
-            'created_at' => '2023-09-22 20:52:11',
+            'created_at' => '2023-11-22 20:52:11',
         ]);
         Supplies::create([
             'state_fke' => '1',
@@ -69,7 +69,7 @@ class SupplySeeder extends Seeder
             'supply_posology' => '1 vece cada 8h x 3 dias',
             'supply_desc' => 'para tratar infecciones',
             'supply_stock' => '10',
-            'created_at' => '2023-09-23 20:52:12',
+            'created_at' => '2023-11-23 20:52:12',
         ]);
     }
 }

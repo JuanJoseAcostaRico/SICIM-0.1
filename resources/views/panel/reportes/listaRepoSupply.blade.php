@@ -90,6 +90,26 @@
                         </div>
                         <hr>
                         <div>
+                            <h3 class="text-center">Reporte de movimientos de insumos por fecha de caducidad:</h3>
+                            <p align="justify" class="mt-3">Es un reporte creado con la finalidad de llevar un registro en Excel de los movimientos que pertenecen a una fecha de caducidad determinada. Seleccione aquí la fecha de caducidad
+                                disponibles para asignar a su reporte personalizado de movimientos de insumos
+                                Una vez ingresada la fecha de caducidad al presionar en el botón de "Generar Reporte por lote se descargará un archivo de excel con la información solicitada.</p>
+                            <form action="{{ route('reportes.movimientosporcaducidad') }}" method="get">
+                                @csrf
+                                <div class="row text-center mt-3">
+                                    <div class="col-md-12">
+                                        <label for="expiration_date">Fecha de caducidad</label>
+                                        <input type="date" name="expiration_date" class="form-control" min="2023-01-02"
+                                            max="2050-01-02" required>
+                                    </div>
+                                    <div class="col-md-12 mt-1">
+                                        <button type="submit" class="btn btn-primary mt-3">Generar Reporte por rango de
+                                            fechas</button>
+                                    </div>
+                                </div>
+                            </form>
+                        <hr>
+                        <div>
                             <h3 class="text-center">Reporte de movimientos de insumos por rango de fechas:</h3>
                             <p align="justify" class="mt-3">Seleccione aquí el rango de fechas (Fecha de inicio y fin)
                                 disponibles para asignar a su reporte personalizado de movimientos de insumos y haga clic en el

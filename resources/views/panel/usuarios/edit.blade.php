@@ -18,7 +18,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="user_name">Nombre Completo *</label>
-                                <input type="text" id="user_name" name="user_name" class="form-control" required pattern="[a-zA-Z ]+" value="{{ $user->user_name }}">
+                                <input type="text" id="user_name" name="user_name" class="form-control" required pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+" value="{{ $user->user_name }}">
                             </div>
                         </div>
                         <div class="col-md-6">

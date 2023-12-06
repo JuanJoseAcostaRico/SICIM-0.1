@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-11-2023 a las 22:17:09
+-- Tiempo de generación: 06-12-2023 a las 02:17:32
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.1.12
 
@@ -39,11 +39,11 @@ CREATE TABLE `conditions` (
 --
 
 INSERT INTO `conditions` (`id`, `condition_name`, `created_at`, `updated_at`) VALUES
-(1, 'Nuevo', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(2, 'Buen Estado', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(3, 'Regular', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(4, 'Mal estado', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(5, 'Dañado', '2023-11-28 21:16:46', '2023-11-28 21:16:46');
+(1, 'Nuevo', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(2, 'Buen Estado', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(3, 'Regular', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(4, 'Mal estado', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(5, 'Dañado', '2023-12-06 01:13:22', '2023-12-06 01:13:22');
 
 -- --------------------------------------------------------
 
@@ -65,14 +65,15 @@ CREATE TABLE `departaments` (
 --
 
 INSERT INTO `departaments` (`id`, `departament_name`, `state_fke`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 'Inventario General', 1, 1, '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(2, 'Medicina General', 1, 1, '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(3, 'Laboratorio', 1, 1, '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(4, 'Hospitalización', 1, 1, '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(5, 'Odontología', 1, 1, '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(6, 'Optometría', 1, 1, '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(7, 'Fisiatría', 1, 1, '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(8, 'Rayos X', 1, 1, '2023-11-28 21:16:45', '2023-11-28 21:16:45');
+(1, 'Inventario General', 1, 2, '2023-12-06 01:13:21', '2023-12-06 01:13:21'),
+(2, 'Medicina General', 1, 3, '2023-12-06 01:13:21', '2023-12-06 01:13:21'),
+(3, 'Dirección General', 1, 1, '2023-12-06 01:13:21', '2023-12-06 01:13:21'),
+(4, 'Laboratorio', 1, 4, '2023-12-06 01:13:21', '2023-12-06 01:13:21'),
+(5, 'Hospitalización', 1, 5, '2023-12-06 01:13:21', '2023-12-06 01:13:21'),
+(6, 'Odontología', 1, 6, '2023-12-06 01:13:21', '2023-12-06 01:13:21'),
+(7, 'Optometría', 1, 7, '2023-12-06 01:13:21', '2023-12-06 01:13:21'),
+(8, 'Fisiatría', 1, 8, '2023-12-06 01:13:21', '2023-12-06 01:13:21'),
+(9, 'Rayos X', 1, 9, '2023-12-06 01:13:21', '2023-12-06 01:13:21');
 
 -- --------------------------------------------------------
 
@@ -97,11 +98,11 @@ CREATE TABLE `instruments` (
 --
 
 INSERT INTO `instruments` (`id`, `instrument_name`, `instrument_size`, `instrument_desc`, `instrument_serial_code`, `departament_fke`, `condition_fke`, `created_at`, `updated_at`) VALUES
-(1, 'Estetoscopio', '69 cm, 150 grs', 'dispositivo acustico que amplifica los ruidos corporales', 'JPXFBM7U5BPL', 1, 1, '2023-07-24 00:52:12', '2023-11-28 21:16:46'),
-(2, 'Cama Hospitalaria', '224 cm x 104,5 cm, 114kg', 'Camilla para pacientes, tambien pueden ser designadas a uso particular', 'P3XAUGMSSQTP', 2, 3, '2022-05-24 00:52:12', '2023-11-28 21:16:46'),
-(3, 'Bisturí Quirurgico 14', '69 cm, 150 grs', 'Exclusivo para Quirófano', '8AZE2B32VHPY', 1, 2, '2021-03-24 00:52:12', '2023-11-28 21:16:46'),
-(4, 'Pinzas médicas', '8 x 4 cm', 'Exclusivo para quirófano', '708D0K5TEZJU', 2, 1, '2020-01-24 00:52:12', '2023-11-28 21:16:46'),
-(5, 'Desfibrilador', '200 cm, 350 gr', 'Dispositivo para realizar reanimaciones, en caso de paro cardiaco', 'NSKLY2QWFIWU', 3, 1, '2019-11-24 00:52:12', '2023-11-28 21:16:46');
+(1, 'Estetoscopio', '69 cm, 150 grs', 'dispositivo acustico que amplifica los ruidos corporales', 'JPXFBM7U5BPL', 1, 1, '2023-07-24 00:52:12', '2023-12-06 01:13:22'),
+(2, 'Cama Hospitalaria', '224 cm x 104,5 cm, 114kg', 'Camilla para pacientes, tambien pueden ser designadas a uso particular', 'P3XAUGMSSQTP', 2, 3, '2022-05-24 00:52:12', '2023-12-06 01:13:22'),
+(3, 'Bisturí Quirurgico 14', '69 cm, 150 grs', 'Exclusivo para Quirófano', '8AZE2B32VHPY', 1, 2, '2021-03-24 00:52:12', '2023-12-06 01:13:22'),
+(4, 'Pinzas médicas', '8 x 4 cm', 'Exclusivo para quirófano', '708D0K5TEZJU', 2, 1, '2020-01-24 00:52:12', '2023-12-06 01:13:22'),
+(5, 'Desfibrilador', '200 cm, 350 gr', 'Dispositivo para realizar reanimaciones, en caso de paro cardiaco', 'NSKLY2QWFIWU', 4, 1, '2019-11-24 00:52:12', '2023-12-06 01:13:22');
 
 -- --------------------------------------------------------
 
@@ -164,9 +165,14 @@ CREATE TABLE `model_has_roles` (
 
 INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 (1, 'App\\Models\\User', 1),
-(1, 'App\\Models\\User', 3),
 (2, 'App\\Models\\User', 2),
-(2, 'App\\Models\\User', 4);
+(2, 'App\\Models\\User', 3),
+(2, 'App\\Models\\User', 4),
+(2, 'App\\Models\\User', 5),
+(2, 'App\\Models\\User', 6),
+(2, 'App\\Models\\User', 7),
+(2, 'App\\Models\\User', 8),
+(2, 'App\\Models\\User', 9);
 
 -- --------------------------------------------------------
 
@@ -192,12 +198,12 @@ CREATE TABLE `movements` (
 --
 
 INSERT INTO `movements` (`id`, `movement_desc`, `movement_stock`, `movement_types_fke`, `departament_fke`, `supply_fke`, `movement_batch`, `movement_expiration_date`, `created_at`, `updated_at`) VALUES
-(1, 'Ingreso Gasas', '10', 1, 1, 1, 'IJS3H00', '2023-12-24', '2023-07-24 00:52:12', '2023-11-28 21:16:46'),
-(2, 'Egreso Gasas', '30', 2, 1, 1, 'IJS3H01', '2023-12-24', '2022-05-24 00:52:12', '2023-11-28 21:16:46'),
-(3, 'Ingreso Loratadina', '20', 1, 1, 2, 'IJS3H02', '2023-12-24', '2021-03-24 00:52:12', '2023-11-28 21:16:46'),
-(4, 'Ingreso Acetaminofen', '40', 1, 1, 3, 'IJS3H03', '2023-12-24', '2020-01-24 00:52:12', '2023-11-28 21:16:46'),
-(5, 'Ingreso Clonazepam', '50', 1, 1, 4, 'IJS3H0RA', '2023-12-24', '2019-11-24 00:52:12', '2023-11-28 21:16:46'),
-(6, 'Ingreso Antibioticos', '10', 1, 1, 5, 'IJS3H04', '2023-12-24', '2018-09-24 00:52:12', '2023-11-28 21:16:46');
+(1, 'Ingreso Gasas', '10', 1, 1, 1, 'IJS3H00', '2024-12-24', '2023-11-24 00:52:12', '2023-12-06 01:13:22'),
+(2, 'Egreso Gasas', '30', 2, 1, 1, 'IJS3H01', '2024-12-24', '2023-11-24 00:52:12', '2023-12-06 01:13:22'),
+(3, 'Ingreso Loratadina', '20', 1, 1, 2, 'IJS3H02', '2024-12-24', '2023-11-24 00:52:12', '2023-12-06 01:13:22'),
+(4, 'Ingreso Acetaminofen', '40', 1, 1, 3, 'IJS3H03', '2024-12-24', '2023-11-24 00:52:12', '2023-12-06 01:13:22'),
+(5, 'Ingreso Clonazepam', '50', 1, 1, 4, 'IJS3H0RA', '2024-12-24', '2023-11-24 00:52:12', '2023-12-06 01:13:22'),
+(6, 'Ingreso Antibioticos', '10', 1, 1, 5, 'IJS3H04', '2024-12-24', '2023-11-24 00:52:12', '2023-12-06 01:13:22');
 
 --
 -- Disparadores `movements`
@@ -243,8 +249,8 @@ CREATE TABLE `movement_types` (
 --
 
 INSERT INTO `movement_types` (`id`, `movement_type_name`, `created_at`, `updated_at`) VALUES
-(1, 'Ingreso', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(2, 'Egreso', '2023-11-28 21:16:46', '2023-11-28 21:16:46');
+(1, 'Ingreso', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(2, 'Egreso', '2023-12-06 01:13:22', '2023-12-06 01:13:22');
 
 -- --------------------------------------------------------
 
@@ -265,35 +271,35 @@ CREATE TABLE `permissions` (
 --
 
 INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
-(1, 'home', 'web', '2023-11-28 21:16:44', '2023-11-28 21:16:44'),
-(2, 'menu.admin', 'web', '2023-11-28 21:16:44', '2023-11-28 21:16:44'),
-(3, 'usuarios.lista', 'web', '2023-11-28 21:16:44', '2023-11-28 21:16:44'),
-(4, 'usuarios.registro', 'web', '2023-11-28 21:16:44', '2023-11-28 21:16:44'),
-(5, 'usuarios.edit', 'web', '2023-11-28 21:16:44', '2023-11-28 21:16:44'),
-(6, 'usuarios.show', 'web', '2023-11-28 21:16:44', '2023-11-28 21:16:44'),
-(7, 'usuarios.buttons', 'web', '2023-11-28 21:16:44', '2023-11-28 21:16:44'),
-(8, 'departamento.lista', 'web', '2023-11-28 21:16:44', '2023-11-28 21:16:44'),
-(9, 'departamento.registro', 'web', '2023-11-28 21:16:44', '2023-11-28 21:16:44'),
-(10, 'departamento.edit', 'web', '2023-11-28 21:16:44', '2023-11-28 21:16:44'),
-(11, 'departamento.show', 'web', '2023-11-28 21:16:44', '2023-11-28 21:16:44'),
-(12, 'departamento.buttons', 'web', '2023-11-28 21:16:44', '2023-11-28 21:16:44'),
-(13, 'inventario.insumos.lista', 'web', '2023-11-28 21:16:44', '2023-11-28 21:16:44'),
-(14, 'inventario.insumos.registro', 'web', '2023-11-28 21:16:44', '2023-11-28 21:16:44'),
-(15, 'inventario.insumos.edit', 'web', '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(16, 'inventario.insumos.show', 'web', '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(17, 'inventario.insumos.buttons', 'web', '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(18, 'inventario.movimientos.lista', 'web', '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(19, 'inventario.movimientos.registro', 'web', '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(20, 'inventario.insumos.movimientos.show', 'web', '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(21, 'inventario.instrumentos.lista', 'web', '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(22, 'inventario.instrumentos.registro', 'web', '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(23, 'inventario.instrumentos.edit', 'web', '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(24, 'inventario.instrumentos.show', 'web', '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(25, 'inventario.instrumentos.buttons', 'web', '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(26, 'panel.reportes', 'web', '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(27, 'panel.reportes.buttons', 'web', '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(28, 'respaldo.index', 'web', '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(29, 'panel.respaldo.buttons', 'web', '2023-11-28 21:16:45', '2023-11-28 21:16:45');
+(1, 'home', 'web', '2023-12-06 01:13:20', '2023-12-06 01:13:20'),
+(2, 'menu.admin', 'web', '2023-12-06 01:13:20', '2023-12-06 01:13:20'),
+(3, 'usuarios.lista', 'web', '2023-12-06 01:13:20', '2023-12-06 01:13:20'),
+(4, 'usuarios.registro', 'web', '2023-12-06 01:13:20', '2023-12-06 01:13:20'),
+(5, 'usuarios.edit', 'web', '2023-12-06 01:13:20', '2023-12-06 01:13:20'),
+(6, 'usuarios.show', 'web', '2023-12-06 01:13:20', '2023-12-06 01:13:20'),
+(7, 'usuarios.buttons', 'web', '2023-12-06 01:13:20', '2023-12-06 01:13:20'),
+(8, 'departamento.lista', 'web', '2023-12-06 01:13:20', '2023-12-06 01:13:20'),
+(9, 'departamento.registro', 'web', '2023-12-06 01:13:20', '2023-12-06 01:13:20'),
+(10, 'departamento.edit', 'web', '2023-12-06 01:13:20', '2023-12-06 01:13:20'),
+(11, 'departamento.show', 'web', '2023-12-06 01:13:20', '2023-12-06 01:13:20'),
+(12, 'departamento.buttons', 'web', '2023-12-06 01:13:20', '2023-12-06 01:13:20'),
+(13, 'inventario.insumos.lista', 'web', '2023-12-06 01:13:20', '2023-12-06 01:13:20'),
+(14, 'inventario.insumos.registro', 'web', '2023-12-06 01:13:20', '2023-12-06 01:13:20'),
+(15, 'inventario.insumos.edit', 'web', '2023-12-06 01:13:20', '2023-12-06 01:13:20'),
+(16, 'inventario.insumos.show', 'web', '2023-12-06 01:13:20', '2023-12-06 01:13:20'),
+(17, 'inventario.insumos.buttons', 'web', '2023-12-06 01:13:20', '2023-12-06 01:13:20'),
+(18, 'inventario.movimientos.lista', 'web', '2023-12-06 01:13:20', '2023-12-06 01:13:20'),
+(19, 'inventario.movimientos.registro', 'web', '2023-12-06 01:13:20', '2023-12-06 01:13:20'),
+(20, 'inventario.insumos.movimientos.show', 'web', '2023-12-06 01:13:20', '2023-12-06 01:13:20'),
+(21, 'inventario.instrumentos.lista', 'web', '2023-12-06 01:13:20', '2023-12-06 01:13:20'),
+(22, 'inventario.instrumentos.registro', 'web', '2023-12-06 01:13:20', '2023-12-06 01:13:20'),
+(23, 'inventario.instrumentos.edit', 'web', '2023-12-06 01:13:20', '2023-12-06 01:13:20'),
+(24, 'inventario.instrumentos.show', 'web', '2023-12-06 01:13:20', '2023-12-06 01:13:20'),
+(25, 'inventario.instrumentos.buttons', 'web', '2023-12-06 01:13:20', '2023-12-06 01:13:20'),
+(26, 'panel.reportes', 'web', '2023-12-06 01:13:20', '2023-12-06 01:13:20'),
+(27, 'panel.reportes.buttons', 'web', '2023-12-06 01:13:21', '2023-12-06 01:13:21'),
+(28, 'respaldo.index', 'web', '2023-12-06 01:13:21', '2023-12-06 01:13:21'),
+(29, 'panel.respaldo.buttons', 'web', '2023-12-06 01:13:21', '2023-12-06 01:13:21');
 
 -- --------------------------------------------------------
 
@@ -332,26 +338,26 @@ CREATE TABLE `presentations` (
 --
 
 INSERT INTO `presentations` (`id`, `presentation_name`, `created_at`, `updated_at`) VALUES
-(1, 'Tableta', '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(2, 'Inyección', '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(3, 'Líquido Oral', '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(4, 'Cápsula', '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(5, 'Jarabe', '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(6, 'Suspensión Oral', '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(7, 'Inhalador', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(8, 'Ampolla', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(9, 'Supositorio', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(10, 'Gotas Oftálmicas', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(11, 'Parche Transdérmico', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(12, 'Solución Inyectable', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(13, 'Polvo para Reconstitución', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(14, 'Gel Tópico', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(15, 'Óvulo Vaginal', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(16, 'Emulsión', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(17, 'Loción', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(18, 'Aerosol Nasal', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(19, 'Solución Oftálmica', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(20, 'Otros', '2023-11-28 21:16:46', '2023-11-28 21:16:46');
+(1, 'Tableta', '2023-12-06 01:13:21', '2023-12-06 01:13:21'),
+(2, 'Inyección', '2023-12-06 01:13:21', '2023-12-06 01:13:21'),
+(3, 'Líquido Oral', '2023-12-06 01:13:21', '2023-12-06 01:13:21'),
+(4, 'Cápsula', '2023-12-06 01:13:21', '2023-12-06 01:13:21'),
+(5, 'Jarabe', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(6, 'Suspensión Oral', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(7, 'Inhalador', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(8, 'Ampolla', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(9, 'Supositorio', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(10, 'Gotas Oftálmicas', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(11, 'Parche Transdérmico', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(12, 'Solución Inyectable', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(13, 'Polvo para Reconstitución', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(14, 'Gel Tópico', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(15, 'Óvulo Vaginal', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(16, 'Emulsión', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(17, 'Loción', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(18, 'Aerosol Nasal', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(19, 'Solución Oftálmica', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(20, 'Otros', '2023-12-06 01:13:22', '2023-12-06 01:13:22');
 
 -- --------------------------------------------------------
 
@@ -372,8 +378,8 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
-(1, 'Administrador', 'web', '2023-11-28 21:16:44', '2023-11-28 21:16:44'),
-(2, 'Usuario', 'web', '2023-11-28 21:16:44', '2023-11-28 21:16:44');
+(1, 'Administrador', 'web', '2023-12-06 01:13:20', '2023-12-06 01:13:20'),
+(2, 'Usuario', 'web', '2023-12-06 01:13:20', '2023-12-06 01:13:20');
 
 -- --------------------------------------------------------
 
@@ -453,8 +459,8 @@ CREATE TABLE `states` (
 --
 
 INSERT INTO `states` (`id`, `state_name`, `created_at`, `updated_at`) VALUES
-(1, 'Activo', '2023-11-28 21:16:44', '2023-11-28 21:16:44'),
-(2, 'Inactivo', '2023-11-28 21:16:44', '2023-11-28 21:16:44');
+(1, 'Activo', '2023-12-06 01:13:20', '2023-12-06 01:13:20'),
+(2, 'Inactivo', '2023-12-06 01:13:20', '2023-12-06 01:13:20');
 
 -- --------------------------------------------------------
 
@@ -481,11 +487,11 @@ CREATE TABLE `supplies` (
 --
 
 INSERT INTO `supplies` (`id`, `supply_name`, `supply_weight`, `unit_fke`, `supply_posology`, `supply_desc`, `supply_stock`, `presentation_fke`, `state_fke`, `created_at`, `updated_at`) VALUES
-(1, 'Gasas', 20, 15, '2 veces cada 12hx 10 dias', 'para tratar heridas o quemaduras', '10', 20, 1, '2024-09-22 00:52:12', '2023-11-28 21:16:46'),
-(2, 'Loratadina', 10, 2, '3 veces cada 8hx 3 dias', 'para tratar heridas o quemaduras', '40', 1, 2, '2023-09-21 00:52:12', '2023-11-28 21:16:46'),
-(3, 'Acetaminofen', 650, 2, '2 veces cada 6 hx 15 dias', 'para tratar heridas o quemaduras', '80', 1, 2, '2023-09-22 00:52:12', '2023-11-28 21:16:46'),
-(4, 'Clonazepam', 10, 2, '1 veces cada 12h x 4 dias', 'para tratar heridas o quemaduras', '100', 1, 2, '2023-09-23 00:52:11', '2023-11-28 21:16:46'),
-(5, 'amoxicilina', 750, 2, '1 vece cada 8h x 3 dias', 'para tratar infecciones', '20', 1, 1, '2023-09-24 00:52:12', '2023-11-28 21:16:46');
+(1, 'Gasas', 20, 15, '2 veces cada 12hx 10 dias', 'para tratar heridas o quemaduras', '10', 20, 1, '2023-11-22 00:52:12', '2023-12-06 01:13:22'),
+(2, 'Loratadina', 10, 2, '3 veces cada 8hx 3 dias', 'para tratar heridas o quemaduras', '40', 1, 2, '2023-11-21 00:52:12', '2023-12-06 01:13:22'),
+(3, 'Acetaminofen', 650, 2, '2 veces cada 6 hx 15 dias', 'para tratar heridas o quemaduras', '80', 1, 2, '2023-11-22 00:52:12', '2023-12-06 01:13:22'),
+(4, 'Clonazepam', 10, 2, '1 veces cada 12h x 4 dias', 'para tratar heridas o quemaduras', '100', 1, 2, '2023-11-23 00:52:11', '2023-12-06 01:13:22'),
+(5, 'amoxicilina', 750, 2, '1 vece cada 8h x 3 dias', 'para tratar infecciones', '20', 1, 1, '2023-11-24 00:52:12', '2023-12-06 01:13:22');
 
 -- --------------------------------------------------------
 
@@ -505,21 +511,21 @@ CREATE TABLE `units` (
 --
 
 INSERT INTO `units` (`id`, `unit_name`, `created_at`, `updated_at`) VALUES
-(1, 'µg', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(2, 'mg', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(3, 'g', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(4, 'kg', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(5, 'µl', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(6, 'ml', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(7, 'lts', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(8, 'mg/ml', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(9, 'g/l', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(10, 'mEq', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(11, 'mEq/L', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(12, 'mmol/L', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(13, 'mcg/kg/min', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(14, 'UI', '2023-11-28 21:16:46', '2023-11-28 21:16:46'),
-(15, 'Sin unidad específica', '2023-11-28 21:16:46', '2023-11-28 21:16:46');
+(1, 'µg', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(2, 'mg', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(3, 'g', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(4, 'kg', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(5, 'µl', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(6, 'ml', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(7, 'lts', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(8, 'mg/ml', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(9, 'g/l', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(10, 'mEq', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(11, 'mEq/L', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(12, 'mmol/L', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(13, 'mcg/kg/min', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(14, 'UI', '2023-12-06 01:13:22', '2023-12-06 01:13:22'),
+(15, 'Sin unidad específica', '2023-12-06 01:13:22', '2023-12-06 01:13:22');
 
 -- --------------------------------------------------------
 
@@ -544,10 +550,15 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user_name`, `user_email`, `user_password`, `user_phone`, `user_address`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Administrador', 'admin@admin.com', '$2y$10$3Bnai2SChUR1ZioqiD.EKuWfgHOXlnAI9sSa3NelzDr9/CDGymsjW', '04247537848', 'Coloncito calle 11', NULL, '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(2, 'User1', 'user1@gmail.com', '$2y$10$uUKkzTXt9bvAEugS4.Q57uw4KDRKz2dLTNpS1u8YtpyFEah3taJcK', '04247537848', 'Coloncito calle 11', NULL, '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(3, 'Director', 'tech@admin.com', '$2y$10$BEFqbtlG3HdsW95BIOEZo.S7kR0YXMBej0NapnW0.EdgoWVexLvGW', '04247537848', 'Coloncito calle 11', NULL, '2023-11-28 21:16:45', '2023-11-28 21:16:45'),
-(4, 'User2', 'user2@gmail.com', '$2y$10$g3XqC8Xy11szLLEute2YUOqE5V7S52oQAP/PlTCBfm4HHk3HMMNFC', '04247537848', 'Coloncito calle 11', NULL, '2023-11-28 21:16:45', '2023-11-28 21:16:45');
+(1, 'Francis Corredor', 'admin@admin.com', '$2y$10$mbbq596PVez7qupLAfb4Yu41hEs9TaV2wER7JA6zldI8U.1a6vmW6', '04247523967', 'Coloncito calle 10', NULL, '2023-12-06 01:13:21', '2023-12-06 01:13:21'),
+(2, 'Weine León', 'user1@gmail.com', '$2y$10$dmSaignjoULejZZtZq4kN.KF4QN9OSnEv1bfOh/ZyXtVHThBHXyfq', '04121391707', 'Coloncito calle 11', NULL, '2023-12-06 01:13:21', '2023-12-06 01:13:21'),
+(3, 'Enny Mendoza', 'user2@gmail.com', '$2y$10$rUfBsjbDpulWUg6hJoVLeeMmD7/QdW1xXX9lnDNrjwYTbp7uvUhIi', '04247475267', 'Coloncito calle 12', NULL, '2023-12-06 01:13:21', '2023-12-06 01:13:21'),
+(4, 'María Toro', 'user3@gmail.com', '$2y$10$m3E73mgTeH3uX41AkWEEC.AMWILswFjwBxtWRu4iHjkK/4R5WRV3q', '04247537848', 'Coloncito calle 13', NULL, '2023-12-06 01:13:21', '2023-12-06 01:13:21'),
+(5, 'Galo Moreno', 'user4@gmail.com', '$2y$10$uIy19irwvDQ14rZX64irNOfQW58XVaPcFBcRXwk7GHgU9sAClR36i', '04247537848', 'Coloncito calle 9', NULL, '2023-12-06 01:13:21', '2023-12-06 01:13:21'),
+(6, 'Tobías Olivera', 'user5@gmail.com', '$2y$10$XcuGgW2O7f68REtNWrlxmu0kmr63RJ4DhLlov7ypo1.wlwjMkTRIm', '04247537848', 'Coloncito calle 8', NULL, '2023-12-06 01:13:21', '2023-12-06 01:13:21'),
+(7, 'Karol Aguilar', 'user6@gmail.com', '$2y$10$.AGwd0z1EvlJmO/6ZgRVR.pgAj8vNsDw7a5BXHvtFXWgb2Z4KsL7S', '04247537848', 'Coloncito calle 7', NULL, '2023-12-06 01:13:21', '2023-12-06 01:13:21'),
+(8, 'Saul Rocha', 'user7@gmail.com', '$2y$10$ozWd/17hM6zsuXolaqM3xuVe5j8Vf5Y6HxZH1tYw7.K2rkq4SPJ9a', '04247537848', 'Coloncito calle 6', NULL, '2023-12-06 01:13:21', '2023-12-06 01:13:21'),
+(9, 'Simón Centeno', 'user8@gmail.com', '$2y$10$.clX6I3Cl1/bZIgDmdyuD.o6ReNNJSlTm8H4fVEnd2NtqJC2JA7/O', '04247537848', 'Coloncito calle 6', NULL, '2023-12-06 01:13:21', '2023-12-06 01:13:21');
 
 --
 -- Índices para tablas volcadas
@@ -689,7 +700,7 @@ ALTER TABLE `conditions`
 -- AUTO_INCREMENT de la tabla `departaments`
 --
 ALTER TABLE `departaments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `instruments`
@@ -761,7 +772,7 @@ ALTER TABLE `units`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Restricciones para tablas volcadas

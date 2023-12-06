@@ -80,12 +80,13 @@ class MovimientosPorFechasExport implements FromCollection, WithDrawings, WithHe
         // Especifica los encabezados de las columnas
         $headings = [
             'ID',
-            'Descripción',
+            'Insumo',
+            'Tipo Movimiento',
+            'Lote',
+            'Fecha de Expiración',
+            'Departamento',
             'Stock',
-            'Tipo de Movimiento',
-            'insumo',
-            'Fecha de Creación',
-            'Fecha de Actualización',
+            'Fecha de Creación'
         ];
 
         $numColumns = $this->getNumberFromStartCell();
@@ -130,12 +131,13 @@ class MovimientosPorFechasExport implements FromCollection, WithDrawings, WithHe
     {
         return [
             $movement->id,
-            $movement->movement_desc,
-            $movement->movement_stock,
-            $movement->movement_types->movement_type_name,
             $movement->supplies->supply_name,
-            $movement->created_at,
-            $movement->updated_at,
+            $movement->movement_types->movement_type_name,
+            $movement->movement_batch,
+            $movement->movement_expiration_date,
+            $movement->departaments->departament_name,
+            $movement->movement_stock,
+            $movement->created_at
         ];
     }
 }

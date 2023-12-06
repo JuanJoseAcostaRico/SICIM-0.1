@@ -7,12 +7,13 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\InsumosExport;
 use App\Exports\InsumosPorFechasExport;
 use App\Exports\InstrumentosExport;
+use App\Exports\InstrumentosPorNombreExport;
 use App\Exports\InstrumentosPorFechasExport;
 use App\Exports\InstrumentosPorDepartamentosExport;
 use App\Exports\MovimientosExport;
 use App\Exports\MovimientosPorFechasExport;
+use App\Exports\MovimientosPorCaducidadExport;
 use App\Exports\MovimientosPorLoteExport;
-use App\Exports\InstrumentosPorNombreExport;
 use Carbon\Carbon;
 use App\Models\Instruments;
 use App\Models\Conditions;
@@ -149,17 +150,30 @@ class ReportController extends Controller
         return Excel::download(new MovimientosExport(), $fileName);
     }
 
+    // Reporte por fecha de caducidad
+
+    public function movimientosporcaducidad(Request $request){
+
+        $now = Carbon::now();
+        $formattedDate = $now->format('Y-m-d_His');
+        $fileName = 'movimientos_por_fecha_de_caducidad_report' . $formattedDate . '.xlsx';
+        $expiration_date = $request->input('expiration_date');
+        $movimientos = Movements::whereDate('movement_expiration_date', [$expiration_date])->get();
+
+        return Excel::download(New MovimientosPorCaducidadExport($expiration_date), $fileName);
+    }
+
     //Reporte por rango de fechas movimientos
     public function movimientosporfechas(Request $request)
     {
         $now = Carbon::now();
         $formattedDate = $now->format('Y-m-d_His');
-        $fileName = 'insumos_por_fecha_report' . $formattedDate . '.xlsx';
+        $fileName = 'movimientos_por_fecha_report' . $formattedDate . '.xlsx';
         $start_date = $request->input('start_date');
         $end_date = $request->input('end_date');
         // Genera un reporte por rango de fechas
 
-        $instrumentos = Movements::whereBetween('created_at', [$start_date, $end_date])->get();
+        $movimientos = Movements::whereBetween('created_at', [$start_date, $end_date])->get();
 
         return Excel::download(new MovimientosPorFechasExport($start_date, $end_date), $fileName);
     }

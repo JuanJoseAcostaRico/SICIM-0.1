@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b>SICIM</b> V1.0',
+    'logo' => '<b>SICIM</b> V3.0',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image-xl img-circle'.'p-0 pl-2',
     'logo_img_xl' => null,

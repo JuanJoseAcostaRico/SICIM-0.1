@@ -77,6 +77,7 @@ Route::group(['prefix' => 'panel'], function () {
     Route::get('/reportes/movimientosporfechas', [ReportController::class, 'movimientosporfechas'])->name('reportes.movimientosporfechas');
     Route::get('/reportes/movimientosporlote', [ReportController::class, 'movimientosporlote'])->name('reportes.movimientosporlote');
     Route::get('/reportes/movimientosporinsumo', [ReportController::class, 'movimientosporinsumo'])->name('reportes.movimientosporinsumo');
+    Route::get('/reportes/movimientosporcaducidad', [ReportController::class, 'movimientosporcaducidad'])->name('reportes.movimientosporcaducidad');
 
     //Respaldos Y Restauración
     Route::get('/respaldos/respaldo', [BackupController::class, 'index'])->middleware('can:respaldo.index')->name('respaldo.index');
